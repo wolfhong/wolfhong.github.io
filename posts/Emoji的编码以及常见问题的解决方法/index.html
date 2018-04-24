@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+
+<!-- Head tag -->
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+
+    <title>
+    
+        Emoji的编码以及常见问题处理 -
+    
+    Wolfhong&#39;s Blog
+    </title>
+
+    <meta name="keywords" content="Linux,IT博客,工具介绍,教程">
+    <meta name="description" content="">
+    <meta name="author" content="WOLFHONG">
+
+    
+
+    
+
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+
+    <script type="text/javascript">
+    if(!("jQuery" in window)) {
+        window._jqQ = []; // jQuery call queue
+        window.jQuery = window.$ = function() {
+            _jqQ.push(arguments);
+        };
+    }
+    </script>
+    <script id="jquery-src" src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" async onload="_jqQ.forEach(function(args){$.apply($,args)});delete window._jqQ;"></script>
+
+    
+    <script src="/js/script.js" type="text/javascript" async></script>
+
+    <!-- Global javascript config object -->
+    <script type="text/javascript">
+    var CONFIG = {
+    
+    
+    };
+    </script>
+
+    
+
+    
+    
+    
+
+    
+    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+    
+
+</head>
+
+
+<body class="post">
+    <nav id="header">
+    <div class="container clearfix">
+        <div class="logo" style="width: auto;">
+    <a href="/" title="Wolfhong&#39;s Blog" rel="home" style="text-decoration: none;">
+    
+        <span class="brand-logo">
+        
+            Wolfhong&#39;s Blog
+        
+        </span>
+    
+    </a>
+</div>
+
+        <div id="global-nav">
+            <div class="gnli ">
+                <a class="gna fa fa-home" href="/" title="Wolfhong&#39;s Blog">
+                    <span class="gn-item">主页</span>
+                </a>
+            </div>
+            <div id="dropdown" class="gnli current">
+                <a class="gna fa fa-bars" href="#">
+                    <span class="gn-item">导航</span>
+                </a>
+                <table id="dropdown-menu">
+    <tbody>
+        
+        <tr class="trline">
+            <td class="tdleft">分类</td>
+            <td class="tdright tab-ul tab-categories">
+                
+                <a href="/categories/devops/">devops</a>
+                
+                <a href="/categories/python/">python</a>
+                
+                <a href="/categories/其他/">其他</a>
+                
+                <a href="/categories/读书/">读书</a>
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="tdleft">标签</td>
+            <td class="tdright tab-ul tab-tags">
+                <a href="/tags/权限管理/" style="font-size: 12px;">权限管理</a> <a href="/tags/emoji/" style="font-size: 12px;">emoji</a> <a href="/tags/sshfs/" style="font-size: 12px;">sshfs</a> <a href="/tags/mac/" style="font-size: 12px;">mac</a> <a href="/tags/crontab/" style="font-size: 12px;">crontab</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/编码/" style="font-size: 12px;">编码</a> <a href="/tags/rsync/" style="font-size: 12px;">rsync</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a> <a href="/tags/python/" style="font-size: 12px;">python</a> <a href="/tags/翻译/" style="font-size: 12px;">翻译</a> <a href="/tags/读书/" style="font-size: 12px;">读书</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+            </div>
+            
+            <div class="gnli">
+                <a class="gna fa fa-archive" href="/archives/" title="">
+                    <span class="gn-item">归档</span>
+                </a>
+            </div>
+            
+            <div class="gnli">
+                <a class="gna fa fa-user" href="/about/" title="">
+                    <span class="gn-item">关于</span>
+                </a>
+            </div>
+            
+        </div>
+        
+<form method="get" id="search-form" action="/search.html">
+    <input type="text" name="keywords" id="search-input" placeholder="输入关键词" />
+    <button type="submit" id="search-submit">
+        <span class="fa fa-search"></span>
+    </button>
+</form>
+
+
+
+    </div>
+</nav>
+
+    
+<main id="content">
+    <div class="container clearfix">
+        <div id="primary"  class="has-toc">
+            <nav class="breadcrumb-navigation">
+                <a rel="bookmark" href="/">主页</a>
+                <span class="breadcrumb-arrow fa fa-angle-right"></span>
+                <a href="/categories/其他/" title="其他" rel="category tag">其他</a>
+
+                <span class="breadcrumb-arrow fa fa-angle-right"></span>
+                Emoji的编码以及常见问题处理
+            </nav>
+            <article class="single-post">
+                <header class="post-header">
+                    <h1 class="post-title">
+                        <a href="/posts/Emoji的编码以及常见问题的解决方法/" title="Emoji的编码以及常见问题处理">Emoji的编码以及常见问题处理</a>
+                    </h1>
+                </header>
+                <div class="post-meta">
+    <ul class="inline-ul">
+        <li class="inline-li">
+            <time>2016-11-25</time>
+        </li>
+        
+        <li class="inline-li">
+            <span class="post-span">·</span>
+        </li>
+        <li class="inline-li">
+            <a href="/categories/其他/" title="其他" rel="category tag">其他</a>
+
+        </li>
+        
+        
+        <li class="inline-li">
+            <span class="post-span">·</span>
+        </li>
+        <li class="inline-li">
+            <span id="busuanzi_value_page_pv"></span> 次点击
+        </li>
+        
+    </ul>
+</div>
+
+
+                <!-- BEGIN add by wolfhong -->
+                <nav class="post-tags">
+                
+                    
+                    <a href="/tags/emoji/" title="emoji" rel="tag" class="fa fa-tag">emoji</a>
+                    
+                    <a href="/tags/编码/" title="编码" rel="tag" class="fa fa-tag">编码</a>
+                    
+                
+                </nav>
+                <!-- END wolfhong -->
+
+                <div class="post-body clearfix">
+                    <div class="post-content">
+                        
+                        <p>我在<a href="https://www.huxiu.com/article/163386.html">虎嗅上</a>看过一篇关于Emoji的趣闻, 特别有意思, 在这里跟大家分享一下。里面提到了Emoji是怎么诞生的。</p>
+<blockquote>
+<p>1999年前后，日本一个名叫栗田穰崇的年轻人，和许多直男一样， 给女友发的短信经常会被误解。比如，“知道了”被解读成“生气了”、“不耐烦了”，随后引发冷战。 于是少年栗田想：“如果能在文字里插入一些表情符号来表达感情，大家应该会需要吧！”<br>原始的Emoji就这么诞生了。</p>
+</blockquote>
+<p>Emoji极大地丰富了我们的生活和通讯交流。Emoji诞生自程序员，但反过来对程序员也造成过一些困扰。<br>尤其对于面向C端的产品开发者, 用户越来越习惯于输入Emoji, 因此处理字符时遇到Emoji也只会越来越频繁。</p>
+<h3 id="Emoji的编码"><a href="#Emoji的编码" class="headerlink" title="Emoji的编码"></a>Emoji的编码</h3><p>Emoji字符是Unicode字符集中一部分. 特定形象的Emoji表情符号对应到特定的Unicode字节。<br>常见的Emoji表情符号在Unicode字符集中的范围和具体的字节映射关系, 可通过<a href="http://apps.timwhitlock.info/emoji/tables/unicode#block-6c-other-additional-symbols">Emoji Unicode Tables</a>查看到。</p>
+<p>有意思的是, 在<a href="http://apps.timwhitlock.info/emoji/tables/unicode#block-6c-other-additional-symbols">Emoji Unicode Tables</a>表中，还给出了同一个Emoji表情在不同系统中的字体(是字体没错, Emoji的样式可通过字体文件改变)。</p>
+<p><img src="http://static.extremevision.com.cn/blogs/static/python_emoji_1.png" alt="image"></p>
+<p>关于Emoji的最权威资料, 可以在<a href="http://unicode.org/emoji/charts/">Unicode® Emoji Charts</a>上查阅到。<br>截止我写这篇文章的时刻, Emoji Charts 的最新版本是v3.0, v4.0还只是处于Beta阶段。</p>
+<p>题外话补充一点: Unicode是一种字符编码方法，它是由国际组织设计，可以容纳全世界所有语言文字的编码方案。<br>我们所知道的UTF-8、UTF-16等编码, 是对Unicode的不同实现方式。<br>如果要深入了解更多关于ASCII、Unicode、UTF-8、gb2312、gbk等编码的相关知识，在这里强烈推荐几篇文章，讲得非常好。</p>
+<ul>
+<li><a href="http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html">字符编码笔记：ASCII，Unicode和UTF-8</a></li>
+<li><a href="http://pcedu.pconline.com.cn/empolder/gj/other/0505/616631_all.html">程序员趣味读物：谈谈Unicode编码</a></li>
+</ul>
+<h3 id="一些特殊的Emoji"><a href="#一些特殊的Emoji" class="headerlink" title="一些特殊的Emoji"></a>一些特殊的Emoji</h3><p>在众多Emoji中, 有一些特殊的Emoji 并没有显示的样式, 只是起到了控制的作用。这些控制型的Emoji 与基础Emoji 出现在一起, 可以展示更多的样式。</p>
+<p>比如 “变量选择器-15”(VARIATION SELECTOR-15, 简写VS-15): <code>&lt;U+FE0E&gt;</code>, 作用是让基础Emoji 变成更接近文本样式(text-style);<br>而 “变量选择器-16”(VARIATION SELECTOR-16, 简写VS-16): <code>&lt;U+FE0F&gt;</code>, 作用则是让基础Emoji 变成更接近Emoji样式(emoji-style).</p>
+<p>VS-15 和 VS-16 加在基础Emoji字符的后面, 可以起到控制作用(前提是必须系统支持, 否则会被忽略)。</p>
+<p><img src="http://static.extremevision.com.cn/blogs/static/python_emoji_vs_wiki.png" alt="image"></p>
+<p>用一段Python代码来演示该例子:</p>
+<pre><code># -*- coding: utf-8 -*-
+# more info to see https://en.wikipedia.org/wiki/Emoji
+# 符号分别是上图(截图自wiki)中的符号, 最后再加上一个“狗”的Emoji
+sample_list = [u&apos;\u2139&apos;, u&apos;\u231B&apos;, u&apos;\u26A0&apos;, u&apos;\u2712&apos;, u&apos;\u2764&apos;, u&apos;\U0001F004&apos;, u&apos;\U0001F21A&apos;, u&apos;\U0001f436&apos;, ]
+
+# 输出原样式
+for code in sample_list:
+    print code,
+print
+print &apos;-&apos; * 20
+# 后面加上VS-15
+for code in sample_list:
+    print (code + u&apos;\uFE0E&apos;),
+print
+print &apos;-&apos; * 20
+# 后面加上VS-16
+for code in sample_list:
+    print (code + u&apos;\uFE0F&apos;),
+</code></pre><p>其输出如下图, 第一行是原样式，第二行是加上VS-15后的样式，第三行是加上VS-16后的样式:</p>
+<p><img src="http://static.extremevision.com.cn/blogs/static/python_emoji_vs.png" alt="image"></p>
+<p>另外, 还有一些控制型的Emoji, 可以对人体肤色进行改变，改变对象仅限于”表示人身体部位的Emoji”.<br>它们分别是: <code>&lt;U+1F3FB&gt;</code> – <code>&lt;U+1F3FF&gt;</code> 共五个, 分别简称为: FITZ-1-2, FITZ-3, FITZ-4, FITZ-5, FITZ-6.</p>
+<p><img src="http://static.extremevision.com.cn/blogs/static/python_emoji_humanskin_wiki.png" alt="image"></p>
+<p>还有一个特殊的控制符: <code>&lt;U+200D&gt;</code> (ZERO WIDTH JOINER, 简写ZWJ), 起到了连接Emoji的作用, 从而将多个Emoji变成一个Emoji来显示. 同样，前提是必须系统支持, 否则会被忽略.</p>
+<p>使用Python代码演示 <code>FITZ-*</code> 和 <code>ZWJ</code>:</p>
+<pre><code># -*- coding: utf-8 -*-
+# more info to see https://en.wikipedia.org/wiki/Emoji
+
+# man_list 分别是: 男孩  女孩  男人  女人
+man_list = [u&apos;\U0001F466&apos;, u&apos;\U0001F467&apos;, u&apos;\U0001F468&apos;, u&apos;\U0001F469&apos;]
+# skin_color_list 分别是: 空字符串,表示默认  白种人 --&gt;(不断加深肤色)  黑种人
+skin_color_list = [&apos;&apos;, u&apos;\U0001F3FB&apos;, u&apos;\U0001F3FC&apos;, u&apos;\U0001F3FD&apos;, u&apos;\U0001F3FE&apos;, u&apos;\U0001F3FF&apos;, ]
+for man in man_list:
+    for color in skin_color_list:
+        print (man + color),
+    print
+    print &apos;-&apos; * 20
+
+# Emoji的连接符&lt;U+200D&gt;  (英文名为: ZERO WIDTH JOINER, 简写ZWJ )
+# 如果系统支持: 连接(男人 + ZWJ + 女人 + ZWJ + 女孩)
+print u&apos;\U0001F468&apos; + u&apos;\u200D&apos; + u&apos;\U0001F469&apos; + u&apos;\u200D&apos; + u&apos;\U0001F467&apos;
+# 如果系统不支持: 连接(狗 + ZWJ + 猫 + ZWJ + 老鼠)
+print u&apos;\U0001f436&apos; + u&apos;\u200D&apos; + u&apos;\U0001f431&apos; + u&apos;\u200D&apos; + u&apos;\U0001f42d&apos;
+</code></pre><p>其输出如下图:</p>
+<p><img src="http://static.extremevision.com.cn/blogs/static/python_emoji_humanskin.png" alt="image"></p>
+<p>以上内容参考自<a href="https://en.wikipedia.org/wiki/Emoji">维基百科</a></p>
+<p>对Emoji 的介绍到该小节结束, 下面内容是一些关于实际中可能遇到的技术问题的解决方法。</p>
+<h3 id="MySQL存储Emoji"><a href="#MySQL存储Emoji" class="headerlink" title="MySQL存储Emoji"></a>MySQL存储Emoji</h3><p>使用MySQL存储Emoji, 只需要数据表的字符集为<code>utf8mb4</code>即可, 即<code>CHARSET=utf8mb4</code>.</p>
+<p>如果想要知道你的MySQL数据库是否支持<code>utf8mb4</code>编码, 可通过<code>show charset;</code> 输出当前安装的MySQL所支持的所有字符集, 查看输出中是否包含有<code>utf8mb4</code>.</p>
+<p>另外, 有一些比较老的业务, 可能一开始设计时没考虑到需要支持Emoji, 那就需要修改数据库或数据表的字符集.</p>
+<pre><code>查看MySQL说支持的所有字符集
+mysql&gt; show charset;
+
+查看某张表当前的字符集
+mysql&gt; show create table &lt;table_name&gt;;
+
+创建默认字符集为utf8mb4的数据库.在该数据库中,如果创建表时是不指明字符集,则默认utf8mb4.
+mysql&gt; create database default charset utf8mb4;
+
+创建字符集为utf8mb4的表, 数据库的默认字符集非utf8mb4也没问题.
+mysql&gt; create table `&lt;table_name&gt;` (Column定义, Column定义, ...) DEFAULT CHARSET=utf8mb4;
+
+修改已存在的数据库的字符集
+mysql&gt; alter database &lt;db_name&gt; default charset = utf8mb4;
+
+修改已存在的表的字符集
+mysql&gt; alter table &lt;table_name&gt; default charset = utf8mb4;
+</code></pre><h3 id="使用正则表达式匹配Emoji"><a href="#使用正则表达式匹配Emoji" class="headerlink" title="使用正则表达式匹配Emoji"></a>使用正则表达式匹配Emoji</h3><p>很可惜, Emoji的范围并没有明确的定义。正如上面提到了，Emoji Charts目前最新版本是v3.0， 未来Emoji的范围还会不断扩大。而且Emoji 在Unicode的分配中并不是连续的区间。</p>
+<p>所以, 在这里我只能给出一个可行的匹配区间, 尽可能涵盖了基本常见的Emoj。<br>该匹配区间中会包含一些未定义的字符, 可能在某些系统会有定义，但是在另外的系统中并没有定义。毕竟Emoji是商业的产物。</p>
+<p>该匹配规则区间参考了<a href="http://unicode.org/Public/emoji/3.0/emoji-data.txt">emoji-data.txt</a> 和 <a href="http://unicode.org/reports/tr51/index.html#emoji_data">Unicode® Technical Report #51</a>, 如下:</p>
+<pre><code>&lt;U+1F300&gt; - &lt;U+1F5FF&gt;      # symbols &amp; pictographs
+&lt;U+1F600&gt; - &lt;U+1F64F&gt;      # emoticons
+&lt;U+1F680&gt; - &lt;U+1F6FF&gt;      # transport &amp; map symbols
+&lt;U+2600&gt;  - &lt;U+2B55&gt;       # other
+</code></pre><p>下面使用Python代码来演示如何使用正则表达式替换(或找出)字符串中的Emoji:</p>
+<pre><code># -*- coding: utf-8 -*-
+import re
+try:
+    # Wide UCS-4 build
+    myre = re.compile(u&apos;[&apos;
+        u&apos;\U0001F300-\U0001F64F&apos;
+        u&apos;\U0001F680-\U0001F6FF&apos;
+        u&apos;\u2600-\u2B55]+&apos;,
+        re.UNICODE)
+except re.error:
+    # Narrow UCS-2 build
+    myre = re.compile(u&apos;(&apos;
+        u&apos;\ud83c[\udf00-\udfff]|&apos;
+        u&apos;\ud83d[\udc00-\ude4f\ude80-\udeff]|&apos;
+        u&apos;[\u2600-\u2B55])+&apos;,
+        re.UNICODE)
+
+sss = u&apos;I have a dog \U0001f436 . You have a cat \U0001f431 ! I smile \U0001f601 to you!&apos;
+print myre.sub(&apos;[Emoji]&apos;, sss)  # 替换字符串中的Emoji
+print myre.findall(sss)         # 找出字符串中的Emoji
+</code></pre><p>输出如下:</p>
+<pre><code>I have a dog [Emoji] . You have a cat [Emoji] ! I smile [Emoji] to you!
+[u&apos;\U0001f436&apos;, u&apos;\U0001f431&apos;, u&apos;\U0001f601&apos;]
+</code></pre><p>上面例子中, 之所以使用<code>try...except...</code>来处理代码, 是考虑到 UCS-2 (Narrow UCS-2 build) 和 UCS-4 (Wide UCS-4 build) 的区别.<br>该Demo例子参考了<a href="http://stackoverflow.com/questions/26568722/remove-unicode-emoji-using-re-in-python">stackoverflow</a>上的精彩回答, 解答了我对此的困惑。</p>
+<p>关于UCS-2和UCS-4的区别, 在上面提到的扩展阅读<a href="http://pcedu.pconline.com.cn/empolder/gj/other/0505/616631_all.html">程序员趣味读物：谈谈Unicode编码</a>中有提到, 值得一看.</p>
+<p>本文中使用到的示例代码，可以在<a href="https://github.com/wolfhong/blogs/tree/master/example/python_emoji">我的github</a>下载到。</p>
+<h3 id="带有Emoji的字符串截取"><a href="#带有Emoji的字符串截取" class="headerlink" title="带有Emoji的字符串截取"></a>带有Emoji的字符串截取</h3><p>在Python、JavaScript 这类编程语言中, 一个中文字符的长度为1，但是对大部分的Emoji(并非全部), 取长度则是2。下面使用Python做演示。</p>
+<p>以中文的”汉”字取长度为例，取长度为1:</p>
+<pre><code>&gt;&gt;&gt;len(u&apos;汉&apos;)
+1
+</code></pre><p>而对于Emoji，以<code>&lt;U+1f436&gt;</code>(该Emoji是一只萌萌的狗)为例，取长度为2:</p>
+<pre><code>&gt;&gt;&gt;len(u&apos;\U0001f436&apos;)
+2
+</code></pre><p>那么, 这就存在一个隐患, 在对字符串进行截断时可能从中间截断, 导致该字符显示为乱码, 甚至引发报错。</p>
+<p>下面例子中, 对字符串进行截取时，正好从<code>&lt;U+1f436&gt;</code>的中间截断了，出现了乱码:</p>
+<pre><code>&gt;&gt;&gt;u&apos;这是一只可爱的狗狗\U0001f436&apos;.__len__()
+11
+&gt;&gt;&gt;u&apos;这是一只可爱的狗狗\U0001f436&apos;[0:10]
+这是一只可爱的狗狗???
+</code></pre><p>实际场景中，对字符串进行截断是非常常见的需求，而且字符串往往可能是用户高度自由的输入内容, 那么包含Emoji的可能性其实是很高的。<br>一个具体的场景就是: 你正在开发了一款社交APP, 允许用户保存文字记录, 然后在应用的某个地方, 又需要显示这些文字记录的摘要，摘要只显示用户输入的前100个字符, 超出部分用省略号表示。<br>这种情况下，就不可避免的可能发生Emoji在中间被截断的问题。</p>
+<p>解决方案也有多种:</p>
+<ul>
+<li>全文进行正则匹配, 去掉大部分Emoji, 但是文本长度过长的情况消耗太大, 不值得.</li>
+<li>先截取前200个字符, 匹配去掉Emoji再截取100个字符. 貌似可行. 但如果极端条件下前200个字符都是Emoji怎么办? 管他的.</li>
+<li>运用上面提到的扩展阅读: <a href="http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html">字符编码笔记：ASCII，Unicode和UTF-8</a>中提到的UTF-8的编码规则, 对截断后字符串的最后字符进行检查, 发现是截断的字符即进行剔除。该方案可行, 不过你需要自己去实现了。</li>
+<li>允许一定概率出现乱码, 乱码就乱码吧，概率不高，不影响主要体验。将更多精力放在避免其他bug上吧。</li>
+</ul>
+
+                    </div>
+                </div>
+                
+
+<div class="license-notice">
+    <span>作者: </span>WOLFHONG<br>
+    <span>发布日期: </span>2016-11-25<br>
+</div>
+
+                <nav class="post-tags">
+                
+                    
+                    <a href="/tags/emoji/" title="emoji" rel="tag" class="fa fa-tag">emoji</a>
+                    
+                    <a href="/tags/编码/" title="编码" rel="tag" class="fa fa-tag">编码</a>
+                    
+                
+                </nav>
+            </article>
+        </div><!-- div#primary -->
+        <ul id="pager">
+
+    <li class="previous">
+        <a href="/posts/程序员必读书籍清单/" title="程序员必读书籍清单" class="tooltipped tooltipped-n" aria-label="程序员必读书籍清单"><span class="fa fa-chevron-left"></span> 程序员必读书籍清单</a>
+    </li>
+    
+    
+    <li class="next">
+        <a href="/posts/使用Emoji表情拼成汉字/" title="使用Emoji表情拼成汉字" class="tooltipped tooltipped-n" aria-label="使用Emoji表情拼成汉字">使用Emoji表情拼成汉字 <span class="fa fa-chevron-right"></span></a>
+    </li>
+    
+</ul>
+
+        
+<section id="comments">
+
+    <!-- JiaThis Button BEGIN -->
+    <div class="jiathis_style">
+        <span class="jiathis_txt">分享到：</span>
+        <a class="jiathis_button_tools_1"></a>
+        <a class="jiathis_button_tools_2"></a>
+        <a class="jiathis_button_tools_3"></a>
+        <a href="http://www.jiathis.com/share?uid=2161579" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    </div>
+    <script type="text/javascript">
+    var jiathis_config = {data_track_clickback:'true'};
+    </script>
+    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2161579" charset="utf-8"></script>
+    <!-- JiaThis Button END -->
+
+    <!-- 友言评论 -->
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2161579"></script>
+    <!-- UY END -->
+
+
+    
+</section>
+
+
+        
+        <nav id="toc" class="sticky">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Emoji的编码"><span class="toc-text">Emoji的编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一些特殊的Emoji"><span class="toc-text">一些特殊的Emoji</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL存储Emoji"><span class="toc-text">MySQL存储Emoji</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用正则表达式匹配Emoji"><span class="toc-text">使用正则表达式匹配Emoji</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#带有Emoji的字符串截取"><span class="toc-text">带有Emoji的字符串截取</span></a></li></ol>
+        </nav>
+        
+    </div>
+</main>
+
+    <!-- Footer -->
+    
+<!-- #content -->
+<footer id="footer">
+    <div class="container">
+        <p>
+            &copy; 2018 Wolfhong's Blog. All Rights Reserved.
+        </p>
+        <p>Themed by <a href="https://github.com/unnamed42/hexo-theme-kunkka">Kunkka</a> | Powered by <a href="https://hexo.io/">Hexo</a>.</p>
+        
+
+
+<div class="sns-icons">
+    
+        
+        
+            
+    <span class="sns-icon fa-stack">
+        <a target="_blank" href="https://github.com/https://github.com/wolfhong">
+            <span class="fa fa-square fa-stack-2x"></span>
+            
+            <span class="fa fa-github fa-stack-1x fa-inverse"></span>
+            
+        </a>
+    </span>
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+</div>
+
+
+    </div>
+</footer>
+<!-- #footer -->
+
+    <div id="totop" title="送你上天">
+    <canvas id="totop-canvas" width="48" height="48"></canvas>
+    <div id="totop-percent"></div>
+</div>
+
+</body>
+
+</html>

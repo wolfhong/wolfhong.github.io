@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+
+<!-- Head tag -->
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+
+    <title>
+    
+        sudoers的深入剖析与用户权限控制 -
+    
+    Wolfhong&#39;s Blog
+    </title>
+
+    <meta name="keywords" content="Linux,IT博客,工具介绍,教程">
+    <meta name="description" content="">
+    <meta name="author" content="WOLFHONG">
+
+    
+
+    
+
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+
+    <script type="text/javascript">
+    if(!("jQuery" in window)) {
+        window._jqQ = []; // jQuery call queue
+        window.jQuery = window.$ = function() {
+            _jqQ.push(arguments);
+        };
+    }
+    </script>
+    <script id="jquery-src" src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" async onload="_jqQ.forEach(function(args){$.apply($,args)});delete window._jqQ;"></script>
+
+    
+    <script src="/js/script.js" type="text/javascript" async></script>
+
+    <!-- Global javascript config object -->
+    <script type="text/javascript">
+    var CONFIG = {
+    
+    
+    };
+    </script>
+
+    
+
+    
+    
+    
+
+    
+    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+    
+
+</head>
+
+
+<body class="post">
+    <nav id="header">
+    <div class="container clearfix">
+        <div class="logo" style="width: auto;">
+    <a href="/" title="Wolfhong&#39;s Blog" rel="home" style="text-decoration: none;">
+    
+        <span class="brand-logo">
+        
+            Wolfhong&#39;s Blog
+        
+        </span>
+    
+    </a>
+</div>
+
+        <div id="global-nav">
+            <div class="gnli ">
+                <a class="gna fa fa-home" href="/" title="Wolfhong&#39;s Blog">
+                    <span class="gn-item">主页</span>
+                </a>
+            </div>
+            <div id="dropdown" class="gnli current">
+                <a class="gna fa fa-bars" href="#">
+                    <span class="gn-item">导航</span>
+                </a>
+                <table id="dropdown-menu">
+    <tbody>
+        
+        <tr class="trline">
+            <td class="tdleft">分类</td>
+            <td class="tdright tab-ul tab-categories">
+                
+                <a href="/categories/devops/">devops</a>
+                
+                <a href="/categories/python/">python</a>
+                
+                <a href="/categories/其他/">其他</a>
+                
+                <a href="/categories/读书/">读书</a>
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="tdleft">标签</td>
+            <td class="tdright tab-ul tab-tags">
+                <a href="/tags/权限管理/" style="font-size: 12px;">权限管理</a> <a href="/tags/emoji/" style="font-size: 12px;">emoji</a> <a href="/tags/sshfs/" style="font-size: 12px;">sshfs</a> <a href="/tags/mac/" style="font-size: 12px;">mac</a> <a href="/tags/crontab/" style="font-size: 12px;">crontab</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/编码/" style="font-size: 12px;">编码</a> <a href="/tags/rsync/" style="font-size: 12px;">rsync</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a> <a href="/tags/python/" style="font-size: 12px;">python</a> <a href="/tags/翻译/" style="font-size: 12px;">翻译</a> <a href="/tags/读书/" style="font-size: 12px;">读书</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+            </div>
+            
+            <div class="gnli">
+                <a class="gna fa fa-archive" href="/archives/" title="">
+                    <span class="gn-item">归档</span>
+                </a>
+            </div>
+            
+            <div class="gnli">
+                <a class="gna fa fa-user" href="/about/" title="">
+                    <span class="gn-item">关于</span>
+                </a>
+            </div>
+            
+        </div>
+        
+<form method="get" id="search-form" action="/search.html">
+    <input type="text" name="keywords" id="search-input" placeholder="输入关键词" />
+    <button type="submit" id="search-submit">
+        <span class="fa fa-search"></span>
+    </button>
+</form>
+
+
+
+    </div>
+</nav>
+
+    
+<main id="content">
+    <div class="container clearfix">
+        <div id="primary"  class="has-toc">
+            <nav class="breadcrumb-navigation">
+                <a rel="bookmark" href="/">主页</a>
+                <span class="breadcrumb-arrow fa fa-angle-right"></span>
+                <a href="/categories/devops/" title="devops" rel="category tag">devops</a>
+
+                <span class="breadcrumb-arrow fa fa-angle-right"></span>
+                sudoers的深入剖析与用户权限控制
+            </nav>
+            <article class="single-post">
+                <header class="post-header">
+                    <h1 class="post-title">
+                        <a href="/posts/sudoers的深入介绍与用户权限控制/" title="sudoers的深入剖析与用户权限控制">sudoers的深入剖析与用户权限控制</a>
+                    </h1>
+                </header>
+                <div class="post-meta">
+    <ul class="inline-ul">
+        <li class="inline-li">
+            <time>2016-11-06</time>
+        </li>
+        
+        <li class="inline-li">
+            <span class="post-span">·</span>
+        </li>
+        <li class="inline-li">
+            <a href="/categories/devops/" title="devops" rel="category tag">devops</a>
+
+        </li>
+        
+        
+        <li class="inline-li">
+            <span class="post-span">·</span>
+        </li>
+        <li class="inline-li">
+            <span id="busuanzi_value_page_pv"></span> 次点击
+        </li>
+        
+    </ul>
+</div>
+
+
+                <!-- BEGIN add by wolfhong -->
+                <nav class="post-tags">
+                
+                    
+                    <a href="/tags/linux/" title="linux" rel="tag" class="fa fa-tag">linux</a>
+                    
+                    <a href="/tags/权限管理/" title="权限管理" rel="tag" class="fa fa-tag">权限管理</a>
+                    
+                
+                </nav>
+                <!-- END wolfhong -->
+
+                <div class="post-body clearfix">
+                    <div class="post-content">
+                        
+                        <p>Linux是多用户多任务的操作系统, 共享该系统的用户往往不只一个。<br>出于安全性考虑, 有必要通过<code>useradd</code>创建一些非root用户, 只让它们拥有不完全的权限; 如有必要，再来提升权限执行。</p>
+<p>sudo就是来解决这个需求的: 这些非root用户不需要知道root的密码，就可以提权到root，执行一些root才能执行的命令。</p>
+<p>执行<code>sudo -u &lt;用户名&gt; &lt;命令&gt;</code>, 将允许当前用户，提权到<code>&lt;用户名&gt;</code>的身份，再执行后面的<code>&lt;命令&gt;</code>, 即使<code>&lt;命令&gt;</code>原本需要root权限。<br>提权到<code>&lt;用户名&gt;</code>身份时，是以<code>&lt;用户名&gt;</code>的身份来执行命令的，因此创建的文件默认属于<code>&lt;用户名&gt;</code>用户。</p>
+<p>因此，当userB执行如下命令时:</p>
+<pre><code>sudo -u userA touch /tmp/belong-to-who.tmp
+</code></pre><p>创建的<code>/tmp/belong-to-who.tmp</code> 文件属于用户userA。</p>
+<p>如果不带<code>-u</code>, 则默认使用root用户，而大多数时候sudo都是要提权到root的，所以<code>-u &lt;用户名&gt;</code>可以省略为:</p>
+<pre><code>sudo &lt;命令&gt;
+</code></pre><p>需要注意的是: 执行sudo时输入的密码是当前用户的密码, 并非<code>&lt;用户名&gt;</code>的密码。<br><code>sudo -u &lt;用户名&gt;</code>和<code>su - &lt;用户名&gt;</code>相比:<br>前者需要输入当前用户的密码，提权到<code>&lt;用户名&gt;</code>身份执行命令后返回当前用户;<br>后者则是输入目标用户的密码，切换到目标用户。</p>
+<h3 id="赋予用户sudo操作的权限"><a href="#赋予用户sudo操作的权限" class="headerlink" title="赋予用户sudo操作的权限"></a>赋予用户sudo操作的权限</h3><p>关于<a href="http://www.runoob.com/linux/linux-user-manage.html">Linux用户和用户组管理</a>的知识点不是本篇文章要讨论的, 如对<code>useradd</code>、 <code>usermod</code>、 <code>passwd</code>、 <code>groupadd</code>等指令生疏，可移步<a href="http://www.runoob.com/linux/linux-user-manage.html">链接</a>, 那里有详细的讲解了。<br>通过<code>useradd</code>添加的用户，并不具备sudo权限。在ubuntu/centos等系统下, 需要将用户加入admin组或者wheel组或者sudo组。</p>
+<p>以root用户身份执行如下命令, 将用户加入wheel/admin/sudo组:</p>
+<pre><code>usermod -a -G wheel &lt;用户名&gt;
+</code></pre><p>如果提示wheel组不存在, 则还需要先创建该组:</p>
+<pre><code>groupadd wheel
+</code></pre><h3 id="用公式讲解-etc-sudoers的内容"><a href="#用公式讲解-etc-sudoers的内容" class="headerlink" title="用公式讲解/etc/sudoers的内容"></a>用公式讲解/etc/sudoers的内容</h3><p>sudo的权限控制可以在<code>/etc/sudoers</code>文件中查看到。</p>
+<p>如果想要控制某个用户(或某个组用户)只能执行root权限中的一部分命令, 或者允许某些用户使用sudo时不需要输入密码,就需要对该文件有所了解。</p>
+<p>一般来说，通过<code>cat /etc/sudoers</code>指令来查看该文件, 会看到如下几行代码:</p>
+<pre><code>root   ALL=(ALL:ALL) ALL
+%wheel ALL=(ALL) ALL
+%sudo  ALL=(ALL:ALL) ALL
+</code></pre><p>对<code>/etc/sudoers</code>文件进行编辑的代码公式可以概括为:</p>
+<pre><code>授权用户/组 主机=[(切换到哪些用户或组)] [是否需要输入密码验证] 命令1,命令2,...
+</code></pre><p>凡是<code>[ ]</code>中的内容, 都能省略; 命令和命令之间用<code>,</code>号分隔;</p>
+<p>为了方便说明, 将公式的各个部分称呼为字段1 - 字段5:</p>
+<pre><code>授权用户/组 主机  =[(切换到哪些用户或组)] [是否需要输入密码验证] 命令1,命令2,...
+字段1      字段2  =[(字段3)] [字段4] 字段5
+</code></pre><p>字段3、字段4，是可以省略的。</p>
+<p>在上面的默认例子中, “字段1”不以<code>%</code>号开头的表示”将要授权的用户”, 比如例子中的<code>root</code>；<br>以<code>%</code>号开头的表示”将要授权的组”, 比如例子中的<code>%wheel</code>组 和 <code>%sudo</code>组。</p>
+<p>“字段2”表示允许登录的主机, ALL表示所有; 如果该字段不为ALL,表示授权用户只能在某些机器上登录本服务器来执行sudo命令. 比如:</p>
+<pre><code>jack mycomputer=/usr/sbin/reboot,/usr/sbin/shutdown
+</code></pre><p>表示: 普通用户jack在主机(或主机组)mycomputer上, 可以通过sudo执行reboot和shutdown两个命令。”字段3”和”字段4”省略。</p>
+<p>“字段3”如果省略, 相当于<code>(root:root)</code>，表示可以通过<code>sudo</code>提权到root; 如果为<code>(ALL)</code>或者<code>(ALL:ALL)</code>, 表示能够提权到<code>(任意用户:任意用户组)</code>。</p>
+<p>请注意，”字段3”如果没省略,必须使用<code>( )</code>双括号包含起来。这样才能区分是省略了”字段3”还是省略了”字段4”。</p>
+<p>“字段4”的可能取值是<code>NOPASSWD:</code>。请注意NOPASSWD后面带有冒号<code>:</code>。表示执行sudo时可以不需要输入密码。比如:</p>
+<pre><code>lucy ALL=(ALL) NOPASSWD: /bin/useradd
+</code></pre><p>表示: 普通用户lucy可以在任何主机上, 通过sudo执行<code>/bin/useradd</code>命令, 并且不需要输入密码.</p>
+<p>又比如:</p>
+<pre><code>peter ALL=(ALL) NOPASSWD: ALL
+</code></pre><p>表示: 普通用户peter可以在任何主机上, 通过sudo执行任何命令, 并且不需要输入密码。</p>
+<p>“字段5”是使用逗号分开一系列命令,这些命令就是授权给用户的操作; ALL表示允许所有操作。</p>
+<p>你可能已经注意到了, 命令都是使用绝对路径, 这是为了避免目录下有同名命令被执行，从而造成安全隐患。</p>
+<p>如果你将授权写成如下安全性欠妥的格式:</p>
+<pre><code>lucy ALL=(ALL) chown,chmod,useradd
+</code></pre><p>那么用户就有可能创建一个他自己的程序, 也命名为userad, 然后放在它的本地路径中, 如此一来他就能够使用root来执行这个”名为useradd的程序”。这是相当危险的!</p>
+<p>命令的绝对路径可通过<code>which</code>指令查看到: 比如<code>which useradd</code>可以查看到命令<code>useradd</code>的绝对路径: <code>/usr/sbin/useradd</code></p>
+<h3 id="公式还要扩充"><a href="#公式还要扩充" class="headerlink" title="公式还要扩充"></a>公式还要扩充</h3><p>例子1:</p>
+<pre><code>papi ALL=(root) NOPASSWD: /bin/chown,/usr/sbin/useradd
+</code></pre><p>表示: 用户papi能在所有可能出现的主机上, 提权到root下执行/bin/chown, 不必输入密码; 但运行/usr/sbin/useradd 命令时需要密码.</p>
+<p>这是因为<code>NOPASSWD:</code>只影响了其后的第一个命令: 命令1.</p>
+<p>上面给出的公式只是简化版，完整的公式如下:</p>
+<pre><code>授权用户/组 主机=[(切换到哪些用户或组)] [是否需要输入密码验证] 命令1, [(字段3)] [字段4] 命令2, ...
+</code></pre><p>在具有sudo操作的用户下, 执行<code>sudo -l</code>可以查看到该用户被允许和被禁止运行的命令.</p>
+<h3 id="通配符和取消命令"><a href="#通配符和取消命令" class="headerlink" title="通配符和取消命令"></a>通配符和取消命令</h3><p>例子2:</p>
+<pre><code>papi ALL=/usr/sbin/*,/sbin/*,!/usr/sbin/fdisk
+</code></pre><p>用例子2来说明通配符<code>*</code>的用法, 以及命令前面加上<code>!</code>号表示取消该命令。</p>
+<p>该例子的意思是: 用户papi在所有可能出现的主机上, 能够运行目录/usr/sbin和/sbin下所有的程序, 但fdisk除外.</p>
+<h3 id="开始编辑"><a href="#开始编辑" class="headerlink" title="开始编辑"></a>开始编辑</h3><p>“你讲了这么多,但是在实践中,我去编辑/etc/sudoers文件，系统提示我没权限啊，怎么办?”</p>
+<p>这是因为<code>/etc/sudoers</code>的内容如此敏感，以至于该文件是只读的。所以，编辑该文件前，请确认清楚你知道自己正在做什么。</p>
+<p>强烈建议通过<code>visudo</code>命令来修改该文件，通过<code>visudo</code>修改，如果配置出错，会有提示。</p>
+<p>不过，系统文档推荐的做法，不是直接修改<code>/etc/sudoers</code>文件，而是将修改写在<code>/etc/sudoers.d/</code>目录下的文件中。</p>
+<p>如果使用这种方式修改sudoers，需要在<code>/etc/sudoers</code>文件的最后行，加上<code>#includedir /etc/sudoers.d</code>一行(默认已有):</p>
+<pre><code>#includedir /etc/sudoers.d
+</code></pre><p>注意了，这里的指令<code>#includedir</code>是一个整体, 前面的<code>#</code>号不能丢，并非注释，也不能在<code>#</code>号后有空格。</p>
+<p>任何在<code>/etc/sudoers.d/</code>目录下，不以<code>~</code>号结尾的文件和不包含<code>.</code>号的文件，都会被解析成<code>/etc/sudoers</code>的内容。</p>
+<p>文档中是这么说的:</p>
+<pre><code># This will cause sudo to read and parse any files in the /etc/sudoers.d
+# directory that do not end in &apos;~&apos; or contain a &apos;.&apos; character.
+
+# Note that there must be at least one file in the sudoers.d directory (this
+# one will do), and all files in this directory should be mode 0440.
+
+# Note also, that because sudoers contents can vary widely, no attempt is
+# made to add this directive to existing sudoers files on upgrade.
+
+# Finally, please note that using the visudo command is the recommended way
+# to update sudoers content, since it protects against many failure modes.
+</code></pre><h3 id="其他小知识"><a href="#其他小知识" class="headerlink" title="其他小知识"></a>其他小知识</h3><h4 id="输入密码时有反馈"><a href="#输入密码时有反馈" class="headerlink" title="输入密码时有反馈"></a>输入密码时有反馈</h4><p>当使用sudo后输入密码，并不会显示任何东西 —— 甚至连常规的星号都没有。有个办法可以解决该问题。</p>
+<p>打开<code>/etc/sudoers</code>文件找到下述一行:</p>
+<pre><code>Defaults        env_reset
+</code></pre><p>修改成:</p>
+<pre><code>Defaults        env_reset,pwfeedback
+</code></pre><h4 id="修改sudo会话时间"><a href="#修改sudo会话时间" class="headerlink" title="修改sudo会话时间"></a>修改sudo会话时间</h4><p>如果你经常使用sudo 命令，你肯定注意到过当你成功输入一次密码后，可以不用再输入密码就可以运行几次sudo命令。<br>但是一段时间后，sudo 命令会再次要求你输入密码。默认是15分钟，该时间可以调整。添加<code>timestamp_timeout=分钟数</code>即可。<br>时间以分钟为单位，-1表示永不过期，但强烈不推荐。</p>
+<p>比如我希望将时间延长到1小时，还是打开<code>/etc/sudoers</code>文件找到下述一行:</p>
+<pre><code>Defaults        env_reset
+</code></pre><p>修改成:</p>
+<pre><code>Defaults        env_reset,pwfeedback,timestamp_timeout=60
+</code></pre>
+                    </div>
+                </div>
+                
+
+<div class="license-notice">
+    <span>作者: </span>WOLFHONG<br>
+    <span>发布日期: </span>2016-11-06<br>
+</div>
+
+                <nav class="post-tags">
+                
+                    
+                    <a href="/tags/linux/" title="linux" rel="tag" class="fa fa-tag">linux</a>
+                    
+                    <a href="/tags/权限管理/" title="权限管理" rel="tag" class="fa fa-tag">权限管理</a>
+                    
+                
+                </nav>
+            </article>
+        </div><!-- div#primary -->
+        <ul id="pager">
+
+    <li class="previous">
+        <a href="/posts/Mac下挂载远程目录到本地/" title="Mac下挂载远程目录到本地" class="tooltipped tooltipped-n" aria-label="Mac下挂载远程目录到本地"><span class="fa fa-chevron-left"></span> Mac下挂载远程目录到本地</a>
+    </li>
+    
+    
+    <li class="next">
+        <a href="/posts/crontab不能正常运行的原因分析方法/" title="crontab执行失败的多种原因" class="tooltipped tooltipped-n" aria-label="crontab执行失败的多种原因">crontab执行失败的多种原因 <span class="fa fa-chevron-right"></span></a>
+    </li>
+    
+</ul>
+
+        
+<section id="comments">
+
+    <!-- JiaThis Button BEGIN -->
+    <div class="jiathis_style">
+        <span class="jiathis_txt">分享到：</span>
+        <a class="jiathis_button_tools_1"></a>
+        <a class="jiathis_button_tools_2"></a>
+        <a class="jiathis_button_tools_3"></a>
+        <a href="http://www.jiathis.com/share?uid=2161579" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    </div>
+    <script type="text/javascript">
+    var jiathis_config = {data_track_clickback:'true'};
+    </script>
+    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2161579" charset="utf-8"></script>
+    <!-- JiaThis Button END -->
+
+    <!-- 友言评论 -->
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2161579"></script>
+    <!-- UY END -->
+
+
+    
+</section>
+
+
+        
+        <nav id="toc" class="sticky">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#赋予用户sudo操作的权限"><span class="toc-text">赋予用户sudo操作的权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用公式讲解-etc-sudoers的内容"><span class="toc-text">用公式讲解/etc/sudoers的内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#公式还要扩充"><span class="toc-text">公式还要扩充</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通配符和取消命令"><span class="toc-text">通配符和取消命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开始编辑"><span class="toc-text">开始编辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他小知识"><span class="toc-text">其他小知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#输入密码时有反馈"><span class="toc-text">输入密码时有反馈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改sudo会话时间"><span class="toc-text">修改sudo会话时间</span></a></li></ol></li></ol>
+        </nav>
+        
+    </div>
+</main>
+
+    <!-- Footer -->
+    
+<!-- #content -->
+<footer id="footer">
+    <div class="container">
+        <p>
+            &copy; 2018 Wolfhong's Blog. All Rights Reserved.
+        </p>
+        <p>Themed by <a href="https://github.com/unnamed42/hexo-theme-kunkka">Kunkka</a> | Powered by <a href="https://hexo.io/">Hexo</a>.</p>
+        
+
+
+<div class="sns-icons">
+    
+        
+        
+            
+    <span class="sns-icon fa-stack">
+        <a target="_blank" href="https://github.com/https://github.com/wolfhong">
+            <span class="fa fa-square fa-stack-2x"></span>
+            
+            <span class="fa fa-github fa-stack-1x fa-inverse"></span>
+            
+        </a>
+    </span>
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+</div>
+
+
+    </div>
+</footer>
+<!-- #footer -->
+
+    <div id="totop" title="送你上天">
+    <canvas id="totop-canvas" width="48" height="48"></canvas>
+    <div id="totop-percent"></div>
+</div>
+
+</body>
+
+</html>
