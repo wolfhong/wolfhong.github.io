@@ -110,7 +110,7 @@
         <tr>
             <td class="tdleft">标签</td>
             <td class="tdright tab-ul tab-tags">
-                <a href="/tags/权限管理/" style="font-size: 12px;">权限管理</a> <a href="/tags/emoji/" style="font-size: 12px;">emoji</a> <a href="/tags/sshfs/" style="font-size: 12px;">sshfs</a> <a href="/tags/mac/" style="font-size: 12px;">mac</a> <a href="/tags/crontab/" style="font-size: 12px;">crontab</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/编码/" style="font-size: 12px;">编码</a> <a href="/tags/rsync/" style="font-size: 12px;">rsync</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a> <a href="/tags/python/" style="font-size: 12px;">python</a> <a href="/tags/翻译/" style="font-size: 12px;">翻译</a> <a href="/tags/读书/" style="font-size: 12px;">读书</a>
+                <a href="/tags/权限管理/" style="font-size: 12px;">权限管理</a> <a href="/tags/emoji/" style="font-size: 12px;">emoji</a> <a href="/tags/解决方案/" style="font-size: 12px;">解决方案</a> <a href="/tags/mac/" style="font-size: 12px;">mac</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/编码/" style="font-size: 12px;">编码</a> <a href="/tags/python/" style="font-size: 12px;">python</a> <a href="/tags/翻译/" style="font-size: 12px;">翻译</a> <a href="/tags/小玩意/" style="font-size: 12px;">小玩意</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a> <a href="/tags/读书/" style="font-size: 12px;">读书</a>
             </td>
         </tr>
     </tbody>
@@ -481,7 +481,7 @@
 <td style="text-align:left">中国澳门</td>
 </tr>
 <tr>
-<td style="text-align:left">450～459 <br> 490～499</td>
+<td style="text-align:left">450～459  490～499</td>
 <td style="text-align:left">日本</td>
 </tr>
 <tr>
@@ -497,7 +497,7 @@
 <td style="text-align:left">英国</td>
 </tr>
 <tr>
-<td style="text-align:left">000～019 <br> 030～039 <br> 060～139</td>
+<td style="text-align:left">000～019  030～039  060～139</td>
 <td style="text-align:left">美国</td>
 </tr>
 <tr>
@@ -510,15 +510,29 @@
 </tr>
 <tr>
 <td style="text-align:left">978～979</td>
-<td style="text-align:left">图书</td>
+<td style="text-align:left"><a href="http://appsbarcode.com/ISBN.php">图书ISBN</a></td>
+</tr>
+<tr>
+<td style="text-align:left">977</td>
+<td style="text-align:left"><a href="http://appsbarcode.com/ISSN.php">期刊ISSN</a></td>
 </tr>
 </tbody>
 </table>
-<h4 id="ISBN是EAN-13的子集"><a href="#ISBN是EAN-13的子集" class="headerlink" title="ISBN是EAN-13的子集"></a>ISBN是EAN-13的子集</h4><p>ISBN是图书上的条形码，其实只是EAN-13的子集。前三位在<code>978～979</code>范围内。</p>
+<h3 id="ISBN是EAN-13的子集"><a href="#ISBN是EAN-13的子集" class="headerlink" title="ISBN是EAN-13的子集"></a>ISBN是EAN-13的子集</h3><p>ISBN（International Standard Book Number，国际标准书号）是非期刊书籍上的条形码，其实只是EAN-13的子集(只讨论现使用的ISBN-13)。前三位在<code>978～979</code>范围内。</p>
+<p>一个ISBN有一个或一份相应的出版物与之对应。一本书的每一版或其他的变化，能够申请到一个新的ISBN。<br>新版本如果在原来旧版的基础上没有内容上太大的变动，在出版时不会得到新的ISBN。<br>当一本书同时有平装本与精装本出版时，平装本的国际标准书号不得用于精装本，反之亦然。</p>
+<p>ISBN的编码由五个部位组成，且每部位是不定长的，有时候会使用<code>-</code>符号进行分割方便阅读:</p>
+<ul>
+<li>前三位(第一位是导入位<code>9</code>，前三位目前的范围是978～979)</li>
+<li>出版国家或者语言代码</li>
+<li>出版商代码</li>
+<li>书所分配到的号码</li>
+<li>最后一位为检查码(同EAN-13)</li>
+</ul>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="http://www.amazon.cn/gp/product/B009RSXIB4/">《编码:隐匿在计算机软硬件背后的语言》</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Universal_Product_Code#Variations">维基百科:UPC变种</a></li>
-<li><a href="https://en.wikipedia.org/wiki/International_Article_Number#Binary_encoding_of_data_digits_into_EAN-13_barcode">维基百科:EAN编码</a></li>
+<li><a href="https://en.wikipedia.org/wiki/International_Article_Number#Binary_encoding_of_data_digits_into_EAN-13_barcode">维基百科:EAN</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%9B%BD%E9%99%85%E6%A0%87%E5%87%86%E4%B9%A6%E5%8F%B7">维基百科:ISBN</a></li>
 <li><a href="http://www.appsbarcode.com/EAN-13.php">Andy’s Barcode World</a></li>
 </ul>
 
@@ -579,7 +593,7 @@
 
         
         <nav id="toc" class="sticky">
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#UPC的编码解析"><span class="toc-text">UPC的编码解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EAN的编码解析"><span class="toc-text">EAN的编码解析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#编码的兼容性扩展"><span class="toc-text">编码的兼容性扩展</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#检查码的兼容性扩展"><span class="toc-text">检查码的兼容性扩展</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#EAN前三位与国家和地区的映射关系"><span class="toc-text">EAN前三位与国家和地区的映射关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ISBN是EAN-13的子集"><span class="toc-text">ISBN是EAN-13的子集</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#UPC的编码解析"><span class="toc-text">UPC的编码解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EAN的编码解析"><span class="toc-text">EAN的编码解析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#编码的兼容性扩展"><span class="toc-text">编码的兼容性扩展</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#检查码的兼容性扩展"><span class="toc-text">检查码的兼容性扩展</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#EAN前三位与国家和地区的映射关系"><span class="toc-text">EAN前三位与国家和地区的映射关系</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ISBN是EAN-13的子集"><span class="toc-text">ISBN是EAN-13的子集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
         </nav>
         
     </div>
@@ -603,7 +617,7 @@
         
             
     <span class="sns-icon fa-stack">
-        <a target="_blank" href="https://github.com/https://github.com/wolfhong">
+        <a target="_blank" href="https://github.com/wolfhong">
             <span class="fa fa-square fa-stack-2x"></span>
             
             <span class="fa fa-github fa-stack-1x fa-inverse"></span>
