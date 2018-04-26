@@ -13,7 +13,7 @@
 
     <title>
     
-        Mac下挂载远程目录到本地 -
+        使用Emoji表情拼成汉字 -
     
     Wolfhong&#39;s Blog
     </title>
@@ -110,7 +110,7 @@
         <tr>
             <td class="tdleft">标签</td>
             <td class="tdright tab-ul tab-tags">
-                <a href="/tags/权限管理/" style="font-size: 12px;">权限管理</a> <a href="/tags/emoji/" style="font-size: 12px;">emoji</a> <a href="/tags/解决方案/" style="font-size: 12px;">解决方案</a> <a href="/tags/mac/" style="font-size: 12px;">mac</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/编码/" style="font-size: 12px;">编码</a> <a href="/tags/python/" style="font-size: 12px;">python</a> <a href="/tags/翻译/" style="font-size: 12px;">翻译</a> <a href="/tags/小玩意/" style="font-size: 12px;">小玩意</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a> <a href="/tags/读书/" style="font-size: 12px;">读书</a>
+                <a href="/tags/权限管理/" style="font-size: 12px;">权限管理</a> <a href="/tags/读书/" style="font-size: 12px;">读书</a> <a href="/tags/emoji/" style="font-size: 12px;">emoji</a> <a href="/tags/编码/" style="font-size: 12px;">编码</a> <a href="/tags/python/" style="font-size: 12px;">python</a> <a href="/tags/翻译/" style="font-size: 12px;">翻译</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/解决方案/" style="font-size: 12px;">解决方案</a> <a href="/tags/mac/" style="font-size: 12px;">mac</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a> <a href="/tags/小玩意/" style="font-size: 12px;">小玩意</a>
             </td>
         </tr>
     </tbody>
@@ -147,25 +147,25 @@
     
 <main id="content">
     <div class="container clearfix">
-        <div id="primary" >
+        <div id="primary"  class="has-toc">
             <nav class="breadcrumb-navigation">
                 <a rel="bookmark" href="/">主页</a>
                 <span class="breadcrumb-arrow fa fa-angle-right"></span>
                 <a href="/categories/其他/" title="其他" rel="category tag">其他</a>
 
                 <span class="breadcrumb-arrow fa fa-angle-right"></span>
-                Mac下挂载远程目录到本地
+                使用Emoji表情拼成汉字
             </nav>
             <article class="single-post">
                 <header class="post-header">
                     <h1 class="post-title">
-                        <a href="/posts/Mac下挂载远程目录到本地/" title="Mac下挂载远程目录到本地">Mac下挂载远程目录到本地</a>
+                        <a href="/posts/use-zh2emoji/" title="使用Emoji表情拼成汉字">使用Emoji表情拼成汉字</a>
                     </h1>
                 </header>
                 <div class="post-meta">
     <ul class="inline-ul">
         <li class="inline-li">
-            <time>2016-11-16</time>
+            <time>2016-11-23</time>
         </li>
         
         <li class="inline-li">
@@ -192,9 +192,9 @@
                 <nav class="post-tags">
                 
                     
-                    <a href="/tags/解决方案/" title="解决方案" rel="tag" class="fa fa-tag">解决方案</a>
+                    <a href="/tags/emoji/" title="emoji" rel="tag" class="fa fa-tag">emoji</a>
                     
-                    <a href="/tags/mac/" title="mac" rel="tag" class="fa fa-tag">mac</a>
+                    <a href="/tags/小玩意/" title="小玩意" rel="tag" class="fa fa-tag">小玩意</a>
                     
                 
                 </nav>
@@ -203,46 +203,57 @@
                 <div class="post-body clearfix">
                     <div class="post-content">
                         
-                        <p>挂载远程目录到本地，目的是希望能够跟查看本地文件一样，可以方便地浏览远程目录下的文件。</p>
-<p>sshfs就是能够满足这项需求的程序，不仅适用于ubuntu/centos等linux系统，也同样适用于Mac。</p>
-<p>以Mac为例，使用brew安装sshfs</p>
-<pre><code>brew install sshfs
-</code></pre><p>brew是Mac下十分常见的套件管理工具, 如果你的电脑没有安装该程序, 请参考<a href="http://brew.sh/index_zh-cn.html">Homebrew</a>进行安装。</p>
-<p>安装过程中, 你可能会遇到如下的错误:</p>
-<pre><code>sshfs: OsxfuseRequirement unsatisfied!
-Error: An unsatisfied requirement failed this build.
-</code></pre><p><img src="http://static.extremevision.com.cn/membercms/sshfs/mac_sshfs_error01.png" alt="image01"></p>
-<p>只需要按照提示一步一步操作即可.</p>
-<p>先执行<code>brew cask install osxfuse</code>. 该过程实际上是去github下载安装<code>osxfuse.dmg</code>.</p>
-<p>安装好osxfuse后，按照提示需要重启电脑(不过我试过了，不重启电脑也是可以的)。</p>
-<p>这时候再来重新执行<code>brew install sshfs</code>即可.</p>
-<p>安装sshfs结束后, 就可以使用<code>sshfs</code>挂载远程目录到本地：</p>
-<pre><code>sshfs -C -o reconnect &lt;user&gt;@&lt;host&gt;:&lt;remote_dir&gt; &lt;local_dir&gt;
-</code></pre><p>比如,我想要将远程主机192.168.1.101上的<code>/mnt/images/</code>目录，挂载到本地<code>~/Desktop/images/</code>目录下。过程中使用root账号登陆.</p>
-<pre><code>sshfs -C -o reconnect root@192.168.1.101:/mnt/images/ ~/Desktop/images/
-</code></pre><p>如果ssh不是默认的22端口,则还需要带上选项: <code>-p &lt;端口号&gt;</code></p>
-<p>挂载到本地时, 请避免挂载在根目录，或者当前角色的主目录下, 会报错。比如如下的错误操作:</p>
-<pre><code>mkdir ~/ImageFolder
-sshfs -C -o reconnect root@192.168.1.101:/mnt/images/ ~/ImageFolder/
-</code></pre><p>会看到错误提示:</p>
-<pre><code>mount_osxfuse: mount point /Users/xxxx/ImageFolder is itself on a OSXFUSE volume
-fuse: failed to mount file system: Invalid argument
-</code></pre>
+                        <p>这只是一个娱乐性的实现，纯属突发奇想。</p>
+<p>使用Emoji表情组成汉字或者简笔画，在微信、QQ的传播中甚广，就会想着要不自己也试着做出来吧.</p>
+<p>比如下图:</p>
+<p><img src="http://static.extremevision.com.cn/membercms/zh2emoji/beer_500.png?imageMogr2/thumbnail/400x" alt="image"></p>
+<h3 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h3><p>一开始想到的实现方案就是: 首先将汉字转化成白底黑字的图片, 然后将图片根据灰度值映射成不同的字符打印在终端。</p>
+<p>前者文字转图片，使用常见的绘图库非常好实现(比如python的PIL库);<br>工作量无非只是实现过程中慢慢调整排版, 以达到自己的预期效果.</p>
+<p>后者则是简单的映射关系而已: 将图片中像素点的灰度值, 映射成某个字符; 在该实现中, 对于黑底白字的图片只有两个映射关系, 黑字对应要替换的Emoji字符, 白底对应空白.</p>
+<p>该部分的python实现代码如下:</p>
+<pre><code>ascii_char = list(&apos;1234567890abcd &apos;)  # 任意多个字符,灰度值的映射区间
+
+def select_ascii_char(r, g, b):
+    &apos;&apos;&apos; 在灰度图像中,灰度值最高为255,代表白色; 最低为0,代表黑色 &apos;&apos;&apos;
+    # 把RGB转为灰度值，并且返回该灰度值对应的字符标记
+    # &apos;RGB－灰度值&apos;转换公式如下
+    gray = int((19595 * r + 38469 * g + 7472 * b) &gt;&gt; 16)
+    # ascii_char中的一个字符所能表示的灰度值区间
+    unit = 256.0 / len(ascii_char)
+    return ascii_char[int(gray/unit)]
+</code></pre><p><code>select_ascii_char</code> 就实现了将一个像素点映射成一个具体的自定义字符char.</p>
+<p>在本功能的实现中, <code>ascii_char</code>更简单, 只需要两个字符即可: 一个任意给定, 一个是空格.</p>
+<p>因此将 <code>ascii_char</code> 换成 <code>[u&#39;❤️ &#39;, u&#39;  &#39;]</code></p>
+<p>由于需要将图片的像素点映射到可在终端打印的字符, 终端的显示空间有限, 所以需要对图片进行缩小调整.</p>
+<p><code>zh2emoji</code>的代码在<a href="https://github.com/wolfhong/zh2emoji">我的github上</a>有对应的代码下载, 如果你有兴趣，可以fork后实现自己想要的更多自定义功能.</p>
+<h3 id="展示例子"><a href="#展示例子" class="headerlink" title="展示例子"></a>展示例子</h3><p>一个”茴”字我有N多种写法:</p>
+<pre><code>print image2print(word2image(u&apos;茴&apos;), u&apos;❤️ &apos;)
+print image2print(word2image(u&apos;茴&apos;), u&apos;茴&apos;, width=40)
+</code></pre><p>输出结果如下:</p>
+<p><img src="http://static.extremevision.com.cn/membercms/zh2emoji/emoji_500.png?imageMogr2/thumbnail/400x" alt="image"><br><img src="http://static.extremevision.com.cn/membercms/zh2emoji/chinese_500.png?imageMogr2/thumbnail/400x" alt="image"></p>
+<p>用😂 组成”哭”字:</p>
+<p><img src="http://static.extremevision.com.cn/membercms/zh2emoji/ku_500.png?imageMogr2/thumbnail/400x" alt="image"></p>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p>基于zh2emoji，自己实现了一个可能有点儿用的扩展: <code>demo_show_animation.py</code>.</p>
+<p>它可以将一句话在终端依次打印出来,使用你决定的Emoji或者其他字符.</p>
+<p>比如你试着执行 <code>python ./demo_show_animation.py 喜欢就点个赞呗</code>, 将在终端执行一段展示文字的动画, 展示的文字就是你刚才输入的话.</p>
+<p>如果你能够坚持看到这里, 不知道你有没有想到一些有意思的玩法不? 欢迎一起参与。编程是一种乐趣，代码是将一些头脑想法实现出来的媒介；程序员写代码，就好比作家写写文字，是一种习惯。</p>
+<p>关于Emoji的更多知识介绍，可以阅读我的另一篇正经的博客: <a href="/posts/emoji-encoding/">Emoji的编码以及常见问题的解决方法</a></p>
+
                     </div>
                 </div>
                 
 
 <div class="license-notice">
     <span>作者: </span>WOLFHONG<br>
-    <span>发布日期: </span>2016-11-16<br>
+    <span>发布日期: </span>2016-11-23<br>
 </div>
 
                 <nav class="post-tags">
                 
                     
-                    <a href="/tags/解决方案/" title="解决方案" rel="tag" class="fa fa-tag">解决方案</a>
+                    <a href="/tags/emoji/" title="emoji" rel="tag" class="fa fa-tag">emoji</a>
                     
-                    <a href="/tags/mac/" title="mac" rel="tag" class="fa fa-tag">mac</a>
+                    <a href="/tags/小玩意/" title="小玩意" rel="tag" class="fa fa-tag">小玩意</a>
                     
                 
                 </nav>
@@ -251,12 +262,12 @@ fuse: failed to mount file system: Invalid argument
         <ul id="pager">
 
     <li class="previous">
-        <a href="/posts/使用Emoji表情拼成汉字/" title="使用Emoji表情拼成汉字" class="tooltipped tooltipped-n" aria-label="使用Emoji表情拼成汉字"><span class="fa fa-chevron-left"></span> 使用Emoji表情拼成汉字</a>
+        <a href="/posts/emoji-encoding/" title="Emoji的编码以及常见问题处理" class="tooltipped tooltipped-n" aria-label="Emoji的编码以及常见问题处理"><span class="fa fa-chevron-left"></span> Emoji的编码以及常见问题处理</a>
     </li>
     
     
     <li class="next">
-        <a href="/posts/sudoers的深入介绍与用户权限控制/" title="sudoers的深入剖析与用户权限控制" class="tooltipped tooltipped-n" aria-label="sudoers的深入剖析与用户权限控制">sudoers的深入剖析与用户权限控制 <span class="fa fa-chevron-right"></span></a>
+        <a href="/posts/mac-sshfs/" title="Mac下挂载远程目录到本地" class="tooltipped tooltipped-n" aria-label="Mac下挂载远程目录到本地">Mac下挂载远程目录到本地 <span class="fa fa-chevron-right"></span></a>
     </li>
     
 </ul>
@@ -289,6 +300,10 @@ fuse: failed to mount file system: Invalid argument
 </section>
 
 
+        
+        <nav id="toc" class="sticky">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现步骤"><span class="toc-text">实现步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#展示例子"><span class="toc-text">展示例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#扩展"><span class="toc-text">扩展</span></a></li></ol>
+        </nav>
         
     </div>
 </main>

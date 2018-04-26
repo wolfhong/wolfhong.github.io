@@ -110,7 +110,7 @@
         <tr>
             <td class="tdleft">标签</td>
             <td class="tdright tab-ul tab-tags">
-                <a href="/tags/权限管理/" style="font-size: 12px;">权限管理</a> <a href="/tags/emoji/" style="font-size: 12px;">emoji</a> <a href="/tags/解决方案/" style="font-size: 12px;">解决方案</a> <a href="/tags/mac/" style="font-size: 12px;">mac</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/编码/" style="font-size: 12px;">编码</a> <a href="/tags/python/" style="font-size: 12px;">python</a> <a href="/tags/翻译/" style="font-size: 12px;">翻译</a> <a href="/tags/小玩意/" style="font-size: 12px;">小玩意</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a> <a href="/tags/读书/" style="font-size: 12px;">读书</a>
+                <a href="/tags/权限管理/" style="font-size: 12px;">权限管理</a> <a href="/tags/读书/" style="font-size: 12px;">读书</a> <a href="/tags/emoji/" style="font-size: 12px;">emoji</a> <a href="/tags/编码/" style="font-size: 12px;">编码</a> <a href="/tags/python/" style="font-size: 12px;">python</a> <a href="/tags/翻译/" style="font-size: 12px;">翻译</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/解决方案/" style="font-size: 12px;">解决方案</a> <a href="/tags/mac/" style="font-size: 12px;">mac</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a> <a href="/tags/小玩意/" style="font-size: 12px;">小玩意</a>
             </td>
         </tr>
     </tbody>
@@ -159,7 +159,7 @@
             <article class="single-post">
                 <header class="post-header">
                     <h1 class="post-title">
-                        <a href="/posts/介绍Python的魔术方法-Magic-Method/" title="介绍Python的魔术方法 - Magic Method">介绍Python的魔术方法 - Magic Method</a>
+                        <a href="/posts/intro-python-magic-method/" title="介绍Python的魔术方法 - Magic Method">介绍Python的魔术方法 - Magic Method</a>
                     </h1>
                 </header>
                 <div class="post-meta">
@@ -192,9 +192,9 @@
                 <nav class="post-tags">
                 
                     
-                    <a href="/tags/python/" title="python" rel="tag" class="fa fa-tag">python</a>
-                    
                     <a href="/tags/翻译/" title="翻译" rel="tag" class="fa fa-tag">翻译</a>
+                    
+                    <a href="/tags/python/" title="python" rel="tag" class="fa fa-tag">python</a>
                     
                 
                 </nav>
@@ -222,7 +222,7 @@
 
     def __del__(self):
         print &apos;foo __del__&apos;
-</code></pre><p>实际中,你很少会用到<code>__new__</code>，除非你希望能够控制类的创建。<br>如果要讲解<code>__new__</code>，往往需要牵扯到<code>metaclass</code>(元类)的介绍。<br>如果你有兴趣深入,可以参考我的另一篇博客: <a href="/posts/理解python的metaclass/">理解Python的metaclass</a></p>
+</code></pre><p>实际中,你很少会用到<code>__new__</code>，除非你希望能够控制类的创建。<br>如果要讲解<code>__new__</code>，往往需要牵扯到<code>metaclass</code>(元类)的介绍。<br>如果你有兴趣深入,可以参考我的另一篇博客: <a href="/posts/intro-python-metaclass/">理解Python的metaclass</a></p>
 <p>对于<code>__new__</code>的重载，<a href="https://www.python.org/download/releases/2.2/descrintro/#__new__">Python文档中</a>也有了详细的介绍。</p>
 <p>在对象的生命周期结束时, <code>__del__</code>会被调用,可以将<code>__del__</code>理解为”析构函数”.<br><code>__del__</code>定义的是当一个对象进行垃圾回收时候的行为。</p>
 <p>有一点容易被人误解, 实际上，<code>x.__del__()</code> 并不是对于<code>del x</code>的实现,但是往往执行<code>del x</code>时会调用<code>x.__del__()</code>.</p>
@@ -774,9 +774,9 @@ print &apos;callable(add)&apos;, callable(add)  # True
                 <nav class="post-tags">
                 
                     
-                    <a href="/tags/python/" title="python" rel="tag" class="fa fa-tag">python</a>
-                    
                     <a href="/tags/翻译/" title="翻译" rel="tag" class="fa fa-tag">翻译</a>
+                    
+                    <a href="/tags/python/" title="python" rel="tag" class="fa fa-tag">python</a>
                     
                 
                 </nav>
@@ -785,12 +785,12 @@ print &apos;callable(add)&apos;, callable(add)  # True
         <ul id="pager">
 
     <li class="previous">
-        <a href="/posts/crontab不能正常运行的原因分析方法/" title="crontab执行失败的多种原因" class="tooltipped tooltipped-n" aria-label="crontab执行失败的多种原因"><span class="fa fa-chevron-left"></span> crontab执行失败的多种原因</a>
+        <a href="/posts/why-crontab-not-work-as-you-want/" title="crontab执行失败的多种原因" class="tooltipped tooltipped-n" aria-label="crontab执行失败的多种原因"><span class="fa fa-chevron-left"></span> crontab执行失败的多种原因</a>
     </li>
     
     
     <li class="next">
-        <a href="/posts/理解python的metaclass/" title="理解python的metaclass" class="tooltipped tooltipped-n" aria-label="理解python的metaclass">理解python的metaclass <span class="fa fa-chevron-right"></span></a>
+        <a href="/posts/intro-python-metaclass/" title="理解python的metaclass" class="tooltipped tooltipped-n" aria-label="理解python的metaclass">理解python的metaclass <span class="fa fa-chevron-right"></span></a>
     </li>
     
 </ul>
