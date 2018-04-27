@@ -98,6 +98,8 @@
                 
                 <a href="/categories/devops/">devops</a>
                 
+                <a href="/categories/pylib/">pylib</a>
+                
                 <a href="/categories/python/">python</a>
                 
                 <a href="/categories/其他/">其他</a>
@@ -110,7 +112,7 @@
         <tr>
             <td class="tdleft">标签</td>
             <td class="tdright tab-ul tab-tags">
-                <a href="/tags/权限管理/" style="font-size: 12px;">权限管理</a> <a href="/tags/读书/" style="font-size: 12px;">读书</a> <a href="/tags/emoji/" style="font-size: 12px;">emoji</a> <a href="/tags/编码/" style="font-size: 12px;">编码</a> <a href="/tags/python/" style="font-size: 12px;">python</a> <a href="/tags/翻译/" style="font-size: 12px;">翻译</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/解决方案/" style="font-size: 12px;">解决方案</a> <a href="/tags/mac/" style="font-size: 12px;">mac</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a> <a href="/tags/小玩意/" style="font-size: 12px;">小玩意</a>
+                <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/python/" style="font-size: 12px;">python</a> <a href="/tags/emoji/" style="font-size: 12px;">emoji</a> <a href="/tags/编码/" style="font-size: 12px;">编码</a> <a href="/tags/读书/" style="font-size: 12px;">读书</a> <a href="/tags/权限管理/" style="font-size: 12px;">权限管理</a> <a href="/tags/翻译/" style="font-size: 12px;">翻译</a> <a href="/tags/解决方案/" style="font-size: 12px;">解决方案</a> <a href="/tags/mac/" style="font-size: 12px;">mac</a> <a href="/tags/pylib/" style="font-size: 12px;">pylib</a> <a href="/tags/小玩意/" style="font-size: 12px;">小玩意</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a>
             </td>
         </tr>
     </tbody>
@@ -211,25 +213,15 @@
 <p>前者文字转图片，使用常见的绘图库非常好实现(比如python的PIL库);<br>工作量无非只是实现过程中慢慢调整排版, 以达到自己的预期效果.</p>
 <p>后者则是简单的映射关系而已: 将图片中像素点的灰度值, 映射成某个字符; 在该实现中, 对于黑底白字的图片只有两个映射关系, 黑字对应要替换的Emoji字符, 白底对应空白.</p>
 <p>该部分的python实现代码如下:</p>
-<pre><code>ascii_char = list(&apos;1234567890abcd &apos;)  # 任意多个字符,灰度值的映射区间
-
-def select_ascii_char(r, g, b):
-    &apos;&apos;&apos; 在灰度图像中,灰度值最高为255,代表白色; 最低为0,代表黑色 &apos;&apos;&apos;
-    # 把RGB转为灰度值，并且返回该灰度值对应的字符标记
-    # &apos;RGB－灰度值&apos;转换公式如下
-    gray = int((19595 * r + 38469 * g + 7472 * b) &gt;&gt; 16)
-    # ascii_char中的一个字符所能表示的灰度值区间
-    unit = 256.0 / len(ascii_char)
-    return ascii_char[int(gray/unit)]
-</code></pre><p><code>select_ascii_char</code> 就实现了将一个像素点映射成一个具体的自定义字符char.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ascii_char = list(<span class="string">'1234567890abcd '</span>)  <span class="comment"># 任意多个字符,灰度值的映射区间</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">select_ascii_char</span><span class="params">(r, g, b)</span>:</span></span><br><span class="line">    <span class="string">''' 在灰度图像中,灰度值最高为255,代表白色; 最低为0,代表黑色 '''</span></span><br><span class="line">    <span class="comment"># 把RGB转为灰度值，并且返回该灰度值对应的字符标记</span></span><br><span class="line">    <span class="comment"># 'RGB－灰度值'转换公式如下</span></span><br><span class="line">    gray = int((<span class="number">19595</span> * r + <span class="number">38469</span> * g + <span class="number">7472</span> * b) &gt;&gt; <span class="number">16</span>)</span><br><span class="line">    <span class="comment"># ascii_char中的一个字符所能表示的灰度值区间</span></span><br><span class="line">    unit = <span class="number">256.0</span> / len(ascii_char)</span><br><span class="line">    <span class="keyword">return</span> ascii_char[int(gray/unit)]</span><br></pre></td></tr></table></figure>
+<p><code>select_ascii_char</code> 就实现了将一个像素点映射成一个具体的自定义字符char.</p>
 <p>在本功能的实现中, <code>ascii_char</code>更简单, 只需要两个字符即可: 一个任意给定, 一个是空格.</p>
 <p>因此将 <code>ascii_char</code> 换成 <code>[u&#39;❤️ &#39;, u&#39;  &#39;]</code></p>
 <p>由于需要将图片的像素点映射到可在终端打印的字符, 终端的显示空间有限, 所以需要对图片进行缩小调整.</p>
 <p><code>zh2emoji</code>的代码在<a href="https://github.com/wolfhong/zh2emoji">我的github上</a>有对应的代码下载, 如果你有兴趣，可以fork后实现自己想要的更多自定义功能.</p>
 <h3 id="展示例子"><a href="#展示例子" class="headerlink" title="展示例子"></a>展示例子</h3><p>一个”茴”字我有N多种写法:</p>
-<pre><code>print image2print(word2image(u&apos;茴&apos;), u&apos;❤️ &apos;)
-print image2print(word2image(u&apos;茴&apos;), u&apos;茴&apos;, width=40)
-</code></pre><p>输出结果如下:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">print</span> image2print(word2image(<span class="string">u'茴'</span>), <span class="string">u'❤️ '</span>)</span><br><span class="line"><span class="keyword">print</span> image2print(word2image(<span class="string">u'茴'</span>), <span class="string">u'茴'</span>, width=<span class="number">40</span>)</span><br></pre></td></tr></table></figure>
+<p>输出结果如下:</p>
 <p><img src="http://static.extremevision.com.cn/membercms/zh2emoji/emoji_500.png?imageMogr2/thumbnail/400x" alt="image"><br><img src="http://static.extremevision.com.cn/membercms/zh2emoji/chinese_500.png?imageMogr2/thumbnail/400x" alt="image"></p>
 <p>用😂 组成”哭”字:</p>
 <p><img src="http://static.extremevision.com.cn/membercms/zh2emoji/ku_500.png?imageMogr2/thumbnail/400x" alt="image"></p>

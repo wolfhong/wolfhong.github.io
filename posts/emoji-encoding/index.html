@@ -98,6 +98,8 @@
                 
                 <a href="/categories/devops/">devops</a>
                 
+                <a href="/categories/pylib/">pylib</a>
+                
                 <a href="/categories/python/">python</a>
                 
                 <a href="/categories/其他/">其他</a>
@@ -110,7 +112,7 @@
         <tr>
             <td class="tdleft">标签</td>
             <td class="tdright tab-ul tab-tags">
-                <a href="/tags/权限管理/" style="font-size: 12px;">权限管理</a> <a href="/tags/读书/" style="font-size: 12px;">读书</a> <a href="/tags/emoji/" style="font-size: 12px;">emoji</a> <a href="/tags/编码/" style="font-size: 12px;">编码</a> <a href="/tags/python/" style="font-size: 12px;">python</a> <a href="/tags/翻译/" style="font-size: 12px;">翻译</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/解决方案/" style="font-size: 12px;">解决方案</a> <a href="/tags/mac/" style="font-size: 12px;">mac</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a> <a href="/tags/小玩意/" style="font-size: 12px;">小玩意</a>
+                <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/python/" style="font-size: 12px;">python</a> <a href="/tags/emoji/" style="font-size: 12px;">emoji</a> <a href="/tags/编码/" style="font-size: 12px;">编码</a> <a href="/tags/读书/" style="font-size: 12px;">读书</a> <a href="/tags/权限管理/" style="font-size: 12px;">权限管理</a> <a href="/tags/翻译/" style="font-size: 12px;">翻译</a> <a href="/tags/解决方案/" style="font-size: 12px;">解决方案</a> <a href="/tags/mac/" style="font-size: 12px;">mac</a> <a href="/tags/pylib/" style="font-size: 12px;">pylib</a> <a href="/tags/小玩意/" style="font-size: 12px;">小玩意</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a>
             </td>
         </tr>
     </tbody>
@@ -222,49 +224,15 @@
 <p>VS-15 和 VS-16 加在基础Emoji字符的后面, 可以起到控制作用(前提是必须系统支持, 否则会被忽略)。</p>
 <p><img src="http://static.extremevision.com.cn/blogs/static/python_emoji_vs_wiki.png" alt="image"></p>
 <p>用一段Python代码来演示该例子:</p>
-<pre><code># -*- coding: utf-8 -*-
-# more info to see https://en.wikipedia.org/wiki/Emoji
-# 符号分别是上图(截图自wiki)中的符号, 最后再加上一个“狗”的Emoji
-sample_list = [u&apos;\u2139&apos;, u&apos;\u231B&apos;, u&apos;\u26A0&apos;, u&apos;\u2712&apos;, u&apos;\u2764&apos;, u&apos;\U0001F004&apos;, u&apos;\U0001F21A&apos;, u&apos;\U0001f436&apos;, ]
-
-# 输出原样式
-for code in sample_list:
-    print code,
-print
-print &apos;-&apos; * 20
-# 后面加上VS-15
-for code in sample_list:
-    print (code + u&apos;\uFE0E&apos;),
-print
-print &apos;-&apos; * 20
-# 后面加上VS-16
-for code in sample_list:
-    print (code + u&apos;\uFE0F&apos;),
-</code></pre><p>其输出如下图, 第一行是原样式，第二行是加上VS-15后的样式，第三行是加上VS-16后的样式:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># more info to see https://en.wikipedia.org/wiki/Emoji</span></span><br><span class="line"><span class="comment"># 符号分别是上图(截图自wiki)中的符号, 最后再加上一个“狗”的Emoji</span></span><br><span class="line">sample_list = [<span class="string">u'\u2139'</span>, <span class="string">u'\u231B'</span>, <span class="string">u'\u26A0'</span>, <span class="string">u'\u2712'</span>, <span class="string">u'\u2764'</span>, <span class="string">u'\U0001F004'</span>, <span class="string">u'\U0001F21A'</span>, <span class="string">u'\U0001f436'</span>, ]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出原样式</span></span><br><span class="line"><span class="keyword">for</span> code <span class="keyword">in</span> sample_list:</span><br><span class="line">    <span class="keyword">print</span> code,</span><br><span class="line"><span class="keyword">print</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">'-'</span> * <span class="number">20</span></span><br><span class="line"><span class="comment"># 后面加上VS-15</span></span><br><span class="line"><span class="keyword">for</span> code <span class="keyword">in</span> sample_list:</span><br><span class="line">    <span class="keyword">print</span> (code + <span class="string">u'\uFE0E'</span>),</span><br><span class="line"><span class="keyword">print</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">'-'</span> * <span class="number">20</span></span><br><span class="line"><span class="comment"># 后面加上VS-16</span></span><br><span class="line"><span class="keyword">for</span> code <span class="keyword">in</span> sample_list:</span><br><span class="line">    <span class="keyword">print</span> (code + <span class="string">u'\uFE0F'</span>),</span><br></pre></td></tr></table></figure>
+<p>其输出如下图, 第一行是原样式，第二行是加上VS-15后的样式，第三行是加上VS-16后的样式:</p>
 <p><img src="http://static.extremevision.com.cn/blogs/static/python_emoji_vs.png" alt="image"></p>
 <p>另外, 还有一些控制型的Emoji, 可以对人体肤色进行改变，改变对象仅限于”表示人身体部位的Emoji”.<br>它们分别是: <code>&lt;U+1F3FB&gt;</code> – <code>&lt;U+1F3FF&gt;</code> 共五个, 分别简称为: FITZ-1-2, FITZ-3, FITZ-4, FITZ-5, FITZ-6.</p>
 <p><img src="http://static.extremevision.com.cn/blogs/static/python_emoji_humanskin_wiki.png" alt="image"></p>
 <p>还有一个特殊的控制符: <code>&lt;U+200D&gt;</code> (ZERO WIDTH JOINER, 简写ZWJ), 起到了连接Emoji的作用, 从而将多个Emoji变成一个Emoji来显示. 同样，前提是必须系统支持, 否则会被忽略.</p>
 <p>使用Python代码演示 <code>FITZ-*</code> 和 <code>ZWJ</code>:</p>
-<pre><code># -*- coding: utf-8 -*-
-# more info to see https://en.wikipedia.org/wiki/Emoji
-
-# man_list 分别是: 男孩  女孩  男人  女人
-man_list = [u&apos;\U0001F466&apos;, u&apos;\U0001F467&apos;, u&apos;\U0001F468&apos;, u&apos;\U0001F469&apos;]
-# skin_color_list 分别是: 空字符串,表示默认  白种人 --&gt;(不断加深肤色)  黑种人
-skin_color_list = [&apos;&apos;, u&apos;\U0001F3FB&apos;, u&apos;\U0001F3FC&apos;, u&apos;\U0001F3FD&apos;, u&apos;\U0001F3FE&apos;, u&apos;\U0001F3FF&apos;, ]
-for man in man_list:
-    for color in skin_color_list:
-        print (man + color),
-    print
-    print &apos;-&apos; * 20
-
-# Emoji的连接符&lt;U+200D&gt;  (英文名为: ZERO WIDTH JOINER, 简写ZWJ )
-# 如果系统支持: 连接(男人 + ZWJ + 女人 + ZWJ + 女孩)
-print u&apos;\U0001F468&apos; + u&apos;\u200D&apos; + u&apos;\U0001F469&apos; + u&apos;\u200D&apos; + u&apos;\U0001F467&apos;
-# 如果系统不支持: 连接(狗 + ZWJ + 猫 + ZWJ + 老鼠)
-print u&apos;\U0001f436&apos; + u&apos;\u200D&apos; + u&apos;\U0001f431&apos; + u&apos;\u200D&apos; + u&apos;\U0001f42d&apos;
-</code></pre><p>其输出如下图:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># more info to see https://en.wikipedia.org/wiki/Emoji</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># man_list 分别是: 男孩  女孩  男人  女人</span></span><br><span class="line">man_list = [<span class="string">u'\U0001F466'</span>, <span class="string">u'\U0001F467'</span>, <span class="string">u'\U0001F468'</span>, <span class="string">u'\U0001F469'</span>]</span><br><span class="line"><span class="comment"># skin_color_list 分别是: 空字符串,表示默认  白种人 --&gt;(不断加深肤色)  黑种人</span></span><br><span class="line">skin_color_list = [<span class="string">''</span>, <span class="string">u'\U0001F3FB'</span>, <span class="string">u'\U0001F3FC'</span>, <span class="string">u'\U0001F3FD'</span>, <span class="string">u'\U0001F3FE'</span>, <span class="string">u'\U0001F3FF'</span>, ]</span><br><span class="line"><span class="keyword">for</span> man <span class="keyword">in</span> man_list:</span><br><span class="line">    <span class="keyword">for</span> color <span class="keyword">in</span> skin_color_list:</span><br><span class="line">        <span class="keyword">print</span> (man + color),</span><br><span class="line">    <span class="keyword">print</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'-'</span> * <span class="number">20</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Emoji的连接符&lt;U+200D&gt;  (英文名为: ZERO WIDTH JOINER, 简写ZWJ )</span></span><br><span class="line"><span class="comment"># 如果系统支持: 连接(男人 + ZWJ + 女人 + ZWJ + 女孩)</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">u'\U0001F468'</span> + <span class="string">u'\u200D'</span> + <span class="string">u'\U0001F469'</span> + <span class="string">u'\u200D'</span> + <span class="string">u'\U0001F467'</span></span><br><span class="line"><span class="comment"># 如果系统不支持: 连接(狗 + ZWJ + 猫 + ZWJ + 老鼠)</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">u'\U0001f436'</span> + <span class="string">u'\u200D'</span> + <span class="string">u'\U0001f431'</span> + <span class="string">u'\u200D'</span> + <span class="string">u'\U0001f42d'</span></span><br></pre></td></tr></table></figure>
+<p>其输出如下图:</p>
 <p><img src="http://static.extremevision.com.cn/blogs/static/python_emoji_humanskin.png" alt="image"></p>
 <p>以上内容参考自<a href="https://en.wikipedia.org/wiki/Emoji">维基百科</a></p>
 <p>对Emoji 的介绍到该小节结束, 下面内容是一些关于实际中可能遇到的技术问题的解决方法。</p>
@@ -296,27 +264,8 @@ mysql&gt; alter table &lt;table_name&gt; default charset = utf8mb4;
 &lt;U+1F680&gt; - &lt;U+1F6FF&gt;      # transport &amp; map symbols
 &lt;U+2600&gt;  - &lt;U+2B55&gt;       # other
 </code></pre><p>下面使用Python代码来演示如何使用正则表达式替换(或找出)字符串中的Emoji:</p>
-<pre><code># -*- coding: utf-8 -*-
-import re
-try:
-    # Wide UCS-4 build
-    myre = re.compile(u&apos;[&apos;
-        u&apos;\U0001F300-\U0001F64F&apos;
-        u&apos;\U0001F680-\U0001F6FF&apos;
-        u&apos;\u2600-\u2B55]+&apos;,
-        re.UNICODE)
-except re.error:
-    # Narrow UCS-2 build
-    myre = re.compile(u&apos;(&apos;
-        u&apos;\ud83c[\udf00-\udfff]|&apos;
-        u&apos;\ud83d[\udc00-\ude4f\ude80-\udeff]|&apos;
-        u&apos;[\u2600-\u2B55])+&apos;,
-        re.UNICODE)
-
-sss = u&apos;I have a dog \U0001f436 . You have a cat \U0001f431 ! I smile \U0001f601 to you!&apos;
-print myre.sub(&apos;[Emoji]&apos;, sss)  # 替换字符串中的Emoji
-print myre.findall(sss)         # 找出字符串中的Emoji
-</code></pre><p>输出如下:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment"># Wide UCS-4 build</span></span><br><span class="line">    myre = re.compile(<span class="string">u'['</span></span><br><span class="line">        <span class="string">u'\U0001F300-\U0001F64F'</span></span><br><span class="line">        <span class="string">u'\U0001F680-\U0001F6FF'</span></span><br><span class="line">        <span class="string">u'\u2600-\u2B55]+'</span>,</span><br><span class="line">        re.UNICODE)</span><br><span class="line"><span class="keyword">except</span> re.error:</span><br><span class="line">    <span class="comment"># Narrow UCS-2 build</span></span><br><span class="line">    myre = re.compile(<span class="string">u'('</span></span><br><span class="line">        <span class="string">u'\ud83c[\udf00-\udfff]|'</span></span><br><span class="line">        <span class="string">u'\ud83d[\udc00-\ude4f\ude80-\udeff]|'</span></span><br><span class="line">        <span class="string">u'[\u2600-\u2B55])+'</span>,</span><br><span class="line">        re.UNICODE)</span><br><span class="line"></span><br><span class="line">sss = <span class="string">u'I have a dog \U0001f436 . You have a cat \U0001f431 ! I smile \U0001f601 to you!'</span></span><br><span class="line"><span class="keyword">print</span> myre.sub(<span class="string">'[Emoji]'</span>, sss)  <span class="comment"># 替换字符串中的Emoji</span></span><br><span class="line"><span class="keyword">print</span> myre.findall(sss)         <span class="comment"># 找出字符串中的Emoji</span></span><br></pre></td></tr></table></figure>
+<p>输出如下:</p>
 <pre><code>I have a dog [Emoji] . You have a cat [Emoji] ! I smile [Emoji] to you!
 [u&apos;\U0001f436&apos;, u&apos;\U0001f431&apos;, u&apos;\U0001f601&apos;]
 </code></pre><p>上面例子中, 之所以使用<code>try...except...</code>来处理代码, 是考虑到 UCS-2 (Narrow UCS-2 build) 和 UCS-4 (Wide UCS-4 build) 的区别.<br>该Demo例子参考了<a href="http://stackoverflow.com/questions/26568722/remove-unicode-emoji-using-re-in-python">stackoverflow</a>上的精彩回答, 解答了我对此的困惑。</p>
