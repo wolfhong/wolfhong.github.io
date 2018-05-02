@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+
+<!-- Head tag -->
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+
+    <title>
+    
+        psutil：系统监测与进程管理 -
+    
+    Wolfhong&#39;s Blog
+    </title>
+
+    <meta name="keywords" content="Linux,IT博客,工具介绍,教程">
+    <meta name="description" content="">
+    <meta name="author" content="WOLFHONG">
+
+    
+
+    
+
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+
+    <script type="text/javascript">
+    if(!("jQuery" in window)) {
+        window._jqQ = []; // jQuery call queue
+        window.jQuery = window.$ = function() {
+            _jqQ.push(arguments);
+        };
+    }
+    </script>
+    <script id="jquery-src" src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" async onload="_jqQ.forEach(function(args){$.apply($,args)});delete window._jqQ;"></script>
+
+    
+    <script src="/js/script.js" type="text/javascript" async></script>
+
+    <!-- Global javascript config object -->
+    <script type="text/javascript">
+    var CONFIG = {
+    
+    
+    };
+    </script>
+
+    
+
+    
+    
+    
+
+    
+    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+    
+
+</head>
+
+
+<body class="page">
+    <nav id="header">
+    <div class="container clearfix">
+        <div class="logo" style="width: auto;">
+    <a href="/" title="Wolfhong&#39;s Blog" rel="home" style="text-decoration: none;">
+    
+        <span class="brand-logo">
+        
+            Wolfhong&#39;s Blog
+        
+        </span>
+    
+    </a>
+</div>
+
+        <div id="global-nav">
+            <div class="gnli ">
+                <a class="gna fa fa-home" href="/" title="Wolfhong&#39;s Blog">
+                    <span class="gn-item">主页</span>
+                </a>
+            </div>
+            <div id="dropdown" class="gnli">
+                <a class="gna fa fa-bars" href="#">
+                    <span class="gn-item">导航</span>
+                </a>
+                <table id="dropdown-menu">
+    <tbody>
+        
+        <tr class="trline">
+            <td class="tdleft">分类</td>
+            <td class="tdright tab-ul tab-categories">
+                
+                <a href="/categories/devops/">devops</a>
+                
+                <a href="/categories/python/">python</a>
+                
+                <a href="/categories/其他/">其他</a>
+                
+                <a href="/categories/读书/">读书</a>
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="tdleft">标签</td>
+            <td class="tdright tab-ul tab-tags">
+                <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/读书/" style="font-size: 12px;">读书</a> <a href="/tags/emoji/" style="font-size: 12px;">emoji</a> <a href="/tags/编码/" style="font-size: 12px;">编码</a> <a href="/tags/权限管理/" style="font-size: 12px;">权限管理</a> <a href="/tags/翻译/" style="font-size: 12px;">翻译</a> <a href="/tags/python/" style="font-size: 12px;">python</a> <a href="/tags/解决方案/" style="font-size: 12px;">解决方案</a> <a href="/tags/mac/" style="font-size: 12px;">mac</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a> <a href="/tags/小玩意/" style="font-size: 12px;">小玩意</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+            </div>
+            
+            <div class="gnli">
+                <a class="gna fa fa-archive" href="/archives/" title="" target="_self">
+                    <span class="gn-item">归档</span>
+                </a>
+            </div>
+            
+            <div class="gnli current">
+                <a class="gna fa fa-flag" href="/pythonlib/" title="" target="_self">
+                    <span class="gn-item">python库</span>
+                </a>
+            </div>
+            
+            <div class="gnli">
+                <a class="gna fa fa-user" href="/about/" title="" target="_self">
+                    <span class="gn-item">关于</span>
+                </a>
+            </div>
+            
+        </div>
+        
+<form method="get" id="search-form" action="/search.html">
+    <input type="text" name="keywords" id="search-input" placeholder="输入关键词" />
+    <button type="submit" id="search-submit">
+        <span class="fa fa-search"></span>
+    </button>
+</form>
+
+
+
+    </div>
+</nav>
+
+    
+<main id="content">
+    <div class="container clearfix">
+        <div id="primary"  class="has-toc">
+            <nav class="breadcrumb-navigation">
+                <a rel="bookmark" href="/">主页</a>
+                <span class="breadcrumb-arrow fa fa-angle-right"></span>
+                <a href="/pythonlib/" title="pythonlib" rel="category tag">pythonlib</a>
+                <span class="breadcrumb-arrow fa fa-angle-right"></span>
+                psutil：系统监测与进程管理
+            </nav>
+            <article class="single-post">
+                <header class="post-header">
+                    <h1 class="post-title">
+                        <a href="/pythonlib/psutil.html" title="psutil：系统监测与进程管理">psutil：系统监测与进程管理</a>
+                    </h1>
+                </header>
+                <div class="post-meta">
+    <ul class="inline-ul">
+        <li class="inline-li">
+            <time>2018-04-27</time>
+        </li>
+        
+        
+        <li class="inline-li">
+            <span class="post-span">·</span>
+        </li>
+        <li class="inline-li">
+            <span id="busuanzi_value_page_pv"></span> 次点击
+        </li>
+        
+    </ul>
+</div>
+
+
+                <!-- BEGIN add by wolfhong -->
+                <nav class="post-tags">
+                
+
+                </nav>
+                <!-- END wolfhong -->
+
+                <div class="post-body clearfix">
+                    <div class="post-content">
+                        
+                        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><a href="https://github.com/giampaolo/psutil">psutil</a> (process and system utilities的缩写) 是一个跨平台的Python库，可以获取到运行中的进程信息和系统状态（比如CPU，内存，磁盘，网络，传感器），主要用于系统监测，进程资源的分析和限制，进程管理等。</p>
+<p><strong>psutil</strong> 实现了很多UNIX命令工具的功能，诸如: ps, top, lsof, netstat, ifconfig, who, df, kill, free, nice, ionice, iostat, iotop, uptime, pidof, tty, taskset, pmap.</p>
+<p><strong>psutil</strong> 支持的操作系统涵盖了现在的主流: Linux, Windows, OSX, FreeBSD, OpenBSD, NetBSD, Sun Solaris, AIX. <strong>psutil</strong> 实现了对多种操作系统的统一接口封装，但有些方法和属性仅对特定操作系统有意义。</p>
+<p>完整的文档可参考<a href="http://psutil.readthedocs.io/en/latest/">ReadTheDocs</a>，这里只做Python库的简单介绍。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>pip install psutil
+</code></pre><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>诸如CPU，内存，磁盘，网络，硬件信息等常见的系统状态，<strong>psutil</strong>通通都可以监测到。下面是一些代码示例，仅仅展示了全部功能中的一部分。</p>
+<h4 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> psutil</span><br><span class="line"></span><br><span class="line">print(psutil.cpu_times())</span><br><span class="line">print(psutil.cpu_times(percpu=<span class="keyword">True</span>))</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">各模式的cpu时间消耗: </span></span><br><span class="line"><span class="string">scputimes(user=26364.73, nice=0.0, system=14061.69, idle=261071.34)</span></span><br><span class="line"><span class="string">每个cpu,各模式的cpu时间消耗: </span></span><br><span class="line"><span class="string">[scputimes(user=10182.09, nice=0.0, system=6139.7, idle=59054.21), ...]</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line">print(psutil.cpu_times_percent(interval=<span class="number">1</span>))</span><br><span class="line">print(psutil.cpu_times_percent(interval=<span class="number">1</span>, percpu=<span class="keyword">True</span>))</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">各模式cpu时间占比: </span></span><br><span class="line"><span class="string">scputimes(user=2.2, nice=0.0, system=0.7, idle=97.0)</span></span><br><span class="line"><span class="string">每个cpu,各模式的cpu占比: </span></span><br><span class="line"><span class="string">[scputimes(user=5.0, nice=0.0, system=3.0, idle=92.0), ...]</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line">print(psutil.cpu_count())</span><br><span class="line">print(psutil.cpu_count(logical=<span class="keyword">False</span>))</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">CPU的个数(逻辑上的): 4</span></span><br><span class="line"><span class="string">CPU的个数(物理上的): 2</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line">print(psutil.cpu_stats())</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">上下文切换,硬件中断,软件中断,系统调用次数: </span></span><br><span class="line"><span class="string">scpustats(ctx_switches=7943, interrupts=189022, soft_interrupts=141954044, syscalls=292696)</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line">print(psutil.cpu_freq())</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">cpu频率(当前/最大/最小)，仅Linux, OSX, Windows支持:</span></span><br><span class="line"><span class="string">scpufreq(current=1300, min=1300, max=1300)</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+<h4 id="Memory"><a href="#Memory" class="headerlink" title="Memory"></a>Memory</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> psutil</span><br><span class="line"></span><br><span class="line">print(psutil.virtual_memory())</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">内存使用状况: </span></span><br><span class="line"><span class="string">svmem(total=10367352832, available=6472179712, percent=37.6, used=8186245120, free=2181107712,</span></span><br><span class="line"><span class="string">active=4748992512, inactive=2758115328, buffers=790724608, cached=3500347392, shared=787554304)</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line">print(psutil.swap_memory())</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">swap使用状况: </span></span><br><span class="line"><span class="string">sswap(total=2097147904, used=296128512, free=1801019392, percent=14.1, sin=304193536, sout=677842944)</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+<h4 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> psutil</span><br><span class="line"></span><br><span class="line">print(psutil.disk_partitions())</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">磁盘分区信息: </span></span><br><span class="line"><span class="string">[sdiskpart(device='/dev/sda1', mountpoint='/', fstype='ext4', opts='rw,nosuid'),</span></span><br><span class="line"><span class="string">sdiskpart(device='/dev/sda2', mountpoint='/home', fstype='ext, opts='rw')]</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line">print(psutil.disk_usage(<span class="string">'/'</span>))</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">磁盘使用状况: </span></span><br><span class="line"><span class="string">sdiskusage(total=21378641920, used=4809781248, free=15482871808, percent=22.5)</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line">print(psutil.disk_io_counters(perdisk=<span class="keyword">False</span>))</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">磁盘I/O: </span></span><br><span class="line"><span class="string">sdiskio(read_count=719566, write_count=1082197, read_bytes=18626220032,</span></span><br><span class="line"><span class="string">write_bytes=24081764352, read_time=5023392, write_time=63199568, read_merged_count=619166,</span></span><br><span class="line"><span class="string">write_merged_count=812396, busy_time=4523412)</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+<h4 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> psutil</span><br><span class="line"></span><br><span class="line">print(psutil.net_io_counters(pernic=<span class="keyword">True</span>))</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">每个网卡的I/O统计信息:</span></span><br><span class="line"><span class="string">&#123;'eth0': netio(bytes_sent=485291293, bytes_recv=6004858642, packets_sent=3251564,</span></span><br><span class="line"><span class="string"> packets_recv=4787798, errin=0, errout=0, dropin=0, dropout=0),</span></span><br><span class="line"><span class="string">'lo': netio(bytes_sent=2838627, bytes_recv=2838627, packets_sent=30567,</span></span><br><span class="line"><span class="string"> packets_recv=30567, errin=0, errout=0, dropin=0, dropout=0)&#125;</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line">print(psutil.net_connections())</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">网络连接情况(主要是TCP连接):</span></span><br><span class="line"><span class="string">[sconn(fd=115, family=&lt;AddressFamily.AF_INET: 2&gt;, type=&lt;SocketType.SOCK_STREAM: 1&gt;,</span></span><br><span class="line"><span class="string"> laddr=addr(ip='10.0.0.1', port=48776), raddr=addr(ip='93.186.135.91',</span></span><br><span class="line"><span class="string"> port=80), status='ESTABLISHED', pid=1254),</span></span><br><span class="line"><span class="string">sconn(fd=117, family=&lt;AddressFamily.AF_INET: 2&gt;, type=&lt;SocketType.SOCK_STREAM: 1&gt;,</span></span><br><span class="line"><span class="string"> laddr=addr(ip='10.0.0.1', port=43761), raddr=addr(ip='72.14.234.100', port=80),</span></span><br><span class="line"><span class="string"> status='CLOSING', pid=2987),</span></span><br><span class="line"><span class="string"> ...]</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line">print(psutil.net_if_addrs())</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">网络地址信息:</span></span><br><span class="line"><span class="string">&#123;'wlan0': [snic(family=&lt;AddressFamily.AF_INET: 2&gt;, address='192.168.1.3', netmask='255.255.255.0', broadcast='192.168.1.255', ptp=None),</span></span><br><span class="line"><span class="string"> snic(family=&lt;AddressFamily.AF_INET6: 10&gt;, address='fe80::c685:8ff:fe45:641%wlan0', netmask='ffff:ffff:ffff:ffff::', broadcast=None, ptp=None),</span></span><br><span class="line"><span class="string"> snic(family=&lt;AddressFamily.AF_LINK: 17&gt;, address='c4:85:08:45:06:41', netmask=None, broadcast='ff:ff:ff:ff:ff:ff', ptp=None)]&#125;</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line">print(psutil.net_if_stats())</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">网卡状态:</span></span><br><span class="line"><span class="string">&#123;'eth0': snicstats(isup=True, duplex=&lt;NicDuplex.NIC_DUPLEX_FULL: 2&gt;, speed=100, mtu=1500),</span></span><br><span class="line"><span class="string"> 'lo': snicstats(isup=True, duplex=&lt;NicDuplex.NIC_DUPLEX_UNKNOWN: 0&gt;, speed=0, mtu=65536)&#125;</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+<h4 id="传感器-硬件信息"><a href="#传感器-硬件信息" class="headerlink" title="传感器(硬件信息)"></a>传感器(硬件信息)</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> psutil</span><br><span class="line"></span><br><span class="line">print(psutil.sensors_temperatures())</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">各硬件温度,仅Linux支持:</span></span><br><span class="line"><span class="string">&#123;'acpitz': [shwtemp(label='', current=47.0, high=103.0, critical=103.0)],</span></span><br><span class="line"><span class="string"> 'asus': [shwtemp(label='', current=47.0, high=None, critical=None)],</span></span><br><span class="line"><span class="string"> 'coretemp': [shwtemp(label='Physical id 0', current=52.0, high=100.0, critical=100.0),</span></span><br><span class="line"><span class="string">              shwtemp(label='Core 0', current=45.0, high=100.0, critical=100.0),</span></span><br><span class="line"><span class="string">              shwtemp(label='Core 1', current=52.0, high=100.0, critical=100.0),</span></span><br><span class="line"><span class="string">              shwtemp(label='Core 2', current=45.0, high=100.0, critical=100.0),</span></span><br><span class="line"><span class="string">              shwtemp(label='Core 3', current=47.0, high=100.0, critical=100.0)]&#125;</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line">print(psutil.sensors_fans())</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">硬件风扇信息,仅Linux支持:</span></span><br><span class="line"><span class="string">&#123;'asus': [sfan(label='cpu_fan', current=3200)]&#125;</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line">print(psutil.sensors_battery())</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">电池信息,仅Linux, Windows, FreeBSD支持:</span></span><br><span class="line"><span class="string">sbattery(percent=93, secsleft=16628, power_plugged=False)</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+<h4 id="其他系统信息"><a href="#其他系统信息" class="headerlink" title="其他系统信息"></a>其他系统信息</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> psutil</span><br><span class="line"></span><br><span class="line">print(psutil.users())</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">登录用户:</span></span><br><span class="line"><span class="string">[suser(name='giampaolo', terminal='pts/2', host='localhost', started=1340737536.0, pid=1352),</span></span><br><span class="line"><span class="string"> suser(name='giampaolo', terminal='pts/3', host='localhost', started=1340737792.0, pid=1788)]</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line">print(psutil.boot_time())</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">开机时间: 1365519115.0</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+<h4 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h4><p>对进程的管理是<strong>psutil</strong>的一大模块，这里只挑选了极少数的例子。更多例子请参考<a href="https://github.com/giampaolo/psutil">GitHub</a>上的例子。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> psutil</span><br><span class="line"></span><br><span class="line">p = psutil.Process(<span class="number">7055</span>)</span><br><span class="line">print(p.name())</span><br><span class="line">print(p.exe())</span><br><span class="line">print(p.cmdline())</span><br><span class="line">print(p.status())</span><br><span class="line">print(p.cpu_times())</span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">对应输出:</span></span><br><span class="line"><span class="string">'python'</span></span><br><span class="line"><span class="string">'/usr/bin/python'</span></span><br><span class="line"><span class="string">['/usr/bin/python', 'main.py']</span></span><br><span class="line"><span class="string">'running'</span></span><br><span class="line"><span class="string">pcputimes(user=1.02, system=0.31, children_user=0.32, children_system=0.1)</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line">print(p.nice())  <span class="comment"># get进程优先级</span></span><br><span class="line">p.nice(<span class="number">10</span>)  <span class="comment"># set进程优先级</span></span><br></pre></td></tr></table></figure>
+<h3 id="More"><a href="#More" class="headerlink" title="More"></a>More</h3><p>文档与更多示例参考:</p>
+<ul>
+<li><a href="http://psutil.readthedocs.io/en/latest/">ReadTheDocs</a></li>
+<li><a href="http://psutil.readthedocs.io/en/latest/#recipes">更多示例</a></li>
+<li><a href="https://github.com/giampaolo/psutil">GitHub</a></li>
+</ul>
+
+                    </div>
+                </div>
+                
+
+<div class="license-notice">
+    <span>作者: </span>WOLFHONG<br>
+    <span>发布日期: </span>2018-04-27<br>
+</div>
+
+                <nav class="post-tags">
+                
+                </nav>
+            </article>
+        </div><!-- div#primary -->
+        <ul id="pager">
+
+    
+</ul>
+
+        
+<section id="comments">
+
+    <!-- JiaThis Button BEGIN -->
+    <div class="jiathis_style">
+        <span class="jiathis_txt">分享到：</span>
+        <a class="jiathis_button_tools_1"></a>
+        <a class="jiathis_button_tools_2"></a>
+        <a class="jiathis_button_tools_3"></a>
+        <a href="http://www.jiathis.com/share?uid=2161579" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    </div>
+    <script type="text/javascript">
+    var jiathis_config = {data_track_clickback:'true'};
+    </script>
+    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2161579" charset="utf-8"></script>
+    <!-- JiaThis Button END -->
+
+    <!-- 友言评论 -->
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2161579"></script>
+    <!-- UY END -->
+
+
+    
+</section>
+
+
+        
+        <nav id="toc" class="sticky">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例"><span class="toc-text">示例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CPU"><span class="toc-text">CPU</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Memory"><span class="toc-text">Memory</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#磁盘"><span class="toc-text">磁盘</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#网络"><span class="toc-text">网络</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#传感器-硬件信息"><span class="toc-text">传感器(硬件信息)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#其他系统信息"><span class="toc-text">其他系统信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#进程管理"><span class="toc-text">进程管理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#More"><span class="toc-text">More</span></a></li></ol>
+        </nav>
+        
+    </div>
+</main>
+
+    <!-- Footer -->
+    
+<!-- #content -->
+<footer id="footer">
+    <div class="container">
+        <p>
+            &copy; 2018 Wolfhong's Blog. All Rights Reserved.
+        </p>
+        <p>Themed by <a href="https://github.com/unnamed42/hexo-theme-kunkka">Kunkka</a> | Powered by <a href="https://hexo.io/">Hexo</a>.</p>
+        
+
+
+<div class="sns-icons">
+    
+        
+        
+            
+    <span class="sns-icon fa-stack">
+        <a target="_blank" href="https://github.com/wolfhong">
+            <span class="fa fa-square fa-stack-2x"></span>
+            
+            <span class="fa fa-github fa-stack-1x fa-inverse"></span>
+            
+        </a>
+    </span>
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+</div>
+
+
+    </div>
+</footer>
+<!-- #footer -->
+
+    <div id="totop" title="送你上天">
+    <canvas id="totop-canvas" width="48" height="48"></canvas>
+    <div id="totop-percent"></div>
+</div>
+
+</body>
+
+</html>
