@@ -110,7 +110,7 @@
         <tr>
             <td class="tdleft">标签</td>
             <td class="tdright tab-ul tab-tags">
-                <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/读书/" style="font-size: 12px;">读书</a> <a href="/tags/emoji/" style="font-size: 12px;">emoji</a> <a href="/tags/编码/" style="font-size: 12px;">编码</a> <a href="/tags/权限管理/" style="font-size: 12px;">权限管理</a> <a href="/tags/翻译/" style="font-size: 12px;">翻译</a> <a href="/tags/python/" style="font-size: 12px;">python</a> <a href="/tags/解决方案/" style="font-size: 12px;">解决方案</a> <a href="/tags/mac/" style="font-size: 12px;">mac</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a> <a href="/tags/小玩意/" style="font-size: 12px;">小玩意</a>
+                <a href="/tags/权限管理/" style="font-size: 12px;">权限管理</a> <a href="/tags/读书/" style="font-size: 12px;">读书</a> <a href="/tags/emoji/" style="font-size: 12px;">emoji</a> <a href="/tags/编码/" style="font-size: 12px;">编码</a> <a href="/tags/python/" style="font-size: 12px;">python</a> <a href="/tags/翻译/" style="font-size: 12px;">翻译</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a> <a href="/tags/解决方案/" style="font-size: 12px;">解决方案</a> <a href="/tags/mac/" style="font-size: 12px;">mac</a> <a href="/tags/小玩意/" style="font-size: 12px;">小玩意</a>
             </td>
         </tr>
     </tbody>
@@ -126,7 +126,7 @@
             
             <div class="gnli current">
                 <a class="gna fa fa-flag" href="/pythonlib/" title="" target="_self">
-                    <span class="gn-item">python库</span>
+                    <span class="gn-item">PythonLib</span>
                 </a>
             </div>
             
@@ -170,7 +170,7 @@
                 <div class="post-meta">
     <ul class="inline-ul">
         <li class="inline-li">
-            <time>2018-04-27</time>
+            <time>2018-01-31</time>
         </li>
         
         
@@ -196,7 +196,7 @@
                     <div class="post-content">
                         
                         <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>prettytable/PTable是一个可以在终端快速绘制出漂亮表格的python库。也支持html格式的表格绘制。</p>
-<p>原项目prettytable托管于<a href="https://code.google.com/archive/p/prettytable/">Google Code</a>，PTable是其在<a href="https://github.com/kxxoling/PTable">GitHub</a>的一个fork，完全兼容prettytable。<br>完整的文档可参考<a href="http://ptable.readthedocs.io/en/latest/">ReadTheDocs</a>，这里只做Python库的简单介绍。</p>
+<p>原项目prettytable托管于<a href="https://code.google.com/archive/p/prettytable/">Google Code</a>，PTable是其在<a href="https://github.com/kxxoling/PTable">GitHub</a>的一个fork，完全兼容prettytable。<br>完整的文档可参考<a href="https://ptable.readthedocs.io/en/latest/">ReadTheDocs</a>，这里只做Python库的简单介绍。</p>
 <p>最常用的示例:</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> prettytable <span class="keyword">import</span> PrettyTable</span><br><span class="line">x = PrettyTable([<span class="string">u"城市名"</span>, <span class="string">u"面积"</span>, <span class="string">u"人口"</span>, <span class="string">u"年降雨量"</span>])</span><br><span class="line">x.add_row([<span class="string">"Adelaide"</span>, <span class="number">1295</span>, <span class="number">1158259</span>, <span class="number">600.5</span>])</span><br><span class="line">x.add_row([<span class="string">"Brisbane"</span>, <span class="number">5905</span>, <span class="number">1857594</span>, <span class="number">1146.4</span>])</span><br><span class="line">x.add_row([<span class="string">"Darwin"</span>, <span class="number">112</span>, <span class="number">120900</span>, <span class="number">1714.7</span>])</span><br><span class="line">x.add_row([<span class="string">"Hobart"</span>, <span class="number">1357</span>, <span class="number">205556</span>, <span class="number">619.5</span>])</span><br><span class="line">x.add_row([<span class="string">"Sydney"</span>, <span class="number">2058</span>, <span class="number">4336374</span>, <span class="number">1214.8</span>])</span><br><span class="line">x.add_row([<span class="string">"Melbourne"</span>, <span class="number">1566</span>, <span class="number">3806092</span>, <span class="number">646.9</span>])</span><br><span class="line">x.add_row([<span class="string">"Perth"</span>, <span class="number">5386</span>, <span class="number">1554769</span>, <span class="number">869.4</span>])</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
 <p>输出(有些浏览器上查看时，可能稍微有些排版错位):</p>
@@ -252,7 +252,7 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(x.get_html_string(attributes=&#123;<span class="string">"class"</span>:<span class="string">"red_table"</span>, <span class="string">"border"</span>: <span class="string">"1"</span>&#125;))</span><br></pre></td></tr></table></figure>
 <h3 id="More"><a href="#More" class="headerlink" title="More"></a>More</h3><p>文档与更多示例参考:</p>
 <ul>
-<li><a href="http://ptable.readthedocs.io/en/latest/">ReadTheDocs</a></li>
+<li><a href="https://ptable.readthedocs.io/en/latest/">ReadTheDocs</a></li>
 <li><a href="https://www.programcreek.com/python/example/58616/prettytable.PrettyTable">Python Code Example</a></li>
 <li><a href="https://pypi.org/project/PTable/">Pypi</a></li>
 <li><a href="https://code.google.com/archive/p/prettytable/">Google Code</a></li>
@@ -265,7 +265,7 @@
 
 <div class="license-notice">
     <span>作者: </span>WOLFHONG<br>
-    <span>发布日期: </span>2018-04-27<br>
+    <span>发布日期: </span>2018-01-31<br>
 </div>
 
                 <nav class="post-tags">
@@ -282,7 +282,7 @@
 <section id="comments">
 
     <!-- JiaThis Button BEGIN -->
-    <div class="jiathis_style">
+    <!-- <div class="jiathis_style">
         <span class="jiathis_txt">分享到：</span>
         <a class="jiathis_button_tools_1"></a>
         <a class="jiathis_button_tools_2"></a>
@@ -292,13 +292,13 @@
     <script type="text/javascript">
     var jiathis_config = {data_track_clickback:'true'};
     </script>
-    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2161579" charset="utf-8"></script>
+    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2161579" charset="utf-8"></script> -->
     <!-- JiaThis Button END -->
 
     <!-- 友言评论 -->
     <!-- UY BEGIN -->
-    <div id="uyan_frame"></div>
-    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2161579"></script>
+    <!-- <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2161579"></script> -->
     <!-- UY END -->
 
 

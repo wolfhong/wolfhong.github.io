@@ -110,7 +110,7 @@
         <tr>
             <td class="tdleft">标签</td>
             <td class="tdright tab-ul tab-tags">
-                <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/读书/" style="font-size: 12px;">读书</a> <a href="/tags/emoji/" style="font-size: 12px;">emoji</a> <a href="/tags/编码/" style="font-size: 12px;">编码</a> <a href="/tags/权限管理/" style="font-size: 12px;">权限管理</a> <a href="/tags/翻译/" style="font-size: 12px;">翻译</a> <a href="/tags/python/" style="font-size: 12px;">python</a> <a href="/tags/解决方案/" style="font-size: 12px;">解决方案</a> <a href="/tags/mac/" style="font-size: 12px;">mac</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a> <a href="/tags/小玩意/" style="font-size: 12px;">小玩意</a>
+                <a href="/tags/权限管理/" style="font-size: 12px;">权限管理</a> <a href="/tags/读书/" style="font-size: 12px;">读书</a> <a href="/tags/emoji/" style="font-size: 12px;">emoji</a> <a href="/tags/编码/" style="font-size: 12px;">编码</a> <a href="/tags/python/" style="font-size: 12px;">python</a> <a href="/tags/翻译/" style="font-size: 12px;">翻译</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a> <a href="/tags/解决方案/" style="font-size: 12px;">解决方案</a> <a href="/tags/mac/" style="font-size: 12px;">mac</a> <a href="/tags/小玩意/" style="font-size: 12px;">小玩意</a>
             </td>
         </tr>
     </tbody>
@@ -126,7 +126,7 @@
             
             <div class="gnli current">
                 <a class="gna fa fa-flag" href="/pythonlib/" title="" target="_self">
-                    <span class="gn-item">python库</span>
+                    <span class="gn-item">PythonLib</span>
                 </a>
             </div>
             
@@ -170,7 +170,7 @@
                 <div class="post-meta">
     <ul class="inline-ul">
         <li class="inline-li">
-            <time>2018-04-27</time>
+            <time>2018-02-01</time>
         </li>
         
         
@@ -198,7 +198,7 @@
                         <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><a href="https://github.com/giampaolo/psutil">psutil</a> (process and system utilities的缩写) 是一个跨平台的Python库，可以获取到运行中的进程信息和系统状态（比如CPU，内存，磁盘，网络，传感器），主要用于系统监测，进程资源的分析和限制，进程管理等。</p>
 <p><strong>psutil</strong> 实现了很多UNIX命令工具的功能，诸如: ps, top, lsof, netstat, ifconfig, who, df, kill, free, nice, ionice, iostat, iotop, uptime, pidof, tty, taskset, pmap.</p>
 <p><strong>psutil</strong> 支持的操作系统涵盖了现在的主流: Linux, Windows, OSX, FreeBSD, OpenBSD, NetBSD, Sun Solaris, AIX. <strong>psutil</strong> 实现了对多种操作系统的统一接口封装，但有些方法和属性仅对特定操作系统有意义。</p>
-<p>完整的文档可参考<a href="http://psutil.readthedocs.io/en/latest/">ReadTheDocs</a>，这里只做Python库的简单介绍。</p>
+<p>完整的文档可参考<a href="https://psutil.readthedocs.io/en/latest/">ReadTheDocs</a>，这里只做Python库的简单介绍。</p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>pip install psutil
 </code></pre><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>诸如CPU，内存，磁盘，网络，硬件信息等常见的系统状态，<strong>psutil</strong>通通都可以监测到。下面是一些代码示例，仅仅展示了全部功能中的一部分。</p>
 <h4 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> psutil</span><br><span class="line"></span><br><span class="line">print(psutil.cpu_times())</span><br><span class="line">print(psutil.cpu_times(percpu=<span class="keyword">True</span>))</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">各模式的cpu时间消耗: </span></span><br><span class="line"><span class="string">scputimes(user=26364.73, nice=0.0, system=14061.69, idle=261071.34)</span></span><br><span class="line"><span class="string">每个cpu,各模式的cpu时间消耗: </span></span><br><span class="line"><span class="string">[scputimes(user=10182.09, nice=0.0, system=6139.7, idle=59054.21), ...]</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line">print(psutil.cpu_times_percent(interval=<span class="number">1</span>))</span><br><span class="line">print(psutil.cpu_times_percent(interval=<span class="number">1</span>, percpu=<span class="keyword">True</span>))</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">各模式cpu时间占比: </span></span><br><span class="line"><span class="string">scputimes(user=2.2, nice=0.0, system=0.7, idle=97.0)</span></span><br><span class="line"><span class="string">每个cpu,各模式的cpu占比: </span></span><br><span class="line"><span class="string">[scputimes(user=5.0, nice=0.0, system=3.0, idle=92.0), ...]</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line">print(psutil.cpu_count())</span><br><span class="line">print(psutil.cpu_count(logical=<span class="keyword">False</span>))</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">CPU的个数(逻辑上的): 4</span></span><br><span class="line"><span class="string">CPU的个数(物理上的): 2</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line">print(psutil.cpu_stats())</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">上下文切换,硬件中断,软件中断,系统调用次数: </span></span><br><span class="line"><span class="string">scpustats(ctx_switches=7943, interrupts=189022, soft_interrupts=141954044, syscalls=292696)</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line">print(psutil.cpu_freq())</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">cpu频率(当前/最大/最小)，仅Linux, OSX, Windows支持:</span></span><br><span class="line"><span class="string">scpufreq(current=1300, min=1300, max=1300)</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
@@ -211,8 +211,8 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> psutil</span><br><span class="line"></span><br><span class="line">p = psutil.Process(<span class="number">7055</span>)</span><br><span class="line">print(p.name())</span><br><span class="line">print(p.exe())</span><br><span class="line">print(p.cmdline())</span><br><span class="line">print(p.status())</span><br><span class="line">print(p.cpu_times())</span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">对应输出:</span></span><br><span class="line"><span class="string">'python'</span></span><br><span class="line"><span class="string">'/usr/bin/python'</span></span><br><span class="line"><span class="string">['/usr/bin/python', 'main.py']</span></span><br><span class="line"><span class="string">'running'</span></span><br><span class="line"><span class="string">pcputimes(user=1.02, system=0.31, children_user=0.32, children_system=0.1)</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line">print(p.nice())  <span class="comment"># get进程优先级</span></span><br><span class="line">p.nice(<span class="number">10</span>)  <span class="comment"># set进程优先级</span></span><br></pre></td></tr></table></figure>
 <h3 id="More"><a href="#More" class="headerlink" title="More"></a>More</h3><p>文档与更多示例参考:</p>
 <ul>
-<li><a href="http://psutil.readthedocs.io/en/latest/">ReadTheDocs</a></li>
-<li><a href="http://psutil.readthedocs.io/en/latest/#recipes">更多示例</a></li>
+<li><a href="https://psutil.readthedocs.io/en/latest/">ReadTheDocs</a></li>
+<li><a href="https://psutil.readthedocs.io/en/latest/#recipes">更多示例</a></li>
 <li><a href="https://github.com/giampaolo/psutil">GitHub</a></li>
 </ul>
 
@@ -222,7 +222,7 @@
 
 <div class="license-notice">
     <span>作者: </span>WOLFHONG<br>
-    <span>发布日期: </span>2018-04-27<br>
+    <span>发布日期: </span>2018-02-01<br>
 </div>
 
                 <nav class="post-tags">
@@ -239,7 +239,7 @@
 <section id="comments">
 
     <!-- JiaThis Button BEGIN -->
-    <div class="jiathis_style">
+    <!-- <div class="jiathis_style">
         <span class="jiathis_txt">分享到：</span>
         <a class="jiathis_button_tools_1"></a>
         <a class="jiathis_button_tools_2"></a>
@@ -249,13 +249,13 @@
     <script type="text/javascript">
     var jiathis_config = {data_track_clickback:'true'};
     </script>
-    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2161579" charset="utf-8"></script>
+    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2161579" charset="utf-8"></script> -->
     <!-- JiaThis Button END -->
 
     <!-- 友言评论 -->
     <!-- UY BEGIN -->
-    <div id="uyan_frame"></div>
-    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2161579"></script>
+    <!-- <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2161579"></script> -->
     <!-- UY END -->
 
 

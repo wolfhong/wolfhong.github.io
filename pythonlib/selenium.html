@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+
+<!-- Head tag -->
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+
+    <title>
+    
+        selenium：操作浏览器冲浪 -
+    
+    Wolfhong&#39;s Blog
+    </title>
+
+    <meta name="keywords" content="Linux,IT博客,工具介绍,教程">
+    <meta name="description" content="">
+    <meta name="author" content="WOLFHONG">
+
+    
+
+    
+
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+
+    <script type="text/javascript">
+    if(!("jQuery" in window)) {
+        window._jqQ = []; // jQuery call queue
+        window.jQuery = window.$ = function() {
+            _jqQ.push(arguments);
+        };
+    }
+    </script>
+    <script id="jquery-src" src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" async onload="_jqQ.forEach(function(args){$.apply($,args)});delete window._jqQ;"></script>
+
+    
+    <script src="/js/script.js" type="text/javascript" async></script>
+
+    <!-- Global javascript config object -->
+    <script type="text/javascript">
+    var CONFIG = {
+    
+    
+    };
+    </script>
+
+    
+
+    
+    
+    
+
+    
+    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+    
+
+</head>
+
+
+<body class="page">
+    <nav id="header">
+    <div class="container clearfix">
+        <div class="logo" style="width: auto;">
+    <a href="/" title="Wolfhong&#39;s Blog" rel="home" style="text-decoration: none;">
+    
+        <span class="brand-logo">
+        
+            Wolfhong&#39;s Blog
+        
+        </span>
+    
+    </a>
+</div>
+
+        <div id="global-nav">
+            <div class="gnli ">
+                <a class="gna fa fa-home" href="/" title="Wolfhong&#39;s Blog">
+                    <span class="gn-item">主页</span>
+                </a>
+            </div>
+            <div id="dropdown" class="gnli">
+                <a class="gna fa fa-bars" href="#">
+                    <span class="gn-item">导航</span>
+                </a>
+                <table id="dropdown-menu">
+    <tbody>
+        
+        <tr class="trline">
+            <td class="tdleft">分类</td>
+            <td class="tdright tab-ul tab-categories">
+                
+                <a href="/categories/devops/">devops</a>
+                
+                <a href="/categories/python/">python</a>
+                
+                <a href="/categories/其他/">其他</a>
+                
+                <a href="/categories/读书/">读书</a>
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="tdleft">标签</td>
+            <td class="tdright tab-ul tab-tags">
+                <a href="/tags/权限管理/" style="font-size: 12px;">权限管理</a> <a href="/tags/读书/" style="font-size: 12px;">读书</a> <a href="/tags/emoji/" style="font-size: 12px;">emoji</a> <a href="/tags/编码/" style="font-size: 12px;">编码</a> <a href="/tags/python/" style="font-size: 12px;">python</a> <a href="/tags/翻译/" style="font-size: 12px;">翻译</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a> <a href="/tags/解决方案/" style="font-size: 12px;">解决方案</a> <a href="/tags/mac/" style="font-size: 12px;">mac</a> <a href="/tags/小玩意/" style="font-size: 12px;">小玩意</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+            </div>
+            
+            <div class="gnli">
+                <a class="gna fa fa-archive" href="/archives/" title="" target="_self">
+                    <span class="gn-item">归档</span>
+                </a>
+            </div>
+            
+            <div class="gnli current">
+                <a class="gna fa fa-flag" href="/pythonlib/" title="" target="_self">
+                    <span class="gn-item">PythonLib</span>
+                </a>
+            </div>
+            
+            <div class="gnli">
+                <a class="gna fa fa-user" href="/about/" title="" target="_self">
+                    <span class="gn-item">关于</span>
+                </a>
+            </div>
+            
+        </div>
+        
+<form method="get" id="search-form" action="/search.html">
+    <input type="text" name="keywords" id="search-input" placeholder="输入关键词" />
+    <button type="submit" id="search-submit">
+        <span class="fa fa-search"></span>
+    </button>
+</form>
+
+
+
+    </div>
+</nav>
+
+    
+<main id="content">
+    <div class="container clearfix">
+        <div id="primary"  class="has-toc">
+            <nav class="breadcrumb-navigation">
+                <a rel="bookmark" href="/">主页</a>
+                <span class="breadcrumb-arrow fa fa-angle-right"></span>
+                <a href="/pythonlib/" title="pythonlib" rel="category tag">pythonlib</a>
+                <span class="breadcrumb-arrow fa fa-angle-right"></span>
+                selenium：操作浏览器冲浪
+            </nav>
+            <article class="single-post">
+                <header class="post-header">
+                    <h1 class="post-title">
+                        <a href="/pythonlib/selenium.html" title="selenium：操作浏览器冲浪">selenium：操作浏览器冲浪</a>
+                    </h1>
+                </header>
+                <div class="post-meta">
+    <ul class="inline-ul">
+        <li class="inline-li">
+            <time>2018-02-03</time>
+        </li>
+        
+        
+        <li class="inline-li">
+            <span class="post-span">·</span>
+        </li>
+        <li class="inline-li">
+            <span id="busuanzi_value_page_pv"></span> 次点击
+        </li>
+        
+    </ul>
+</div>
+
+
+                <!-- BEGIN add by wolfhong -->
+                <nav class="post-tags">
+                
+
+                </nav>
+                <!-- END wolfhong -->
+
+                <div class="post-body clearfix">
+                    <div class="post-content">
+                        
+                        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Selenium的用处非常广泛，诸如网络监测、网页拨测、网页截屏、无需浏览器的Web测试、页面访问自动化等都可以实现。 简单概括就是，你在浏览器上能做的事情，它几乎都可以完成。它可以模拟你来操作网页。</p>
+<p>Selenium官方将自己定位为“浏览器自动化框架和生态系统”。</p>
+<p>Selenium由<a href="https://en.wikipedia.org/wiki/Selenium_(software)">多个组件</a>组成，包括:</p>
+<ul>
+<li>Selenium IDE</li>
+<li>Selenium Client API</li>
+<li>Selenium WebDriver</li>
+<li>Selenium Remote Control</li>
+<li>Selenium Grid</li>
+</ul>
+<h4 id="Selenium-IDE"><a href="#Selenium-IDE" class="headerlink" title="Selenium IDE"></a>Selenium IDE</h4><p>Selenium IDE是一个用于Selenium测试的完整集成开发环境（IDE）, 它作为浏览器插件被实现出来，集成了录制、播放、编辑、调试等功能，还可以导出多种语言的Selenium脚本。 有Selenium IDE的辅助，你可以录制你在浏览器上的操作，然后导出代码，以便以后重演。<br>Selenium IDE目前有火狐和Chrome版本的插件，可以在<a href="https://www.seleniumhq.org/download/">官网下载页面</a>上下载到。</p>
+<p>后面的”其他扩展”中还会提到一个非官方的Selenium IDE: <em>Katalon Recorder</em>，有兴趣可以了解下。</p>
+<p><center><strong>Chrome浏览器上执行录制功能</strong></center><br><img src="/images/selenium-chrome.png" alt="image"></p>
+<p><center><strong>Firefox浏览器上执行导出代码</strong></center><br><img src="/images/selenium-firefox.png" alt="image"></p>
+<h4 id="Selenium-Client-API"><a href="#Selenium-Client-API" class="headerlink" title="Selenium Client API"></a>Selenium Client API</h4><p>Selenium测试也可以用各种编程语言编写，这些测试通过调用Selenium Client API中的方法与Selenium进行通信。后面的”示例”，就是使用Python语言，调用Selenium Client API，从而发送指令给Selenium WebDriver，进而操作浏览器。</p>
+<p>其他组成部分省略不讲，这里只做Python库的简单介绍。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>pip install selenium
+</code></pre><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="一个常见的示例"><a href="#一个常见的示例" class="headerlink" title="一个常见的示例"></a>一个常见的示例</h4><p>下面示例中，Selenium将打开火狐浏览器，访问 <em><a href="http://www.python.org">http://www.python.org</a></em> 网址，断言”Python”字符串会出现在网页的标题上。接着找到 <em>name=”q”</em> 的搜索框，在搜索框中输入”pycon”字符串，按下回车键，断言”No results found.”不会出现在刷新的页面中。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.keys <span class="keyword">import</span> Keys</span><br><span class="line"></span><br><span class="line">driver = webdriver.Firefox()</span><br><span class="line">driver.get(<span class="string">"http://www.python.org"</span>)</span><br><span class="line"><span class="keyword">assert</span> <span class="string">"Python"</span> <span class="keyword">in</span> driver.title</span><br><span class="line">elem = driver.find_element_by_name(<span class="string">"q"</span>)</span><br><span class="line">elem.clear()</span><br><span class="line">elem.send_keys(<span class="string">"pycon"</span>)</span><br><span class="line">elem.send_keys(Keys.RETURN)</span><br><span class="line"><span class="keyword">assert</span> <span class="string">"No results found."</span> <span class="keyword">not</span> <span class="keyword">in</span> driver.page_source</span><br><span class="line">driver.close()</span><br></pre></td></tr></table></figure>
+<h4 id="运行JavaScript代码"><a href="#运行JavaScript代码" class="headerlink" title="运行JavaScript代码"></a>运行JavaScript代码</h4><p>如果需要在浏览器中执行JavaScript代码，可以使用<code>execute_script</code>方法。比如，需要将滚动条滚动到页面最下方时，可以参考如下示例:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">driver.execute_script(<span class="string">"window.scrollTo(0, document.body.scrollHeight);"</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="remote-WebDriver"><a href="#remote-WebDriver" class="headerlink" title="remote WebDriver"></a>remote WebDriver</h4><p>如果需要在远程运行WebDriver，在另一台电脑上调用Client API，可以参考如下示例。</p>
+<p>在服务器端执行:</p>
+<pre><code>java -jar selenium-server-standalone-2.x.x.jar
+</code></pre><p>如果执行成功，将看到类似的输出:</p>
+<pre><code>15:43:07.541 INFO - RemoteWebDriver instances should connect to: http://127.0.0.1:4444/wd/hub
+</code></pre><p>之后，客户端就可以采用如下示例来调用remote WebDriver:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.desired_capabilities <span class="keyword">import</span> DesiredCapabilities</span><br><span class="line"></span><br><span class="line">driver = webdriver.Remote(</span><br><span class="line">   command_executor=<span class="string">'http://127.0.0.1:4444/wd/hub'</span>,</span><br><span class="line">   desired_capabilities=DesiredCapabilities.CHROME)</span><br><span class="line"></span><br><span class="line">driver = webdriver.Remote(</span><br><span class="line">   command_executor=<span class="string">'http://127.0.0.1:4444/wd/hub'</span>,</span><br><span class="line">   desired_capabilities=DesiredCapabilities.OPERA)</span><br><span class="line"></span><br><span class="line">driver = webdriver.Remote(</span><br><span class="line">   command_executor=<span class="string">'http://127.0.0.1:4444/wd/hub'</span>,</span><br><span class="line">   desired_capabilities=DesiredCapabilities.HTMLUNITWITHJS)</span><br></pre></td></tr></table></figure>
+<h3 id="More"><a href="#More" class="headerlink" title="More"></a>More</h3><p>文档与更多示例参考:</p>
+<ul>
+<li><a href="https://github.com/SeleniumHQ/selenium">GitHub</a></li>
+<li><a href="https://selenium-python.readthedocs.io/getting-started.html">ReadTheDocs英文文档</a></li>
+<li><a href="https://python-selenium-zh.readthedocs.io/zh_CN/latest/">ReadTheDocs中文文档</a>(质量取决于翻译者)</li>
+<li><a href="https://docs.seleniumhq.org/docs/">官方文档</a></li>
+</ul>
+<h3 id="其他扩展"><a href="#其他扩展" class="headerlink" title="其他扩展"></a>其他扩展</h3><h4 id="PhantonJS"><a href="#PhantonJS" class="headerlink" title="PhantonJS"></a>PhantonJS</h4><p><a href="http://phantomjs.org/quick-start.html">PhantomJS</a>是一个基于webkit的JavaScript API。 它使用QtWebKit作为它核心浏览器的功能，使用webkit来编译解释执行JavaScript代码。 任何你可以在基于webkit浏览器做的事情，它都能做到。它是个隐形的浏览器，提供了诸如CSS选择器、支持Web标准、DOM操作、JSON、HTML5、Canvas、SVG等。<br>PhantomJS的应用场景与Selenium类似，有兴趣的可以了解并对比两者。</p>
+<h4 id="Katalon-Recorder"><a href="#Katalon-Recorder" class="headerlink" title="Katalon Recorder"></a>Katalon Recorder</h4><p>Katalon Studio公司推出了自己的Selenium IDE，作为Chrome浏览器的插件实现，Firefox上暂时没有实现。<br><strong>Katalon Recorder</strong>可以从<a href="https://chrome.google.com/webstore/detail/katalon-recorder-selenium/ljdobmomdgdljniojadhoplhkpialdid">Chrome Store</a>上下载到。<br>Katalon Studio将其定位为最好用的Selenium IDE，实现了录制、播放、debug、快速导出到Selenium WebDriver脚本等功能。<br>个人觉得，<strong>Katalon Recorder</strong>的确比官方的<strong>Selenium IDE</strong>好用，有兴趣可以试试。</p>
+
+                    </div>
+                </div>
+                
+
+<div class="license-notice">
+    <span>作者: </span>WOLFHONG<br>
+    <span>发布日期: </span>2018-02-03<br>
+</div>
+
+                <nav class="post-tags">
+                
+                </nav>
+            </article>
+        </div><!-- div#primary -->
+        <ul id="pager">
+
+    
+</ul>
+
+        
+<section id="comments">
+
+    <!-- JiaThis Button BEGIN -->
+    <!-- <div class="jiathis_style">
+        <span class="jiathis_txt">分享到：</span>
+        <a class="jiathis_button_tools_1"></a>
+        <a class="jiathis_button_tools_2"></a>
+        <a class="jiathis_button_tools_3"></a>
+        <a href="http://www.jiathis.com/share?uid=2161579" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    </div>
+    <script type="text/javascript">
+    var jiathis_config = {data_track_clickback:'true'};
+    </script>
+    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2161579" charset="utf-8"></script> -->
+    <!-- JiaThis Button END -->
+
+    <!-- 友言评论 -->
+    <!-- UY BEGIN -->
+    <!-- <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2161579"></script> -->
+    <!-- UY END -->
+
+
+    
+</section>
+
+
+        
+        <nav id="toc" class="sticky">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Selenium-IDE"><span class="toc-text">Selenium IDE</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Selenium-Client-API"><span class="toc-text">Selenium Client API</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例"><span class="toc-text">示例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一个常见的示例"><span class="toc-text">一个常见的示例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#运行JavaScript代码"><span class="toc-text">运行JavaScript代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#remote-WebDriver"><span class="toc-text">remote WebDriver</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#More"><span class="toc-text">More</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他扩展"><span class="toc-text">其他扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#PhantonJS"><span class="toc-text">PhantonJS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Katalon-Recorder"><span class="toc-text">Katalon Recorder</span></a></li></ol></li></ol>
+        </nav>
+        
+    </div>
+</main>
+
+    <!-- Footer -->
+    
+<!-- #content -->
+<footer id="footer">
+    <div class="container">
+        <p>
+            &copy; 2018 Wolfhong's Blog. All Rights Reserved.
+        </p>
+        <p>Themed by <a href="https://github.com/unnamed42/hexo-theme-kunkka">Kunkka</a> | Powered by <a href="https://hexo.io/">Hexo</a>.</p>
+        
+
+
+<div class="sns-icons">
+    
+        
+        
+            
+    <span class="sns-icon fa-stack">
+        <a target="_blank" href="https://github.com/wolfhong">
+            <span class="fa fa-square fa-stack-2x"></span>
+            
+            <span class="fa fa-github fa-stack-1x fa-inverse"></span>
+            
+        </a>
+    </span>
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+</div>
+
+
+    </div>
+</footer>
+<!-- #footer -->
+
+    <div id="totop" title="送你上天">
+    <canvas id="totop-canvas" width="48" height="48"></canvas>
+    <div id="totop-percent"></div>
+</div>
+
+</body>
+
+</html>

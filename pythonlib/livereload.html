@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+
+<!-- Head tag -->
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+
+    <title>
+    
+        livereload：文件改动监视与web开发利器 -
+    
+    Wolfhong&#39;s Blog
+    </title>
+
+    <meta name="keywords" content="Linux,IT博客,工具介绍,教程">
+    <meta name="description" content="">
+    <meta name="author" content="WOLFHONG">
+
+    
+
+    
+
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+
+    <script type="text/javascript">
+    if(!("jQuery" in window)) {
+        window._jqQ = []; // jQuery call queue
+        window.jQuery = window.$ = function() {
+            _jqQ.push(arguments);
+        };
+    }
+    </script>
+    <script id="jquery-src" src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" async onload="_jqQ.forEach(function(args){$.apply($,args)});delete window._jqQ;"></script>
+
+    
+    <script src="/js/script.js" type="text/javascript" async></script>
+
+    <!-- Global javascript config object -->
+    <script type="text/javascript">
+    var CONFIG = {
+    
+    
+    };
+    </script>
+
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        showProcessingMessages: false,
+        jax: ["input/TeX","output/HTML-CSS", "output/PreviewHTML"],
+        extensions: ["tex2jax.js", "fast-preview.js", "AssistiveMML.js" /*"MathMenu.js", "MathZoom.js", "[Contrib]/a11y/accessibility-menu.js"*/ ],
+        TeX: {
+            extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+        },
+        tex2jax: {
+            inlineMath: [['$','$']],
+            displayMath: [['$$','$$']],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        },
+        "HTML-CSS": {linebreaks: {automatic: true}}
+    });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.2/MathJax.js?config=TeX-AMS_SVG" async></script>
+    
+    
+
+    
+    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+    
+
+</head>
+
+
+<body class="page">
+    <nav id="header">
+    <div class="container clearfix">
+        <div class="logo" style="width: auto;">
+    <a href="/" title="Wolfhong&#39;s Blog" rel="home" style="text-decoration: none;">
+    
+        <span class="brand-logo">
+        
+            Wolfhong&#39;s Blog
+        
+        </span>
+    
+    </a>
+</div>
+
+        <div id="global-nav">
+            <div class="gnli ">
+                <a class="gna fa fa-home" href="/" title="Wolfhong&#39;s Blog">
+                    <span class="gn-item">主页</span>
+                </a>
+            </div>
+            <div id="dropdown" class="gnli">
+                <a class="gna fa fa-bars" href="#">
+                    <span class="gn-item">导航</span>
+                </a>
+                <table id="dropdown-menu">
+    <tbody>
+        
+        <tr class="trline">
+            <td class="tdleft">分类</td>
+            <td class="tdright tab-ul tab-categories">
+                
+                <a href="/categories/devops/">devops</a>
+                
+                <a href="/categories/python/">python</a>
+                
+                <a href="/categories/其他/">其他</a>
+                
+                <a href="/categories/读书/">读书</a>
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="tdleft">标签</td>
+            <td class="tdright tab-ul tab-tags">
+                <a href="/tags/权限管理/" style="font-size: 12px;">权限管理</a> <a href="/tags/读书/" style="font-size: 12px;">读书</a> <a href="/tags/emoji/" style="font-size: 12px;">emoji</a> <a href="/tags/编码/" style="font-size: 12px;">编码</a> <a href="/tags/python/" style="font-size: 12px;">python</a> <a href="/tags/翻译/" style="font-size: 12px;">翻译</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a> <a href="/tags/解决方案/" style="font-size: 12px;">解决方案</a> <a href="/tags/mac/" style="font-size: 12px;">mac</a> <a href="/tags/小玩意/" style="font-size: 12px;">小玩意</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+            </div>
+            
+            <div class="gnli">
+                <a class="gna fa fa-archive" href="/archives/" title="" target="_self">
+                    <span class="gn-item">归档</span>
+                </a>
+            </div>
+            
+            <div class="gnli current">
+                <a class="gna fa fa-flag" href="/pythonlib/" title="" target="_self">
+                    <span class="gn-item">PythonLib</span>
+                </a>
+            </div>
+            
+            <div class="gnli">
+                <a class="gna fa fa-user" href="/about/" title="" target="_self">
+                    <span class="gn-item">关于</span>
+                </a>
+            </div>
+            
+        </div>
+        
+<form method="get" id="search-form" action="/search.html">
+    <input type="text" name="keywords" id="search-input" placeholder="输入关键词" />
+    <button type="submit" id="search-submit">
+        <span class="fa fa-search"></span>
+    </button>
+</form>
+
+
+
+    </div>
+</nav>
+
+    
+<main id="content">
+    <div class="container clearfix">
+        <div id="primary"  class="has-toc">
+            <nav class="breadcrumb-navigation">
+                <a rel="bookmark" href="/">主页</a>
+                <span class="breadcrumb-arrow fa fa-angle-right"></span>
+                <a href="/pythonlib/" title="pythonlib" rel="category tag">pythonlib</a>
+                <span class="breadcrumb-arrow fa fa-angle-right"></span>
+                livereload：文件改动监视与web开发利器
+            </nav>
+            <article class="single-post">
+                <header class="post-header">
+                    <h1 class="post-title">
+                        <a href="/pythonlib/livereload.html" title="livereload：文件改动监视与web开发利器">livereload：文件改动监视与web开发利器</a>
+                    </h1>
+                </header>
+                <div class="post-meta">
+    <ul class="inline-ul">
+        <li class="inline-li">
+            <time>2018-02-02</time>
+        </li>
+        
+        
+        <li class="inline-li">
+            <span class="post-span">·</span>
+        </li>
+        <li class="inline-li">
+            <span id="busuanzi_value_page_pv"></span> 次点击
+        </li>
+        
+    </ul>
+</div>
+
+
+                <!-- BEGIN add by wolfhong -->
+                <nav class="post-tags">
+                
+
+                </nav>
+                <!-- END wolfhong -->
+
+                <div class="post-body clearfix">
+                    <div class="post-content">
+                        
+                        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><a href="https://github.com/lepture/python-livereload">LiveReload</a>会监视指定目录下的文件变更，只要文件有变更保存，LiveReload就会执行指定的命令（比如是<code>make</code>，<code>build</code>之类的操作）。同时，LiveReload包含了一个静态服务器，默认访问 <strong><a href="http://localhost:5500">http://localhost:5500</a></strong> 即可查看。</p>
+<p>完整的文档可参考<a href="https://livereload.readthedocs.io/en/latest/">ReadTheDocs</a>，这里只做Python库的简单介绍。</p>
+<p>这里举例谈一个应用场景，是我在编写<a href="http://www.sphinx-doc.org/">sphinx</a>文档时遇到的：编辑sphinx文档时，总希望能够及时在浏览器中看到编辑后的页面效果，但是从rst文件转html文件，需要执行<code>make html</code>命令。频繁的操作很琐碎，因此需要LiveReload来替代这项工作。当工作目录中的rst文件发生变化，自动帮我执行<code>make html</code>命令。<br>示例如下(假设工作目录命名为<em>docs/</em>)：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> livereload <span class="keyword">import</span> Server, shell</span><br><span class="line">server = Server()</span><br><span class="line">server.watch(<span class="string">'docs/*.rst'</span>, shell(<span class="string">'make html'</span>, cwd=<span class="string">'docs'</span>))</span><br><span class="line">server.serve(root=<span class="string">'docs/_build/html'</span>)</span><br></pre></td></tr></table></figure>
+<p><code>server.watch</code> 监视了<em>docs/</em>目录下的所有rst文件，每当文件有变更，在<code>cwd=&#39;docs&#39;</code>指定的目录中，执行<code>shell(&#39;make html&#39;)</code>中指定的命令。</p>
+<p>运行上述脚本，打开浏览器访问 <a href="http://localhost:5500">http://localhost:5500</a> ，就可以实时查看到文档变更。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>pip install livereload
+</code></pre><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="命令行工具"><a href="#命令行工具" class="headerlink" title="命令行工具"></a>命令行工具</h4><p>Python-LiveReload 提供了一个命令行工具: <code>livereload</code>，提供了类似上述脚本的功能，但默认启动<strong>35729</strong>端口。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> livereload --help</span><br><span class="line">usage: livereload [-h] [-p PORT] [-w WAIT] [directory]</span><br><span class="line"></span><br><span class="line">Start a `livereload` server</span><br><span class="line"></span><br><span class="line">positional arguments:</span><br><span class="line">  directory             Directory to watch for changes</span><br><span class="line"></span><br><span class="line">optional arguments:</span><br><span class="line">  -h, --help            show this help message and exit</span><br><span class="line">  -p PORT, --port PORT  Port to run `livereload` server on</span><br><span class="line">  -w WAIT, --wait WAIT  Time delay before reloading</span><br></pre></td></tr></table></figure>
+<h4 id="Server-wsgi-app"><a href="#Server-wsgi-app" class="headerlink" title="Server(wsgi-app)"></a>Server(wsgi-app)</h4><p>Python-LiveReload是为web开发者设计的，支持接入wsgi application.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> livereload <span class="keyword">import</span> Server, shell</span><br><span class="line"></span><br><span class="line">server = Server(wsgi_app)</span><br><span class="line"></span><br><span class="line"><span class="comment"># run a shell command</span></span><br><span class="line">server.watch(<span class="string">'static/*.stylus'</span>, <span class="string">'make static'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># run a function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">alert</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">'foo'</span>)</span><br><span class="line">server.watch(<span class="string">'foo.txt'</span>, alert)</span><br><span class="line"></span><br><span class="line"><span class="comment"># output stdout into a file</span></span><br><span class="line">server.watch(<span class="string">'style.less'</span>, shell(<span class="string">'lessc style.less'</span>, output=<span class="string">'style.css'</span>))</span><br><span class="line"></span><br><span class="line">server.serve()</span><br></pre></td></tr></table></figure>
+<h4 id="server-watch"><a href="#server-watch" class="headerlink" title="server.watch"></a>server.watch</h4><p><code>server.watch</code> 可以监视具体的文件路径，或者目录，或者glob pattern:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">server.watch(<span class="string">'path/to/file.txt'</span>)</span><br><span class="line">server.watch(<span class="string">'directory/path/'</span>)</span><br><span class="line">server.watch(<span class="string">'glob/*.pattern'</span>)</span><br></pre></td></tr></table></figure>
+<p>你也可以使用其他的库（比如<code>formic</code>） 来提供更强大的功能:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> filepath <span class="keyword">in</span> formic.FileSet(include=<span class="string">"**.css"</span>):</span><br><span class="line">    server.watch(filepath, <span class="string">'make css'</span>)</span><br></pre></td></tr></table></figure>
+<p><code>server.watch</code>还支持一个<code>delay</code>参数，单位为秒，表示文件变更后延迟多久才发送reload信号:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># delay 2 seconds for reloading</span></span><br><span class="line">server.watch(<span class="string">'path/to/file'</span>, delay=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="server-serve"><a href="#server-serve" class="headerlink" title="server.serve"></a>server.serve</h4><p><code>server.serve</code> 用于启动服务器，下面是该方法的调用示例:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># use default settings</span></span><br><span class="line">server.serve()</span><br><span class="line"></span><br><span class="line"><span class="comment"># livereload on another port</span></span><br><span class="line">server.serve(liveport=<span class="number">35729</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># use custom host and port</span></span><br><span class="line">server.serve(port=<span class="number">8080</span>, host=<span class="string">'localhost'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># open the web browser on startup, based on $BROWSER environment variable</span></span><br><span class="line">server.serve(open_url=<span class="keyword">True</span>, debug=<span class="keyword">False</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h4><p>使用<code>shel</code>函数，可以帮你执行一些shell命令，配合<code>server.watch</code>一起使用:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># you can redirect command output to a file</span></span><br><span class="line">server.watch(<span class="string">'style.less'</span>, shell(<span class="string">'lessc style.less'</span>, output=<span class="string">'style.css'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># commands can be a list</span></span><br><span class="line">server.watch(<span class="string">'style.less'</span>, shell([<span class="string">'lessc'</span>, <span class="string">'style.less'</span>], output=<span class="string">'style.css'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># working with Makefile</span></span><br><span class="line">server.watch(<span class="string">'assets/*.styl'</span>, shell(<span class="string">'make assets'</span>, cwd=<span class="string">'assets'</span>))</span><br></pre></td></tr></table></figure>
+<h4 id="框架集成"><a href="#框架集成" class="headerlink" title="框架集成"></a>框架集成</h4><p>Python-LiveReload支持与其他的web框架无缝对接，如Django、Flask、Bottle等，不过这些框架往往自带了类似LiveReload的功能，权当了解即可。<br>以Flask为例:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># app is a Flask object</span></span><br><span class="line">app = create_app()</span><br><span class="line"><span class="comment"># remember to use DEBUG mode for templates auto reload</span></span><br><span class="line"><span class="comment"># https://github.com/lepture/python-livereload/issues/144</span></span><br><span class="line">app.debug = <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">server = Server(app.wsgi_app)</span><br><span class="line"><span class="comment"># server.watch</span></span><br><span class="line">server.serve()</span><br></pre></td></tr></table></figure>
+<h3 id="More"><a href="#More" class="headerlink" title="More"></a>More</h3><p>文档与更多示例参考:</p>
+<ul>
+<li><a href="https://github.com/lepture/python-livereload">GitHub</a></li>
+<li><a href="https://livereload.readthedocs.io/en/latest/">ReadTheDocs</a></li>
+</ul>
+<h3 id="其他扩展"><a href="#其他扩展" class="headerlink" title="其他扩展"></a>其他扩展</h3><h4 id="sphinx-autobuild"><a href="#sphinx-autobuild" class="headerlink" title="sphinx-autobuild"></a>sphinx-autobuild</h4><p>本文开始的例子中，我提到了编辑sphinx文档时遇到的麻烦，后来发现有现成的解决方案：<a href="https://pypi.org/project/sphinx-autobuild/">sphinx-autobuild</a></p>
+<p>你只需要安装sphinx-autobuild：</p>
+<pre><code>pip install sphinx-autobuild
+</code></pre><p>在工作目录<em>docs/</em>外运行:</p>
+<pre><code>sphinx-autobuild docs docs/_build/html
+</code></pre><p>之后打开浏览器访问： <a href="http://localhost:8000/">http://localhost:8000/</a></p>
+<h4 id="商业的LiveReload"><a href="#商业的LiveReload" class="headerlink" title="商业的LiveReload"></a>商业的LiveReload</h4><p>这是一家公司的商业化产品，并且进行了开源，与本文介绍的Python-LiveReload并无关系。<br>可以在其<a href="http://livereload.com/">官网</a>上下载到。它提供了更加便捷的功能，有兴趣可以了解下。</p>
+<p><img src="http://static2.extremevision.com.cn/blogimage/livereload.png" alt="image"></p>
+
+                    </div>
+                </div>
+                
+
+<div class="license-notice">
+    <span>作者: </span>WOLFHONG<br>
+    <span>发布日期: </span>2018-02-02<br>
+</div>
+
+                <nav class="post-tags">
+                
+                </nav>
+            </article>
+        </div><!-- div#primary -->
+        <ul id="pager">
+
+    
+</ul>
+
+        
+<section id="comments">
+
+    <!-- JiaThis Button BEGIN -->
+    <!-- <div class="jiathis_style">
+        <span class="jiathis_txt">分享到：</span>
+        <a class="jiathis_button_tools_1"></a>
+        <a class="jiathis_button_tools_2"></a>
+        <a class="jiathis_button_tools_3"></a>
+        <a href="http://www.jiathis.com/share?uid=2161579" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    </div>
+    <script type="text/javascript">
+    var jiathis_config = {data_track_clickback:'true'};
+    </script>
+    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2161579" charset="utf-8"></script> -->
+    <!-- JiaThis Button END -->
+
+    <!-- 友言评论 -->
+    <!-- UY BEGIN -->
+    <!-- <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2161579"></script> -->
+    <!-- UY END -->
+
+
+    
+</section>
+
+
+        
+        <nav id="toc" class="sticky">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例"><span class="toc-text">示例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#命令行工具"><span class="toc-text">命令行工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Server-wsgi-app"><span class="toc-text">Server(wsgi-app)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#server-watch"><span class="toc-text">server.watch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#server-serve"><span class="toc-text">server.serve</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#shell"><span class="toc-text">shell</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#框架集成"><span class="toc-text">框架集成</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#More"><span class="toc-text">More</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他扩展"><span class="toc-text">其他扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#sphinx-autobuild"><span class="toc-text">sphinx-autobuild</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#商业的LiveReload"><span class="toc-text">商业的LiveReload</span></a></li></ol></li></ol>
+        </nav>
+        
+    </div>
+</main>
+
+    <!-- Footer -->
+    
+<!-- #content -->
+<footer id="footer">
+    <div class="container">
+        <p>
+            &copy; 2018 Wolfhong's Blog. All Rights Reserved.
+        </p>
+        <p>Themed by <a href="https://github.com/unnamed42/hexo-theme-kunkka">Kunkka</a> | Powered by <a href="https://hexo.io/">Hexo</a>.</p>
+        
+
+
+<div class="sns-icons">
+    
+        
+        
+            
+    <span class="sns-icon fa-stack">
+        <a target="_blank" href="https://github.com/wolfhong">
+            <span class="fa fa-square fa-stack-2x"></span>
+            
+            <span class="fa fa-github fa-stack-1x fa-inverse"></span>
+            
+        </a>
+    </span>
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+</div>
+
+
+    </div>
+</footer>
+<!-- #footer -->
+
+    <div id="totop" title="送你上天">
+    <canvas id="totop-canvas" width="48" height="48"></canvas>
+    <div id="totop-percent"></div>
+</div>
+
+</body>
+
+</html>
