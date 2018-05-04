@@ -13,7 +13,7 @@
 
     <title>
     
-        Python每日一库哟 -
+        virtualenvwrapper/virtualenv：隔离的虚拟环境 -
     
     Wolfhong&#39;s Blog
     </title>
@@ -54,6 +54,25 @@
     
 
     
+    
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        showProcessingMessages: false,
+        jax: ["input/TeX","output/HTML-CSS", "output/PreviewHTML"],
+        extensions: ["tex2jax.js", "fast-preview.js", "AssistiveMML.js" /*"MathMenu.js", "MathZoom.js", "[Contrib]/a11y/accessibility-menu.js"*/ ],
+        TeX: {
+            extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+        },
+        tex2jax: {
+            inlineMath: [['$','$']],
+            displayMath: [['$$','$$']],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        },
+        "HTML-CSS": {linebreaks: {automatic: true}}
+    });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.2/MathJax.js?config=TeX-AMS_SVG" async></script>
     
     
 
@@ -150,31 +169,97 @@
     </div>
 </nav>
 
-    <div id="content">
+    
+<main id="content">
     <div class="container clearfix">
-        <!-- Main Content -->
-        <main id="primary">
-    <header>
-        <h1 class="post-title">
-            <a href="/pythonlib/index.html" title="Python每日一库哟">Python每日一库哟</a>
-        </h1>
-    </header>
-    <article class="post-body clearfix">
-        <div class="post-content">
-            <p><br><br>本专题”Python每日一库哟”，每天介绍一个好用的Python库，包括标准库和第三方库。<br>本专题适合那些有一定Python基础的人，可通过该专题，涉猎更多Python能做的事。<br>希望你在无聊之余阅读后，能在以后的工作中遇到相关问题时，会突然蹦出解决问题的灵感。</p>
-<p>专题中，每篇文章只是做简单的介绍，并非文档；有些甚至只是网络资源的链接。<br>这里仅仅做了科普入门，如果有需要深入了解，还是需要参考相应的文档，或者搜索其他人的文章。</p>
+        <div id="primary" >
+            <nav class="breadcrumb-navigation">
+                <a rel="bookmark" href="/">主页</a>
+                <span class="breadcrumb-arrow fa fa-angle-right"></span>
+                <a href="/pythonlib/" title="pythonlib" rel="category tag">pythonlib</a>
+                <span class="breadcrumb-arrow fa fa-angle-right"></span>
+                virtualenvwrapper/virtualenv：隔离的虚拟环境
+            </nav>
+            <article class="single-post">
+                <header class="post-header">
+                    <h1 class="post-title">
+                        <a href="/pythonlib/virtualenvwrapper.html" title="virtualenvwrapper/virtualenv：隔离的虚拟环境">virtualenvwrapper/virtualenv：隔离的虚拟环境</a>
+                    </h1>
+                </header>
+                <div class="post-meta">
+    <ul class="inline-ul">
+        <li class="inline-li">
+            <time>2018-02-03</time>
+        </li>
+        
+        
+        <li class="inline-li">
+            <span class="post-span">·</span>
+        </li>
+        <li class="inline-li">
+            <span id="busuanzi_value_page_pv"></span> 次点击
+        </li>
+        
+    </ul>
+</div>
+
+
+                <!-- BEGIN add by wolfhong -->
+                <nav class="post-tags">
+                
+
+                </nav>
+                <!-- END wolfhong -->
+
+                <div class="post-body clearfix">
+                    <div class="post-content">
+                        
+                        <p>讲virtualenvwrapper/virtualenv 的文章已经很多了，也讲的很详细，我觉得没有必要重复造轮子。</p>
+<p>这里提供一些学习资料（按顺序阅读）:</p>
 <ul>
-<li><a href="./prettytable.html">prettytable/PTable：绘制表格</a></li>
-<li><a href="./psutil.html">psutil：系统监测与进程管理</a></li>
-<li><a href="./livereload.html">livereload：文件改动监视与web开发利器</a></li>
-<li><a href="./selenium.html">selenium：操作浏览器冲浪</a></li>
-<li><a href="./virtualenvwrapper.html">virtualenvwrapper/virtualenv：隔离的虚拟环境</a></li>
-<li>[requests：最好用的网络库]<a href="来自网络">http://docs.python-requests.org/zh_CN/latest/user/quickstart.html</a></li>
+<li><a href="http://www.cnblogs.com/technologylife/p/6635631.html">某博客</a></li>
+<li><a href="http://pythonguidecn.readthedocs.io/zh/latest/dev/virtualenvs.html#virtualenv">虚拟环境管理</a></li>
+<li><a href="http://pythonguidecn.readthedocs.io/zh/latest/dev/pip-virtualenv.html">pip与virtualenv更多配置</a></li>
+</ul>
+<h4 id="我的总结"><a href="#我的总结" class="headerlink" title="我的总结"></a>我的总结</h4><p>首次使用虚拟环境时，执行安装:</p>
+<pre><code>pip install virtualenv
+pip install virtualenvwrapper
+</code></pre><p>配置 <code>~/.bashrc</code>:</p>
+<pre><code>export PIP_REQUIRE_VIRTUALENV=true
+export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+</code></pre><p>常见的命令:</p>
+<ul>
+<li>创建: mkvirtualenv <my-project></li>
+<li>进入: workon <my-project></li>
+<li>退出: deactivate</li>
+<li>删除: rmvirtualenv <my-project></li>
+<li>快速导航到虚拟环境目录: cdvirtualenv</li>
+<li>快速导航到虚拟环境的site-packages: cdsitepackages</li>
+<li>快速列出site-packages: lssitepackages</li>
 </ul>
 
-        </div>
-    </article>
+                    </div>
+                </div>
+                
+
+<div class="license-notice">
+    <span>作者: </span>WOLFHONG<br>
+    <span>发布日期: </span>2018-02-03<br>
+</div>
+
+                <nav class="post-tags">
+                
+                </nav>
+            </article>
+        </div><!-- div#primary -->
+        <ul id="pager">
+
     
+</ul>
+
+        
 <section id="comments">
 
     <!-- JiaThis Button BEGIN -->
@@ -202,11 +287,9 @@
 </section>
 
 
-</main><!-- #primary -->
-
-        <div id="sidebar"></div>
+        
     </div>
-</div>
+</main>
 
     <!-- Footer -->
     
