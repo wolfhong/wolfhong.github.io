@@ -129,7 +129,7 @@
         <tr>
             <td class="tdleft">标签</td>
             <td class="tdright tab-ul tab-tags">
-                <a href="/tags/权限管理/" style="font-size: 12px;">权限管理</a> <a href="/tags/读书/" style="font-size: 12px;">读书</a> <a href="/tags/emoji/" style="font-size: 12px;">emoji</a> <a href="/tags/编码/" style="font-size: 12px;">编码</a> <a href="/tags/python/" style="font-size: 12px;">python</a> <a href="/tags/翻译/" style="font-size: 12px;">翻译</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a> <a href="/tags/解决方案/" style="font-size: 12px;">解决方案</a> <a href="/tags/mac/" style="font-size: 12px;">mac</a> <a href="/tags/小玩意/" style="font-size: 12px;">小玩意</a>
+                <a href="/tags/权限管理/" style="font-size: 12px;">权限管理</a> <a href="/tags/读书/" style="font-size: 12px;">读书</a> <a href="/tags/emoji/" style="font-size: 12px;">emoji</a> <a href="/tags/编码/" style="font-size: 12px;">编码</a> <a href="/tags/python/" style="font-size: 12px;">python</a> <a href="/tags/翻译/" style="font-size: 12px;">翻译</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/解决方案/" style="font-size: 12px;">解决方案</a> <a href="/tags/mac/" style="font-size: 12px;">mac</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a> <a href="/tags/小玩意/" style="font-size: 12px;">小玩意</a>
             </td>
         </tr>
     </tbody>
@@ -224,20 +224,25 @@
 <h4 id="我的总结"><a href="#我的总结" class="headerlink" title="我的总结"></a>我的总结</h4><p>首次使用虚拟环境时，执行安装:</p>
 <pre><code>pip install virtualenv
 pip install virtualenvwrapper
+# for windows, use virtualenvwrapper-win instand of virtualenvwrapper
+# pip install virtualenvwrapper-win
 </code></pre><p>配置 <code>~/.bashrc</code>:</p>
 <pre><code>export PIP_REQUIRE_VIRTUALENV=true
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 export WORKON_HOME=$HOME/.virtualenvs
+# export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
 source /usr/local/bin/virtualenvwrapper.sh
 </code></pre><p>常见的命令:</p>
 <ul>
-<li>创建: mkvirtualenv <my-project></li>
-<li>进入: workon <my-project></li>
-<li>退出: deactivate</li>
-<li>删除: rmvirtualenv <my-project></li>
-<li>快速导航到虚拟环境目录: cdvirtualenv</li>
-<li>快速导航到虚拟环境的site-packages: cdsitepackages</li>
-<li>快速列出site-packages: lssitepackages</li>
+<li>创建: <code>mkvirtualenv &lt;my-env&gt;</code></li>
+<li>创建指定环境: <code>mkvirtualenv -p /usr/local/bin/python3.5 &lt;my-env&gt;</code></li>
+<li>进入: <code>workon &lt;my-env&gt;</code></li>
+<li>退出: <code>deactivate</code></li>
+<li>删除: <code>rmvirtualenv &lt;my-env&gt;</code></li>
+<li>复制: <code>cpvirtualenv &lt;old-env&gt; &lt;new-env&gt;</code></li>
+<li>快速导航到虚拟环境目录: <code>cdvirtualenv</code></li>
+<li>快速导航到虚拟环境的site-packages: <code>cdsitepackages</code></li>
+<li>快速列出site-packages: <code>lssitepackages</code></li>
 </ul>
 
                     </div>

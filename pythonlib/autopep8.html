@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+
+<!-- Head tag -->
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+
+    <title>
+    
+        autopep8/yapf：Python代码的格式化工具 -
+    
+    Wolfhong&#39;s Blog
+    </title>
+
+    <meta name="keywords" content="Linux,IT博客,工具介绍,教程">
+    <meta name="description" content="">
+    <meta name="author" content="WOLFHONG">
+
+    
+
+    
+
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+
+    <script type="text/javascript">
+    if(!("jQuery" in window)) {
+        window._jqQ = []; // jQuery call queue
+        window.jQuery = window.$ = function() {
+            _jqQ.push(arguments);
+        };
+    }
+    </script>
+    <script id="jquery-src" src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" async onload="_jqQ.forEach(function(args){$.apply($,args)});delete window._jqQ;"></script>
+
+    
+    <script src="/js/script.js" type="text/javascript" async></script>
+
+    <!-- Global javascript config object -->
+    <script type="text/javascript">
+    var CONFIG = {
+    
+    
+    };
+    </script>
+
+    
+
+    
+    
+    
+
+    
+    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+    
+
+</head>
+
+
+<body class="page">
+    <nav id="header">
+    <div class="container clearfix">
+        <div class="logo" style="width: auto;">
+    <a href="/" title="Wolfhong&#39;s Blog" rel="home" style="text-decoration: none;">
+    
+        <span class="brand-logo">
+        
+            Wolfhong&#39;s Blog
+        
+        </span>
+    
+    </a>
+</div>
+
+        <div id="global-nav">
+            <div class="gnli ">
+                <a class="gna fa fa-home" href="/" title="Wolfhong&#39;s Blog">
+                    <span class="gn-item">主页</span>
+                </a>
+            </div>
+            <div id="dropdown" class="gnli">
+                <a class="gna fa fa-bars" href="#">
+                    <span class="gn-item">导航</span>
+                </a>
+                <table id="dropdown-menu">
+    <tbody>
+        
+        <tr class="trline">
+            <td class="tdleft">分类</td>
+            <td class="tdright tab-ul tab-categories">
+                
+                <a href="/categories/devops/">devops</a>
+                
+                <a href="/categories/python/">python</a>
+                
+                <a href="/categories/其他/">其他</a>
+                
+                <a href="/categories/读书/">读书</a>
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="tdleft">标签</td>
+            <td class="tdright tab-ul tab-tags">
+                <a href="/tags/权限管理/" style="font-size: 12px;">权限管理</a> <a href="/tags/读书/" style="font-size: 12px;">读书</a> <a href="/tags/emoji/" style="font-size: 12px;">emoji</a> <a href="/tags/编码/" style="font-size: 12px;">编码</a> <a href="/tags/python/" style="font-size: 12px;">python</a> <a href="/tags/翻译/" style="font-size: 12px;">翻译</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/解决方案/" style="font-size: 12px;">解决方案</a> <a href="/tags/mac/" style="font-size: 12px;">mac</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a> <a href="/tags/小玩意/" style="font-size: 12px;">小玩意</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+            </div>
+            
+            <div class="gnli">
+                <a class="gna fa fa-archive" href="/archives/" title="" target="_self">
+                    <span class="gn-item">归档</span>
+                </a>
+            </div>
+            
+            <div class="gnli current">
+                <a class="gna fa fa-flag" href="/pythonlib/" title="" target="_self">
+                    <span class="gn-item">PythonLib</span>
+                </a>
+            </div>
+            
+            <div class="gnli">
+                <a class="gna fa fa-user" href="/about/" title="" target="_self">
+                    <span class="gn-item">关于</span>
+                </a>
+            </div>
+            
+        </div>
+        
+<form method="get" id="search-form" action="/search.html">
+    <input type="text" name="keywords" id="search-input" placeholder="输入关键词" />
+    <button type="submit" id="search-submit">
+        <span class="fa fa-search"></span>
+    </button>
+</form>
+
+
+
+    </div>
+</nav>
+
+    
+<main id="content">
+    <div class="container clearfix">
+        <div id="primary"  class="has-toc">
+            <nav class="breadcrumb-navigation">
+                <a rel="bookmark" href="/">主页</a>
+                <span class="breadcrumb-arrow fa fa-angle-right"></span>
+                <a href="/pythonlib/" title="pythonlib" rel="category tag">pythonlib</a>
+                <span class="breadcrumb-arrow fa fa-angle-right"></span>
+                autopep8/yapf：Python代码的格式化工具
+            </nav>
+            <article class="single-post">
+                <header class="post-header">
+                    <h1 class="post-title">
+                        <a href="/pythonlib/autopep8.html" title="autopep8/yapf：Python代码的格式化工具">autopep8/yapf：Python代码的格式化工具</a>
+                    </h1>
+                </header>
+                <div class="post-meta">
+    <ul class="inline-ul">
+        <li class="inline-li">
+            <time>2018-02-05</time>
+        </li>
+        
+        
+        <li class="inline-li">
+            <span class="post-span">·</span>
+        </li>
+        <li class="inline-li">
+            <span id="busuanzi_value_page_pv"></span> 次点击
+        </li>
+        
+    </ul>
+</div>
+
+
+                <!-- BEGIN add by wolfhong -->
+                <nav class="post-tags">
+                
+
+                </nav>
+                <!-- END wolfhong -->
+
+                <div class="post-body clearfix">
+                    <div class="post-content">
+                        
+                        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><a href="https://github.com/hhatto/autopep8">autopep8</a> 可以自动格式化Python代码，使其符合<a href="https://www.python.org/dev/peps/pep-0008/">PEP-8</a>规范。 它是基于pycodestyle（<a href="./pycodestyle.html">见另一篇文章</a>）来判断哪部分代码需要进行格式化的。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>pip install autopep8
+</code></pre><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>为了演示autopep8的作用，我们先写一段非常丑陋、不符合PEP-8标准的代码。<br>比如下面这段代码，请复制保存为文件:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> math, sys;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">example1</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment">####This is a long comment. This should be wrapped to fit within 72 characters.</span></span><br><span class="line">    some_tuple=(   <span class="number">1</span>,<span class="number">2</span>, <span class="number">3</span>,<span class="string">'a'</span>  );</span><br><span class="line">    some_variable=&#123;<span class="string">'long'</span>:<span class="string">'Long code lines should be wrapped within 79 characters.'</span>,</span><br><span class="line">    <span class="string">'other'</span>:[math.pi, <span class="number">100</span>,<span class="number">200</span>,<span class="number">300</span>,<span class="number">9876543210</span>,<span class="string">'This is a long string that goes on'</span>],</span><br><span class="line">    <span class="string">'more'</span>:&#123;<span class="string">'inner'</span>:<span class="string">'This whole logical line should be wrapped.'</span>,some_tuple:[<span class="number">1</span>,</span><br><span class="line">    <span class="number">20</span>,<span class="number">300</span>,<span class="number">40000</span>,<span class="number">500000000</span>,<span class="number">60000000000000000</span>]&#125;&#125;</span><br><span class="line">    <span class="keyword">return</span> (some_tuple, some_variable)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">example2</span><span class="params">()</span>:</span> <span class="keyword">return</span> &#123;<span class="string">'has_key() is deprecated'</span>:<span class="keyword">True</span>&#125;.has_key(&#123;<span class="string">'f'</span>:<span class="number">2</span>&#125;.has_key(<span class="string">''</span>));</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example3</span><span class="params">(   object )</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>    <span class="params">( self, bar )</span>:</span></span><br><span class="line">     <span class="comment">#Comments should have a space after the hash.</span></span><br><span class="line">     <span class="keyword">if</span> bar == <span class="keyword">None</span>:</span><br><span class="line">         bar = <span class="number">0</span></span><br><span class="line">     <span class="keyword">if</span> bar == <span class="keyword">True</span>:</span><br><span class="line">         bar = <span class="number">0</span></span><br><span class="line">     <span class="keyword">if</span> bar : bar+=<span class="number">1</span>;  bar=bar* bar   ; <span class="keyword">return</span> bar</span><br><span class="line">     <span class="keyword">else</span>:</span><br><span class="line">                    some_string = <span class="string">"""</span></span><br><span class="line"><span class="string">                       Indentation in multiline strings should not be touched.</span></span><br><span class="line"><span class="string">Only actual code should be reindented.</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">                    <span class="keyword">return</span> (sys.path, some_string)</span><br></pre></td></tr></table></figure>
+<p>现在来看看autopep8能够做些什么。请在命令行中执行:</p>
+<pre><code>autopep8 -aa &lt;filename&gt;
+</code></pre><p>可以看到输出如下。先不看输出，暂且来看看上面的命令，有几个命令行选项值得关注下。</p>
+<p><code>-aa</code> 是<code>--aggressive --aggressive</code>的缩写，表示格式化时，代码侵入性级别2。这里解释一下侵入性<code>aggressive</code>。</p>
+<ul>
+<li>当不使用<code>--aggressive</code>选项时，autopep8 <strong>只会对空格进行格式化</strong> ，不会修改你的其他语法。</li>
+<li>当使用1个<code>--aggressive</code>时，表示侵入性级别1，会修改一些不推荐的语法。比如<code>x == None</code>会被修改为<code>x is None</code>。但这有一定的风险，可能会改变原来程序的语义，比如例子中，<code>x</code>如果改写了<code>__eq__</code>方法，就会有问题。</li>
+<li>当使用2个<code>--aggressive</code>时，侵入性级别增加1，<code>if x == True:</code>之类的代码会被改为<code>if x:</code>。</li>
+</ul>
+<p>侵入性级别越高，格式化后的代码语义改变的风险越大。如例子中的<code>Example3</code>，实际上程序的语义已经发生了改变（请读者自己思考为什么）。</p>
+<p>个人建议，在自己的编辑器中使用flake8(也使用了pycodestyle)等插件进行提示即可，不要依赖于autopep8来修改源码。当然，坚持Pythonic地写Python才是根本。</p>
+<p>如果autopep8使用选项<code>--in-place</code>(缩写<code>-i</code>)，那么就不会输入格式化后的代码，而是将格式化直接应用到源文件上，改动源文件。此时，命令就要改为:</p>
+<pre><code>autopep8 --in-place --aggressive --aggressive &lt;filename&gt;
+</code></pre><p>选项<code>--max-line-length=n</code> 可以设置每行代码的最长字符限制，默认是79。社区中很多人反映79个字符的长度限制应该放宽，毕竟这是历史原因导致的。</p>
+<p>上面提到的<code>autopep8 -aa &lt;filename&gt;</code>的输出:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">example1</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># This is a long comment. This should be wrapped to fit within 72</span></span><br><span class="line">    <span class="comment"># characters.</span></span><br><span class="line">    some_tuple = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">'a'</span>)</span><br><span class="line">    some_variable = &#123;</span><br><span class="line">        <span class="string">'long'</span>: <span class="string">'Long code lines should be wrapped within 79 characters.'</span>,</span><br><span class="line">        <span class="string">'other'</span>: [</span><br><span class="line">            math.pi,</span><br><span class="line">            <span class="number">100</span>,</span><br><span class="line">            <span class="number">200</span>,</span><br><span class="line">            <span class="number">300</span>,</span><br><span class="line">            <span class="number">9876543210</span>,</span><br><span class="line">            <span class="string">'This is a long string that goes on'</span>],</span><br><span class="line">        <span class="string">'more'</span>: &#123;</span><br><span class="line">            <span class="string">'inner'</span>: <span class="string">'This whole logical line should be wrapped.'</span>,</span><br><span class="line">            some_tuple: [</span><br><span class="line">                <span class="number">1</span>,</span><br><span class="line">                <span class="number">20</span>,</span><br><span class="line">                <span class="number">300</span>,</span><br><span class="line">                <span class="number">40000</span>,</span><br><span class="line">                <span class="number">500000000</span>,</span><br><span class="line">                <span class="number">60000000000000000</span>]&#125;&#125;</span><br><span class="line">    <span class="keyword">return</span> (some_tuple, some_variable)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">example2</span><span class="params">()</span>:</span> <span class="keyword">return</span> (<span class="string">''</span> <span class="keyword">in</span> &#123;<span class="string">'f'</span>: <span class="number">2</span>&#125;) <span class="keyword">in</span> &#123;<span class="string">'has_key() is deprecated'</span>: <span class="keyword">True</span>&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example3</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, bar)</span>:</span></span><br><span class="line">        <span class="comment"># Comments should have a space after the hash.</span></span><br><span class="line">        <span class="keyword">if</span> bar <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            bar = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> bar:</span><br><span class="line">            bar = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> bar:</span><br><span class="line">            bar += <span class="number">1</span></span><br><span class="line">            bar = bar * bar</span><br><span class="line">            <span class="keyword">return</span> bar</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            some_string = <span class="string">"""</span></span><br><span class="line"><span class="string">                       Indentation in multiline strings should not be touched.</span></span><br><span class="line"><span class="string">Only actual code should be reindented.</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">            <span class="keyword">return</span> (sys.path, some_string)</span><br></pre></td></tr></table></figure>
+<p>再次强调，侵入性级别越高，格式化后的代码语义改变的风险越大。不要滥用<code>--aggressive</code>选项。坚持Pythonic地写Python才是根本。</p>
+<h3 id="More"><a href="#More" class="headerlink" title="More"></a>More</h3><p>文档与更多示例参考:</p>
+<ul>
+<li><a href="https://github.com/hhatto/autopep8">GitHub</a></li>
+</ul>
+<h3 id="其他扩展"><a href="#其他扩展" class="headerlink" title="其他扩展"></a>其他扩展</h3><h4 id="YAPF"><a href="#YAPF" class="headerlink" title="YAPF"></a>YAPF</h4><p>个人推荐使用<a href="https://github.com/google/yapf">yapf</a>来取代autopep8。本文介绍autopep8，仅仅是因为它应用更加广泛，方便解释。</p>
+<p>不同于autopep8、pep8ify之类的Python代码格式化程序: 它们的目的是消除Python代码中不符合PEP-8规范的错误。符合规范的代码不会被修改。然而，符合PEP-8规范的代码，不一定是好看的代码。<br>yapf使用clang-format算法来实现代码的重新排版，即便代码本来就符合规范。<br><strong>yapf不具侵入性</strong>。</p>
+<p>你可以通过pip安装yapf:</p>
+<pre><code>pip install yapf
+</code></pre><p>安装后，你可以试着使用<code>yapf &lt;filename&gt;</code>来格式化前面例子中的丑陋代码。或者直接在<a href="https://yapf.now.sh/">online demo</a>中体验一番吧。</p>
+
+                    </div>
+                </div>
+                
+
+<div class="license-notice">
+    <span>作者: </span>WOLFHONG<br>
+    <span>发布日期: </span>2018-02-05<br>
+</div>
+
+                <nav class="post-tags">
+                
+                </nav>
+            </article>
+        </div><!-- div#primary -->
+        <ul id="pager">
+
+    
+</ul>
+
+        
+<section id="comments">
+
+    <!-- JiaThis Button BEGIN -->
+    <!-- <div class="jiathis_style">
+        <span class="jiathis_txt">分享到：</span>
+        <a class="jiathis_button_tools_1"></a>
+        <a class="jiathis_button_tools_2"></a>
+        <a class="jiathis_button_tools_3"></a>
+        <a href="http://www.jiathis.com/share?uid=2161579" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    </div>
+    <script type="text/javascript">
+    var jiathis_config = {data_track_clickback:'true'};
+    </script>
+    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2161579" charset="utf-8"></script> -->
+    <!-- JiaThis Button END -->
+
+    <!-- 友言评论 -->
+    <!-- UY BEGIN -->
+    <!-- <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2161579"></script> -->
+    <!-- UY END -->
+
+
+    
+</section>
+
+
+        
+        <nav id="toc" class="sticky">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例"><span class="toc-text">示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#More"><span class="toc-text">More</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他扩展"><span class="toc-text">其他扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#YAPF"><span class="toc-text">YAPF</span></a></li></ol></li></ol>
+        </nav>
+        
+    </div>
+</main>
+
+    <!-- Footer -->
+    
+<!-- #content -->
+<footer id="footer">
+    <div class="container">
+        <p>
+            &copy; 2018 Wolfhong's Blog. All Rights Reserved.
+        </p>
+        <p>Themed by <a href="https://github.com/unnamed42/hexo-theme-kunkka">Kunkka</a> | Powered by <a href="https://hexo.io/">Hexo</a>.</p>
+        
+
+
+<div class="sns-icons">
+    
+        
+        
+            
+    <span class="sns-icon fa-stack">
+        <a target="_blank" href="https://github.com/wolfhong">
+            <span class="fa fa-square fa-stack-2x"></span>
+            
+            <span class="fa fa-github fa-stack-1x fa-inverse"></span>
+            
+        </a>
+    </span>
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+</div>
+
+
+    </div>
+</footer>
+<!-- #footer -->
+
+    <div id="totop" title="送你上天">
+    <canvas id="totop-canvas" width="48" height="48"></canvas>
+    <div id="totop-percent"></div>
+</div>
+
+</body>
+
+</html>

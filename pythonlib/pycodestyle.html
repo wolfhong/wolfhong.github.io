@@ -13,7 +13,7 @@
 
     <title>
     
-        Mac下挂载远程目录到本地 -
+        pycodestyle/pep8：Python代码风格检查器 -
     
     Wolfhong&#39;s Blog
     </title>
@@ -55,6 +55,25 @@
 
     
     
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        showProcessingMessages: false,
+        jax: ["input/TeX","output/HTML-CSS", "output/PreviewHTML"],
+        extensions: ["tex2jax.js", "fast-preview.js", "AssistiveMML.js" /*"MathMenu.js", "MathZoom.js", "[Contrib]/a11y/accessibility-menu.js"*/ ],
+        TeX: {
+            extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+        },
+        tex2jax: {
+            inlineMath: [['$','$']],
+            displayMath: [['$$','$$']],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        },
+        "HTML-CSS": {linebreaks: {automatic: true}}
+    });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.2/MathJax.js?config=TeX-AMS_SVG" async></script>
+    
     
 
     
@@ -64,7 +83,7 @@
 </head>
 
 
-<body class="post">
+<body class="page">
     <nav id="header">
     <div class="container clearfix">
         <div class="logo" style="width: auto;">
@@ -85,7 +104,7 @@
                     <span class="gn-item">主页</span>
                 </a>
             </div>
-            <div id="dropdown" class="gnli current">
+            <div id="dropdown" class="gnli">
                 <a class="gna fa fa-bars" href="#">
                     <span class="gn-item">导航</span>
                 </a>
@@ -124,7 +143,7 @@
                 </a>
             </div>
             
-            <div class="gnli">
+            <div class="gnli current">
                 <a class="gna fa fa-flag" href="/pythonlib/" title="" target="_self">
                     <span class="gn-item">PythonLib</span>
                 </a>
@@ -153,33 +172,24 @@
     
 <main id="content">
     <div class="container clearfix">
-        <div id="primary" >
+        <div id="primary"  class="has-toc">
             <nav class="breadcrumb-navigation">
                 <a rel="bookmark" href="/">主页</a>
                 <span class="breadcrumb-arrow fa fa-angle-right"></span>
-                <a href="/categories/其他/" title="其他" rel="category tag">其他</a>
-
+                <a href="/pythonlib/" title="pythonlib" rel="category tag">pythonlib</a>
                 <span class="breadcrumb-arrow fa fa-angle-right"></span>
-                Mac下挂载远程目录到本地
+                pycodestyle/pep8：Python代码风格检查器
             </nav>
             <article class="single-post">
                 <header class="post-header">
                     <h1 class="post-title">
-                        <a href="/posts/mac-sshfs/" title="Mac下挂载远程目录到本地">Mac下挂载远程目录到本地</a>
+                        <a href="/pythonlib/pycodestyle.html" title="pycodestyle/pep8：Python代码风格检查器">pycodestyle/pep8：Python代码风格检查器</a>
                     </h1>
                 </header>
                 <div class="post-meta">
     <ul class="inline-ul">
         <li class="inline-li">
-            <time>2016-11-16</time>
-        </li>
-        
-        <li class="inline-li">
-            <span class="post-span">·</span>
-        </li>
-        <li class="inline-li">
-            <a href="/categories/其他/" title="其他" rel="category tag">其他</a>
-
+            <time>2018-02-04</time>
         </li>
         
         
@@ -197,73 +207,75 @@
                 <!-- BEGIN add by wolfhong -->
                 <nav class="post-tags">
                 
-                    
-                    <a href="/tags/解决方案/" title="解决方案" rel="tag" class="fa fa-tag">解决方案</a>
-                    
-                    <a href="/tags/mac/" title="mac" rel="tag" class="fa fa-tag">mac</a>
-                    
-                
+
                 </nav>
                 <!-- END wolfhong -->
 
                 <div class="post-body clearfix">
                     <div class="post-content">
                         
-                        <p>挂载远程目录到本地，目的是希望能够跟查看本地文件一样，可以方便地浏览远程目录下的文件。</p>
-<p>sshfs就是能够满足这项需求的程序，不仅适用于ubuntu/centos等linux系统，也同样适用于Mac。</p>
-<p>以Mac为例，使用brew安装sshfs</p>
-<pre><code>brew install sshfs
-</code></pre><p>brew是Mac下十分常见的套件管理工具, 如果你的电脑没有安装该程序, 请参考<a href="http://brew.sh/index_zh-cn.html">Homebrew</a>进行安装。</p>
-<p>安装过程中, 你可能会遇到如下的错误:</p>
-<pre><code>sshfs: OsxfuseRequirement unsatisfied!
-Error: An unsatisfied requirement failed this build.
-</code></pre><p><img src="http://static.extremevision.com.cn/membercms/sshfs/mac_sshfs_error01.png" alt="image01"></p>
-<p>只需要按照提示一步一步操作即可.</p>
-<p>先执行<code>brew cask install osxfuse</code>. 该过程实际上是去github下载安装<code>osxfuse.dmg</code>.</p>
-<p>安装好osxfuse后，按照提示需要重启电脑(不过我试过了，不重启电脑也是可以的)。</p>
-<p>这时候再来重新执行<code>brew install sshfs</code>即可.</p>
-<p>安装sshfs结束后, 就可以使用<code>sshfs</code>挂载远程目录到本地：</p>
-<pre><code>sshfs -C -o reconnect &lt;user&gt;@&lt;host&gt;:&lt;remote_dir&gt; &lt;local_dir&gt;
-</code></pre><p>比如,我想要将远程主机192.168.1.101上的<code>/mnt/images/</code>目录，挂载到本地<code>~/Desktop/images/</code>目录下。过程中使用root账号登陆.</p>
-<pre><code>sshfs -C -o reconnect root@192.168.1.101:/mnt/images/ ~/Desktop/images/
-</code></pre><p>如果ssh不是默认的22端口,则还需要带上选项: <code>-p &lt;端口号&gt;</code></p>
-<p>挂载到本地时, 请避免挂载在根目录，或者当前角色的主目录下, 会报错。比如如下的错误操作:</p>
-<pre><code>mkdir ~/ImageFolder
-sshfs -C -o reconnect root@192.168.1.101:/mnt/images/ ~/ImageFolder/
-</code></pre><p>会看到错误提示:</p>
-<pre><code>mount_osxfuse: mount point /Users/xxxx/ImageFolder is itself on a OSXFUSE volume
-fuse: failed to mount file system: Invalid argument
-</code></pre>
+                        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><a href="https://github.com/PyCQA/pycodestyle">pycodestyle</a>是一个Python代码风格检查器，用于检查你的Python代码是否符合<a href="https://www.python.org/dev/peps/pep-0008/">PEP-8</a>规范。PEP-8 是Python社区给出的Python编程风格指导手册。</p>
+<p>虽然Python代码不符合该规范也是可以运行的，但遵循相同的代码风格非常重要，特别是需要与其他开发者一起维护同一个项目。因此需要这样的一些工具，能够检查Python代码是否违反PEP-8 规范，并对违反PEP-8 规范的地方给出相应的提示信息。</p>
+<p>pycodestyle项目以前名字为<code>pep8</code>，“但Python之父认为这个工具并没有完全遵循PEP-0008标准，没有完整地体现标准的精神”，因此改名。这里有一个<a href="http://www.10tiao.com/html/262/201603/403312003/1.html">小故事</a>。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>pip install pycodestyle
+</code></pre><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>pycodestyle可以作用命令行工具被使用。（如果需要的话，项目中采用<code>import pycodestyle</code>的方式导入也是可行的）</p>
+<p>pycodestyle 后面的参数，既可以是Python代码的文件路径，也可以是目录。<br>下面示例中，会提示pycodestyle检查文件时遇到的每种违反PEP-8 规范的第一个警告或错误。</p>
+<pre><code>$ pycodestyle --first optparse.py
+optparse.py:69:11: E401 multiple imports on one line
+optparse.py:77:1: E302 expected 2 blank lines, found 1
+optparse.py:88:5: E301 expected 1 blank line, found 0
+optparse.py:222:34: W602 deprecated form of raising exception
+optparse.py:347:31: E211 whitespace before &apos;(&apos;
+optparse.py:357:17: E201 whitespace after &apos;{&apos;
+optparse.py:472:29: E221 multiple spaces before operator
+optparse.py:544:21: W601 .has_key() is deprecated, use &apos;in&apos;
+</code></pre><p>需要显示更多信息时:</p>
+<pre><code>$ pycodestyle --show-source --show-pep8 testsuite/E40.py
+testsuite/E40.py:2:10: E401 multiple imports on one line
+import os, sys
+         ^
+    Imports should usually be on separate lines.
+
+    Okay: import os\nimport sys
+    E401: import sys, os
+</code></pre><p>统计警告和错误信息:</p>
+<pre><code>$ pycodestyle --statistics -qq Python-2.5/Lib
+232     E201 whitespace after &apos;[&apos;
+599     E202 whitespace before &apos;)&apos;
+631     E203 whitespace before &apos;,&apos;
+842     E211 whitespace before &apos;(&apos;
+2531    E221 multiple spaces before operator
+4473    E301 expected 1 blank line, found 0
+4006    E302 expected 2 blank lines, found 1
+165     E303 too many blank lines (4)
+325     E401 multiple imports on one line
+3615    E501 line too long (82 characters)
+612     W601 .has_key() is deprecated, use &apos;in&apos;
+1188    W602 deprecated form of raising exception
+</code></pre><h3 id="More"><a href="#More" class="headerlink" title="More"></a>More</h3><p>文档与更多示例参考:</p>
+<ul>
+<li><a href="https://github.com/PyCQA/pycodestyle">GitHub</a></li>
+<li><a href="https://pycodestyle.readthedocs.io/en/latest/">ReadTheDocs</a></li>
+</ul>
+<h3 id="其他扩展"><a href="#其他扩展" class="headerlink" title="其他扩展"></a>其他扩展</h3><p>一般情况下，我们不会如示例中使用pycodestyle那样使用。我们会依赖于编辑器的一些插件来提醒自己的代码风格符合PEP-8 的规范。比较著名常用的插件有<a href="https://github.com/PyCQA/pylint">pylint</a>、<a href="https://github.com/PyCQA/flake8">flake8</a>、<a href="https://github.com/klen/pylama">pylama</a>等，vim、sublime、pycharm等编辑器都有提供。</p>
+<p>pycodestyle是代码风格检查器，只会给出提示而不修改代码。<br>还有另一类工具是Python代码的格式化程序，会依照PEP-8 规范格式化Python代码，这部分可参考<a href="./autopep8.html">Python代码的格式化</a>。</p>
+
                     </div>
                 </div>
                 
 
 <div class="license-notice">
     <span>作者: </span>WOLFHONG<br>
-    <span>发布日期: </span>2016-11-16<br>
+    <span>发布日期: </span>2018-02-04<br>
 </div>
 
                 <nav class="post-tags">
-                
-                    
-                    <a href="/tags/解决方案/" title="解决方案" rel="tag" class="fa fa-tag">解决方案</a>
-                    
-                    <a href="/tags/mac/" title="mac" rel="tag" class="fa fa-tag">mac</a>
-                    
                 
                 </nav>
             </article>
         </div><!-- div#primary -->
         <ul id="pager">
 
-    <li class="previous">
-        <a href="/posts/use-zh2emoji/" title="使用Emoji表情拼成汉字" class="tooltipped tooltipped-n" aria-label="使用Emoji表情拼成汉字"><span class="fa fa-chevron-left"></span> 上一篇文章</a>
-    </li>
-    
-    
-    <li class="next">
-        <a href="/posts/intro-sudoers/" title="sudoers的深入剖析与用户权限控制" class="tooltipped tooltipped-n" aria-label="sudoers的深入剖析与用户权限控制">下一篇文章 <span class="fa fa-chevron-right"></span></a>
-    </li>
     
 </ul>
 
@@ -295,6 +307,10 @@ fuse: failed to mount file system: Invalid argument
 </section>
 
 
+        
+        <nav id="toc" class="sticky">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例"><span class="toc-text">示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#More"><span class="toc-text">More</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他扩展"><span class="toc-text">其他扩展</span></a></li></ol>
+        </nav>
         
     </div>
 </main>
