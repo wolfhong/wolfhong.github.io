@@ -13,7 +13,7 @@
 
     <title>
     
-        pycodestyle/pep8：Python代码风格检查器 -
+        anaconda：数据科学领域的开发工具 -
     
     Wolfhong&#39;s Blog
     </title>
@@ -54,25 +54,6 @@
     
 
     
-    
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        showProcessingMessages: false,
-        jax: ["input/TeX","output/HTML-CSS", "output/PreviewHTML"],
-        extensions: ["tex2jax.js", "fast-preview.js", "AssistiveMML.js" /*"MathMenu.js", "MathZoom.js", "[Contrib]/a11y/accessibility-menu.js"*/ ],
-        TeX: {
-            extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
-        },
-        tex2jax: {
-            inlineMath: [['$','$']],
-            displayMath: [['$$','$$']],
-            processEscapes: true,
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        },
-        "HTML-CSS": {linebreaks: {automatic: true}}
-    });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.2/MathJax.js?config=TeX-AMS_SVG" async></script>
     
     
 
@@ -172,24 +153,24 @@
     
 <main id="content">
     <div class="container clearfix">
-        <div id="primary"  class="has-toc">
+        <div id="primary" >
             <nav class="breadcrumb-navigation">
                 <a rel="bookmark" href="/">主页</a>
                 <span class="breadcrumb-arrow fa fa-angle-right"></span>
                 <a href="/pythonlib/" title="pythonlib" rel="category tag">pythonlib</a>
                 <span class="breadcrumb-arrow fa fa-angle-right"></span>
-                pycodestyle/pep8：Python代码风格检查器
+                anaconda：数据科学领域的开发工具
             </nav>
             <article class="single-post">
                 <header class="post-header">
                     <h1 class="post-title">
-                        <a href="/pythonlib/pycodestyle.html" title="pycodestyle/pep8：Python代码风格检查器">pycodestyle/pep8：Python代码风格检查器</a>
+                        <a href="/pythonlib/anaconda.html" title="anaconda：数据科学领域的开发工具">anaconda：数据科学领域的开发工具</a>
                     </h1>
                 </header>
                 <div class="post-meta">
     <ul class="inline-ul">
         <li class="inline-li">
-            <time>2018-02-04</time>
+            <time>2018-02-19</time>
         </li>
         
         
@@ -214,51 +195,11 @@
                 <div class="post-body clearfix">
                     <div class="post-content">
                         
-                        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><a href="https://github.com/PyCQA/pycodestyle">pycodestyle</a>是一个Python代码风格检查器，用于检查你的Python代码是否符合<a href="https://www.python.org/dev/peps/pep-0008/">PEP-8</a>规范。PEP-8 是Python社区给出的Python编程风格指导手册。</p>
-<p>虽然Python代码不符合该规范也是可以运行的，但遵循相同的代码风格非常重要，特别是需要与其他开发者一起维护同一个项目。因此需要这样的一些工具，能够检查Python代码是否违反PEP-8 规范，并对违反PEP-8 规范的地方给出相应的提示信息。</p>
-<p>pycodestyle项目以前名字为<code>pep8</code>，“但Python之父认为这个工具并没有完全遵循PEP-0008标准，没有完整地体现标准的精神”，因此改名。这里有一个<a href="http://www.10tiao.com/html/262/201603/403312003/1.html">小故事</a>。</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>pip install pycodestyle
-</code></pre><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>pycodestyle可以作用命令行工具被使用。（如果需要的话，项目中采用<code>import pycodestyle</code>的方式导入也是可行的）</p>
-<p>pycodestyle 后面的参数，既可以是Python代码的文件路径，也可以是目录。<br>下面示例中，会提示pycodestyle检查文件时遇到的每种违反PEP-8 规范的第一个警告或错误。</p>
-<pre><code>$ pycodestyle --first optparse.py
-optparse.py:69:11: E401 multiple imports on one line
-optparse.py:77:1: E302 expected 2 blank lines, found 1
-optparse.py:88:5: E301 expected 1 blank line, found 0
-optparse.py:222:34: W602 deprecated form of raising exception
-optparse.py:347:31: E211 whitespace before &apos;(&apos;
-optparse.py:357:17: E201 whitespace after &apos;{&apos;
-optparse.py:472:29: E221 multiple spaces before operator
-optparse.py:544:21: W601 .has_key() is deprecated, use &apos;in&apos;
-</code></pre><p>需要显示更多信息时:</p>
-<pre><code>$ pycodestyle --show-source --show-pep8 testsuite/E40.py
-testsuite/E40.py:2:10: E401 multiple imports on one line
-import os, sys
-         ^
-    Imports should usually be on separate lines.
-
-    Okay: import os\nimport sys
-    E401: import sys, os
-</code></pre><p>统计警告和错误信息:</p>
-<pre><code>$ pycodestyle --statistics -qq Python-2.5/Lib
-232     E201 whitespace after &apos;[&apos;
-599     E202 whitespace before &apos;)&apos;
-631     E203 whitespace before &apos;,&apos;
-842     E211 whitespace before &apos;(&apos;
-2531    E221 multiple spaces before operator
-4473    E301 expected 1 blank line, found 0
-4006    E302 expected 2 blank lines, found 1
-165     E303 too many blank lines (4)
-325     E401 multiple imports on one line
-3615    E501 line too long (82 characters)
-612     W601 .has_key() is deprecated, use &apos;in&apos;
-1188    W602 deprecated form of raising exception
-</code></pre><h3 id="More"><a href="#More" class="headerlink" title="More"></a>More</h3><p>文档与更多示例参考:</p>
-<ul>
-<li><a href="https://github.com/PyCQA/pycodestyle">GitHub</a></li>
-<li><a href="https://pycodestyle.readthedocs.io/en/latest/">ReadTheDocs</a></li>
-</ul>
-<h3 id="其他扩展"><a href="#其他扩展" class="headerlink" title="其他扩展"></a>其他扩展</h3><p>一般情况下，我们不会如示例中使用pycodestyle那样使用。我们会依赖于编辑器的一些插件来提醒自己的代码风格符合PEP-8 的规范。比较著名常用的插件有<a href="https://github.com/PyCQA/pylint">pylint</a>、<a href="https://github.com/PyCQA/flake8">flake8</a>、<a href="https://github.com/klen/pylama">pylama</a>等，vim、sublime、pycharm等编辑器都有提供。</p>
-<p>pycodestyle是代码风格检查器，只会给出提示而不修改代码。<br>还有另一类工具是Python代码的格式化程序，会依照PEP-8 规范格式化Python代码，这部分可参考<a href="./autopep8.html">Python代码的格式化</a>。</p>
+                        <blockquote>
+<p>Anaconda是专注于数据分析的Python发行版本，包含了conda、Python等190多个科学包及其依赖项。 它是适用于企业级大数据分析的Python工具，在数据可视化、机器学习、深度学习等多方面都有涉及。 不仅可以做数据分析，甚至可以用在大数据和人工智能领域。 其中，conda 是开源包（packages）和虚拟环境（environment）的管理系统。</p>
+</blockquote>
+<p>以上内容摘录自<a href="https://www.jianshu.com/p/169403f7e40c">鱼心DrFish的文章</a>。关于Anaconda入门，我没什么好讲的了，点击链接去看即可。</p>
+<p>conda和pip可以混搭使用，conda的虚拟环境管理与<a href="./virtualenvwrapper.html">virtualenvwrapper</a>没啥区别。具体用哪个，习惯即可。<br>Anaconda的最大好处，就是将大量数据科学领域相关的Python包、依赖项、软件工具等，一起批量打包安装了。对于这方面的开发者，着实是一件省心的事情。</p>
 
                     </div>
                 </div>
@@ -266,7 +207,7 @@ import os, sys
 
 <div class="license-notice">
     <span>作者: </span>WOLFHONG<br>
-    <span>发布日期: </span>2018-02-04<br>
+    <span>发布日期: </span>2018-02-19<br>
 </div>
 
                 <nav class="post-tags">
@@ -307,10 +248,6 @@ import os, sys
 </section>
 
 
-        
-        <nav id="toc" class="sticky">
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例"><span class="toc-text">示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#More"><span class="toc-text">More</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他扩展"><span class="toc-text">其他扩展</span></a></li></ol>
-        </nav>
         
     </div>
 </main>
