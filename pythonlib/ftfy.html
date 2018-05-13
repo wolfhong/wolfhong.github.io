@@ -13,7 +13,7 @@
 
     <title>
     
-        Python每日一库哟 -
+        ftfy：转化不好看的Unicode字符 -
     
     Wolfhong&#39;s Blog
     </title>
@@ -150,119 +150,91 @@
     </div>
 </nav>
 
-    <div id="content">
-    <div class="container clearfix">
-        <!-- Main Content -->
-        <main id="primary">
-    <header>
-        <h1 class="post-title">
-            <a href="/pythonlib/index.html" title="Python每日一库哟">Python每日一库哟</a>
-        </h1>
-    </header>
-    <article class="post-body clearfix">
-        <div class="post-content">
-            <p><br><br>本专题”Python每日一库哟”，每天介绍一个好用的Python库，包括标准库和第三方库。<br>本专题适合那些有一定Python基础的人，可通过该专题，涉猎更多Python能做的事。<br>希望你在无聊之余阅读后，能在以后的工作中遇到相关问题时，会突然蹦出解决问题的灵感。</p>
-<p>专题中，每篇文章只是做简单的介绍，并非文档；有些甚至只是网络资源的链接。<br>这里仅仅做了科普入门，如果有需要深入了解，还是需要参考相应的文档，或者搜索其他人的文章。</p>
-<p>专题中，默认你是在Linux或者Mac下编程，如果你使用Windows编程，安装时如果遇到问题，一般可参考文章中的GitHub或者ReadTheDocs链接，会得到解答。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Python库+工具</th>
-<th style="text-align:left">大白话作用</th>
-<th style="text-align:left">备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><a href="./prettytable.html">prettytable/PTable</a></td>
-<td style="text-align:left">绘制表格</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="./psutil.html">psutil</a></td>
-<td style="text-align:left">系统监测与进程管理</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="./livereload.html">livereload</a></td>
-<td style="text-align:left">监视文件改动与web开发利器</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="./selenium.html">selenium</a></td>
-<td style="text-align:left">操作浏览器冲浪与web测试</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="./virtualenvwrapper.html">virtualenvwrapper/virtualenv</a></td>
-<td style="text-align:left">隔离的虚拟环境</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="http://docs.python-requests.org/zh_CN/latest/user/quickstart.html">requests</a></td>
-<td style="text-align:left">最好用的HTTP库</td>
-<td style="text-align:left">来自网络</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="./pycodestyle.html">pycodestyle/pep8</a></td>
-<td style="text-align:left">Python代码风格检查器</td>
-<td style="text-align:left">类比: flake8, pylint, pylama</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="./autopep8.html">autopep8/yapf</a></td>
-<td style="text-align:left">Python代码的格式化工具</td>
-<td style="text-align:left">类比: yapf, pep8ify</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="./tablib.html">tablib</a></td>
-<td style="text-align:left">导出表格数据，支持excel,yaml,json,pandas等</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="./formic.html">formic</a></td>
-<td style="text-align:left">快速查找文件</td>
-<td style="text-align:left">类比: glob, fnmatch</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="./anaconda.html">anaconda</a></td>
-<td style="text-align:left">数据科学领域的开发工具</td>
-<td style="text-align:left">类比: pip, virtualenv</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="./python-magic.html">python-magic</a></td>
-<td style="text-align:left">文件类型识别</td>
-<td style="text-align:left">类比: imghdr</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="./watchdog.html">watchdog</a></td>
-<td style="text-align:left">监视文件/目录变化</td>
-<td style="text-align:left">类比: livereload</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="http://arrow.readthedocs.io/en/latest/#user-s-guide">arrow</a></td>
-<td style="text-align:left">节省脑力的时间库</td>
-<td style="text-align:left">来自文档示例</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="./dateutil.html">dateutil</a></td>
-<td style="text-align:left">datetime模块的扩展</td>
-<td style="text-align:left">补充arrow没有的功能</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001510905171877ca6fdf08614e446e835ea5d9bce75cf5000">chardet</a></td>
-<td style="text-align:left">检测字符编码</td>
-<td style="text-align:left">来自网络</td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="./ftfy.html">ftfy</a></td>
-<td style="text-align:left">Unicode的转化(如恢复乱码，全角符转半角符等)</td>
-</tr>
-</tbody>
-</table>
-
-        </div>
-    </article>
     
+<main id="content">
+    <div class="container clearfix">
+        <div id="primary"  class="has-toc">
+            <nav class="breadcrumb-navigation">
+                <a rel="bookmark" href="/">主页</a>
+                <span class="breadcrumb-arrow fa fa-angle-right"></span>
+                <a href="/pythonlib/" title="pythonlib" rel="category tag">pythonlib</a>
+                <span class="breadcrumb-arrow fa fa-angle-right"></span>
+                ftfy：转化不好看的Unicode字符
+            </nav>
+            <article class="single-post">
+                <header class="post-header">
+                    <h1 class="post-title">
+                        <a href="/pythonlib/ftfy.html" title="ftfy：转化不好看的Unicode字符">ftfy：转化不好看的Unicode字符</a>
+                    </h1>
+                </header>
+                <div class="post-meta">
+    <ul class="inline-ul">
+        <li class="inline-li">
+            <time>2018-03-02</time>
+        </li>
+        
+        
+        <li class="inline-li">
+            <span class="post-span">·</span>
+        </li>
+        <li class="inline-li">
+            <span id="busuanzi_value_page_pv"></span> 次点击
+        </li>
+        
+    </ul>
+</div>
+
+
+                <!-- BEGIN add by wolfhong -->
+                <nav class="post-tags">
+                
+
+                </nav>
+                <!-- END wolfhong -->
+
+                <div class="post-body clearfix">
+                    <div class="post-content">
+                        
+                        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><a href="https://github.com/LuminosoInsight/python-ftfy">ftfy</a>的目标是将不好看的Unicode字符转为好看的Unicode字符。<br>所谓的不好看的Unicode字符的产生，可能有多种原因:</p>
+<ul>
+<li>比如，用一种标准编码Unicode后错误的使用另一种标准对其进行解码， 会产生无意义的字符，也即常说的”变为乱码”(mojibake)。 这可以使用<code>ftfy.fix_encoding()</code> 进行修复。</li>
+<li>又比如，用户错误输入，使用了<a href="https://zh.wikipedia.org/wiki/%E5%85%A8%E5%BD%A2%E5%92%8C%E5%8D%8A%E5%BD%A2">全角符号</a>“ＱＱ１２３４５６” 代替了半角符号”QQ123456”，”Ｎａｍｅ”代替了”Name”。这可以使用<code>ftfy.fix_text()</code> 进行修复。</li>
+<li>又比如，从PDF文件复制内容粘贴时，有时候会复制出”ﬂ o p”这种样子的字符串， 实际上应该要转化为”flop”才对。</li>
+<li>又比如，文本中因为各种原因的错误，不小心带上了html的”<code>&amp;amp;</code>“，或者bash的”<code>\033[31m</code>“，诸如此类的符号。</li>
+</ul>
+<p>这里提到的应用场景只是文档中列举的一部分，可以移步<a href="http://ftfy.readthedocs.io/en/latest/">ReadTheDocs</a>查看更多。本文只是简单介绍ftfy库而已。</p>
+<p>ftfy之所以可以将乱码恢复原样，是因为UTF-8 是一种设计良好的编码，它在误用时很明显，并且一串mojibake通常包含恢复原始字符串所需的全部信息。 当使用Twitter上的多语言数据对ftfy进行测试时，它的误报率低于百万分之一。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>pip install ftfy
+</code></pre><p>如果你还在使用Python2，需要安装低版本的ftfy，新版本的ftfy不再支持Python2:</p>
+<pre><code>pip install &apos;ftfy&lt;5&apos;
+</code></pre><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(fix_encoding(<span class="string">'This â€” should be an em dash'</span>))</span><br><span class="line">This — should be an em dash</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(fix_encoding(<span class="string">'This text is sad .â\x81”.'</span>))</span><br><span class="line">This text <span class="keyword">is</span> sad .⁔.</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(fix_encoding(<span class="string">'The more you know ðŸŒ '</span>))</span><br><span class="line">The more you know 🌠</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(fix_text(<span class="string">'ＬＯＵＤ　ＮＯＩＳＥＳ'</span>))</span><br><span class="line">LOUD NOISES</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(fix_text(<span class="string">'Broken text&amp;hellip; it&amp;#x2019;s ﬂubberiﬁc! it&amp;#x2019;s...'</span>, normalization=<span class="string">'NFKC'</span>))</span><br><span class="line">Broken text... it<span class="string">'s flubberific! it'</span>s...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(fix_text(<span class="string">"&amp;macr;\\_(ã\x83\x84)_/&amp;macr;"</span>))</span><br><span class="line">¯\\_(ツ)_/¯</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(fix_text(<span class="string">"they hit the ground with a ﬂ o p；"</span>))</span><br><span class="line">they hit the ground <span class="keyword">with</span> a fl o p;</span><br></pre></td></tr></table></figure>
+<h3 id="More"><a href="#More" class="headerlink" title="More"></a>More</h3><ul>
+<li><a href="https://github.com/LuminosoInsight/python-ftfy">GitHub</a></li>
+<li><a href="http://ftfy.readthedocs.io/en/latest/">ReadTheDocs</a></li>
+<li><a href="http://www.cnblogs.com/kaituorensheng/p/3554571.htm">python实现全角半角的相互转换</a></li>
+</ul>
+
+                    </div>
+                </div>
+                
+
+<div class="license-notice">
+    <span>作者: </span>WOLFHONG<br>
+    <span>发布日期: </span>2018-03-02<br>
+</div>
+
+                <nav class="post-tags">
+                
+                </nav>
+            </article>
+        </div><!-- div#primary -->
+        <ul id="pager">
+
+    
+</ul>
+
+        
 <section id="comments">
 
     <!-- JiaThis Button BEGIN -->
@@ -290,11 +262,13 @@
 </section>
 
 
-</main><!-- #primary -->
-
-        <div id="sidebar"></div>
+        
+        <nav id="toc" class="sticky">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例"><span class="toc-text">示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#More"><span class="toc-text">More</span></a></li></ol>
+        </nav>
+        
     </div>
-</div>
+</main>
 
     <!-- Footer -->
     

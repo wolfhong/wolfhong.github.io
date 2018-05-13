@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+
+<!-- Head tag -->
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+
+    <title>
+    
+        dateutil：datetime模块的扩展 -
+    
+    Wolfhong&#39;s Blog
+    </title>
+
+    <meta name="keywords" content="Linux,IT博客,工具介绍,教程">
+    <meta name="description" content="">
+    <meta name="author" content="WOLFHONG">
+
+    
+
+    
+
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+
+    <script type="text/javascript">
+    if(!("jQuery" in window)) {
+        window._jqQ = []; // jQuery call queue
+        window.jQuery = window.$ = function() {
+            _jqQ.push(arguments);
+        };
+    }
+    </script>
+    <script id="jquery-src" src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" async onload="_jqQ.forEach(function(args){$.apply($,args)});delete window._jqQ;"></script>
+
+    
+    <script src="/js/script.js" type="text/javascript" async></script>
+
+    <!-- Global javascript config object -->
+    <script type="text/javascript">
+    var CONFIG = {
+    
+    
+    };
+    </script>
+
+    
+
+    
+    
+    
+
+    
+    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+    
+
+</head>
+
+
+<body class="page">
+    <nav id="header">
+    <div class="container clearfix">
+        <div class="logo" style="width: auto;">
+    <a href="/" title="Wolfhong&#39;s Blog" rel="home" style="text-decoration: none;">
+    
+        <span class="brand-logo">
+        
+            Wolfhong&#39;s Blog
+        
+        </span>
+    
+    </a>
+</div>
+
+        <div id="global-nav">
+            <div class="gnli ">
+                <a class="gna fa fa-home" href="/" title="Wolfhong&#39;s Blog">
+                    <span class="gn-item">主页</span>
+                </a>
+            </div>
+            <div id="dropdown" class="gnli">
+                <a class="gna fa fa-bars" href="#">
+                    <span class="gn-item">导航</span>
+                </a>
+                <table id="dropdown-menu">
+    <tbody>
+        
+        <tr class="trline">
+            <td class="tdleft">分类</td>
+            <td class="tdright tab-ul tab-categories">
+                
+                <a href="/categories/devops/">devops</a>
+                
+                <a href="/categories/python/">python</a>
+                
+                <a href="/categories/其他/">其他</a>
+                
+                <a href="/categories/读书/">读书</a>
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="tdleft">标签</td>
+            <td class="tdright tab-ul tab-tags">
+                <a href="/tags/权限管理/" style="font-size: 12px;">权限管理</a> <a href="/tags/读书/" style="font-size: 12px;">读书</a> <a href="/tags/emoji/" style="font-size: 12px;">emoji</a> <a href="/tags/编码/" style="font-size: 12px;">编码</a> <a href="/tags/python/" style="font-size: 12px;">python</a> <a href="/tags/翻译/" style="font-size: 12px;">翻译</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a> <a href="/tags/解决方案/" style="font-size: 12px;">解决方案</a> <a href="/tags/小玩意/" style="font-size: 12px;">小玩意</a> <a href="/tags/mac/" style="font-size: 12px;">mac</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+            </div>
+            
+            <div class="gnli">
+                <a class="gna fa fa-archive" href="/archives/" title="" target="_self">
+                    <span class="gn-item">归档</span>
+                </a>
+            </div>
+            
+            <div class="gnli current">
+                <a class="gna fa fa-flag" href="/pythonlib/" title="" target="_self">
+                    <span class="gn-item">PythonLib</span>
+                </a>
+            </div>
+            
+            <div class="gnli">
+                <a class="gna fa fa-user" href="/about/" title="" target="_self">
+                    <span class="gn-item">关于</span>
+                </a>
+            </div>
+            
+        </div>
+        
+<form method="get" id="search-form" action="/search.html">
+    <input type="text" name="keywords" id="search-input" placeholder="输入关键词" />
+    <button type="submit" id="search-submit">
+        <span class="fa fa-search"></span>
+    </button>
+</form>
+
+
+
+    </div>
+</nav>
+
+    
+<main id="content">
+    <div class="container clearfix">
+        <div id="primary"  class="has-toc">
+            <nav class="breadcrumb-navigation">
+                <a rel="bookmark" href="/">主页</a>
+                <span class="breadcrumb-arrow fa fa-angle-right"></span>
+                <a href="/pythonlib/" title="pythonlib" rel="category tag">pythonlib</a>
+                <span class="breadcrumb-arrow fa fa-angle-right"></span>
+                dateutil：datetime模块的扩展
+            </nav>
+            <article class="single-post">
+                <header class="post-header">
+                    <h1 class="post-title">
+                        <a href="/pythonlib/dateutil.html" title="dateutil：datetime模块的扩展">dateutil：datetime模块的扩展</a>
+                    </h1>
+                </header>
+                <div class="post-meta">
+    <ul class="inline-ul">
+        <li class="inline-li">
+            <time>2018-03-01</time>
+        </li>
+        
+        
+        <li class="inline-li">
+            <span class="post-span">·</span>
+        </li>
+        <li class="inline-li">
+            <span id="busuanzi_value_page_pv"></span> 次点击
+        </li>
+        
+    </ul>
+</div>
+
+
+                <!-- BEGIN add by wolfhong -->
+                <nav class="post-tags">
+                
+
+                </nav>
+                <!-- END wolfhong -->
+
+                <div class="post-body clearfix">
+                    <div class="post-content">
+                        
+                        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Python中处理时间的第三方库有非常多，很多库的功能上有很大程度的重叠，我们完全没必要都掌握。<br>以我觉得最好用的<a href="http://arrow.readthedocs.io/en/latest/#user-s-guide">arrow</a>库来说，同类库就有:</p>
+<ul>
+<li><a href="https://github.com/KoffeinFlummi/Chronyk">Chronyk</a></li>
+<li><a href="https://github.com/myusuf3/delorean">delorean</a></li>
+<li><a href="https://github.com/kennethreitz/maya">maya</a></li>
+<li><a href="https://github.com/zachwill/moment">moment</a>（对JavaScript的Moment.js熟练者可以考虑）</li>
+<li><a href="https://github.com/sdispater/pendulum">pendulum</a></li>
+<li><a href="https://github.com/shinux/PyTime">PyTime</a></li>
+<li><a href="https://github.com/dirn/When.py">When.py</a></li>
+<li>…</li>
+</ul>
+<p>个人观点，只需要掌握arrow即可，arrow是其中最流行、最好用的时间操作类库。</p>
+<p>而本文中要讲的<strong><a href="https://pypi.python.org/pypi/python-dateutil">dateutil</a></strong>，在功能上对arrow有所补充，提供了一些arrow不存在但有时却挺有用的功能。 事实上，arrow依赖于dateutil。<br>后面的例子中，也只讲一些dateutil比较有特色的功能，如果想了解更多，请移步<a href="https://dateutil.readthedocs.io/en/stable/index.html">ReadTheDocs</a>。</p>
+<p>另外，<strong><a href="https://pypi.org/project/pytz/">pytz</a></strong>是专注于世界时区的定义，包含了现代以及历史版本的时区数据库， 如果只是专注于时区的操作，pytz会是所有时间操作类库中的最佳选择。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>pip install python-dateutil
+</code></pre><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p><code>dateutil.rrule</code> 模块提供了一个小而全，并且非常快速的<a href="https://tools.ietf.org/html/rfc5545">iCalendar RFC</a>记录的重现规则的实现。</p>
+<p>在示例的最开始，先声明几点:</p>
+<ul>
+<li><code>dateutil.rrule.rrule</code> 方法的返回值是一个迭代器</li>
+<li>周一到周日分别对应数字0-6: <code>byweekday=0</code>表示周一</li>
+<li>周一到周日的简称分别是: MO, TU, WE, TH, FR, SA, SU</li>
+</ul>
+<p>每年的 <strong>母亲节</strong> 是5月份的第二个星期天，打印2018年1月1日之后的10个母亲节:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> dateutil.rrule <span class="keyword">import</span> *</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list(rrule(YEARLY, count=<span class="number">10</span>, bymonth=<span class="number">5</span>, byweekday=SU(<span class="number">2</span>),</span><br><span class="line"><span class="meta">... </span>dtstart=datetime(<span class="number">2018</span>, <span class="number">1</span>, <span class="number">1</span>)))</span><br><span class="line">[datetime.datetime(<span class="number">2018</span>, <span class="number">5</span>, <span class="number">13</span>, <span class="number">0</span>, <span class="number">0</span>), </span><br><span class="line">datetime.datetime(<span class="number">2019</span>, <span class="number">5</span>, <span class="number">12</span>, <span class="number">0</span>, <span class="number">0</span>), </span><br><span class="line">datetime.datetime(<span class="number">2020</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">0</span>, <span class="number">0</span>),</span><br><span class="line">......</span><br><span class="line">datetime.datetime(<span class="number">2027</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">0</span>, <span class="number">0</span>)]</span><br></pre></td></tr></table></figure></p>
+<p>打印从2012年算起的 <strong>美国总统选举日</strong> ，也即每隔四年，在11月份的星期一之后的第一个周二:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list(rrule(YEARLY, interval=<span class="number">4</span>, count=<span class="number">3</span>, bymonth=<span class="number">11</span>, byweekday=TU,</span><br><span class="line"><span class="meta">... </span>bymonthday=(<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>), dtstart=datetime(<span class="number">2012</span>, <span class="number">11</span>, <span class="number">6</span>)))</span><br><span class="line">[datetime.datetime(<span class="number">2012</span>, <span class="number">11</span>, <span class="number">6</span>, <span class="number">0</span>, <span class="number">0</span>), </span><br><span class="line">datetime.datetime(<span class="number">2016</span>, <span class="number">11</span>, <span class="number">8</span>, <span class="number">0</span>, <span class="number">0</span>), </span><br><span class="line">datetime.datetime(<span class="number">2020</span>, <span class="number">11</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">0</span>)]</span><br></pre></td></tr></table></figure></p>
+<p>从2018年1月1日开始，每隔3天，打印符合条件的3个日期:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list(rrule(DAILY, interval=<span class="number">3</span>, count=<span class="number">3</span>, dtstart=datetime(<span class="number">2018</span>, <span class="number">1</span>, <span class="number">1</span>)))</span><br><span class="line">[datetime.datetime(<span class="number">2018</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>), </span><br><span class="line">datetime.datetime(<span class="number">2018</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">0</span>), </span><br><span class="line">datetime.datetime(<span class="number">2018</span>, <span class="number">1</span>, <span class="number">7</span>, <span class="number">0</span>, <span class="number">0</span>)]</span><br></pre></td></tr></table></figure></p>
+<p>从2018年第一天开始，每隔15天，直到2018年3月1日，打印符合条件的全部日期:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list(rrule(DAILY, interval=<span class="number">15</span>, dtstart=datetime(<span class="number">2018</span>, <span class="number">1</span>, <span class="number">1</span>),</span><br><span class="line"><span class="meta">... </span>until=datetime(<span class="number">2018</span>, <span class="number">3</span>, <span class="number">1</span>)))</span><br><span class="line">[datetime.datetime(<span class="number">2018</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>), </span><br><span class="line">datetime.datetime(<span class="number">2018</span>, <span class="number">1</span>, <span class="number">16</span>, <span class="number">0</span>, <span class="number">0</span>), </span><br><span class="line">datetime.datetime(<span class="number">2018</span>, <span class="number">1</span>, <span class="number">31</span>, <span class="number">0</span>, <span class="number">0</span>), </span><br><span class="line">datetime.datetime(<span class="number">2018</span>, <span class="number">2</span>, <span class="number">15</span>, <span class="number">0</span>, <span class="number">0</span>)]</span><br></pre></td></tr></table></figure></p>
+<p>从2018年第一天开始，每隔两个月，每个月中的第一个和最后一个星期天，打印符合条件的10个日期:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list(rrule(MONTHLY, interval=<span class="number">2</span>, count=<span class="number">10</span>, byweekday=(SU(<span class="number">1</span>),SU(<span class="number">-1</span>)),</span><br><span class="line"><span class="meta">... </span>dtstart=datetime(<span class="number">2018</span>, <span class="number">1</span>, <span class="number">1</span>)))</span><br><span class="line">[datetime.datetime(<span class="number">2018</span>, <span class="number">1</span>, <span class="number">7</span>, <span class="number">0</span>, <span class="number">0</span>), </span><br><span class="line">datetime.datetime(<span class="number">2018</span>, <span class="number">1</span>, <span class="number">28</span>, <span class="number">0</span>, <span class="number">0</span>), </span><br><span class="line">......</span><br><span class="line">datetime.datetime(<span class="number">2018</span>, <span class="number">9</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">0</span>), </span><br><span class="line">datetime.datetime(<span class="number">2018</span>, <span class="number">9</span>, <span class="number">30</span>, <span class="number">0</span>, <span class="number">0</span>)]</span><br></pre></td></tr></table></figure></p>
+<p>2018年1月1日之后，包含有五个星期天的月份有哪些，打印符合条件的2个。从结果中可知，当年的4和7月份符合条件:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list(rrule(MONTHLY, count=<span class="number">2</span>, byweekday=(SU(<span class="number">5</span>)), dtstart=datetime(<span class="number">2018</span>, <span class="number">1</span>, <span class="number">1</span>)))</span><br><span class="line">[datetime.datetime(<span class="number">2018</span>, <span class="number">4</span>, <span class="number">29</span>, <span class="number">0</span>, <span class="number">0</span>), </span><br><span class="line">datetime.datetime(<span class="number">2018</span>, <span class="number">7</span>, <span class="number">29</span>, <span class="number">0</span>, <span class="number">0</span>)]</span><br></pre></td></tr></table></figure></p>
+<p>每隔三年的第一天，第100天，第200天，打印符合条件的4个日期:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list(rrule(YEARLY, count=<span class="number">4</span>, interval=<span class="number">3</span>, byyearday=(<span class="number">1</span>,<span class="number">100</span>,<span class="number">200</span>),</span><br><span class="line"><span class="meta">... </span>dtstart=datetime(<span class="number">2018</span>, <span class="number">1</span>, <span class="number">1</span>)))</span><br><span class="line">[datetime.datetime(<span class="number">2018</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>), </span><br><span class="line">datetime.datetime(<span class="number">2018</span>, <span class="number">4</span>, <span class="number">10</span>, <span class="number">0</span>, <span class="number">0</span>), </span><br><span class="line">datetime.datetime(<span class="number">2018</span>, <span class="number">7</span>, <span class="number">19</span>, <span class="number">0</span>, <span class="number">0</span>), </span><br><span class="line">datetime.datetime(<span class="number">2021</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>)]</span><br></pre></td></tr></table></figure></p>
+<p>每年的第20个星期一，打印符合条件的3个日期:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list(rrule(YEARLY, count=<span class="number">3</span>, byweekday=MO(<span class="number">20</span>), dtstart=datetime(<span class="number">2018</span>, <span class="number">1</span>, <span class="number">1</span>)))</span><br><span class="line">[datetime.datetime(<span class="number">2018</span>, <span class="number">5</span>, <span class="number">14</span>, <span class="number">0</span>, <span class="number">0</span>), </span><br><span class="line">datetime.datetime(<span class="number">2019</span>, <span class="number">5</span>, <span class="number">20</span>, <span class="number">0</span>, <span class="number">0</span>), </span><br><span class="line">datetime.datetime(<span class="number">2020</span>, <span class="number">5</span>, <span class="number">18</span>, <span class="number">0</span>, <span class="number">0</span>)]</span><br></pre></td></tr></table></figure></p>
+<p>打印2018年的所有单周的周六。有些工作是万恶的单双周，可以提前预约可约会的周六哟。其中，一年最多只能包含53个周，<code>range(1, 366/7+2, 2)</code>可以涵盖所有的单周:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list(rrule(WEEKLY, byweekno=range(<span class="number">1</span>, int(<span class="number">366</span>/<span class="number">7</span>+<span class="number">2</span>), <span class="number">2</span>), byweekday=SA,</span><br><span class="line"><span class="meta">... </span>dtstart=datetime(<span class="number">2018</span>, <span class="number">1</span>, <span class="number">1</span>), until=datetime(<span class="number">2018</span>, <span class="number">12</span>, <span class="number">31</span>)))</span><br><span class="line">[datetime.datetime(<span class="number">2018</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">0</span>, <span class="number">0</span>), </span><br><span class="line">datetime.datetime(<span class="number">2018</span>, <span class="number">1</span>, <span class="number">20</span>, <span class="number">0</span>, <span class="number">0</span>),</span><br><span class="line">......</span><br><span class="line">datetime.datetime(<span class="number">2018</span>, <span class="number">12</span>, <span class="number">8</span>, <span class="number">0</span>, <span class="number">0</span>), </span><br><span class="line">datetime.datetime(<span class="number">2018</span>, <span class="number">12</span>, <span class="number">22</span>, <span class="number">0</span>, <span class="number">0</span>)]</span><br></pre></td></tr></table></figure></p>
+<p>打印2018年之后，有53个周的最近3个年份:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list(rrule(WEEKLY, count=<span class="number">3</span>, byweekno=<span class="number">53</span>, byweekday=MO, dtstart=datetime(<span class="number">2018</span>, <span class="number">1</span>, <span class="number">1</span>)))</span><br><span class="line">[datetime.datetime(<span class="number">2020</span>, <span class="number">12</span>, <span class="number">28</span>, <span class="number">0</span>, <span class="number">0</span>), </span><br><span class="line">datetime.datetime(<span class="number">2026</span>, <span class="number">12</span>, <span class="number">28</span>, <span class="number">0</span>, <span class="number">0</span>), </span><br><span class="line">datetime.datetime(<span class="number">2032</span>, <span class="number">12</span>, <span class="number">27</span>, <span class="number">0</span>, <span class="number">0</span>)]</span><br></pre></td></tr></table></figure></p>
+<p>2018年1月1日之后，每个月的第13天恰好是周五的4个日期:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list(rrule(MONTHLY, count=<span class="number">4</span>, byweekday=FR, bymonthday=<span class="number">13</span>, dtstart=datetime(<span class="number">2018</span>, <span class="number">1</span>, <span class="number">1</span>)))</span><br><span class="line">[datetime.datetime(<span class="number">2018</span>, <span class="number">4</span>, <span class="number">13</span>, <span class="number">0</span>, <span class="number">0</span>), </span><br><span class="line">datetime.datetime(<span class="number">2018</span>, <span class="number">7</span>, <span class="number">13</span>, <span class="number">0</span>, <span class="number">0</span>), </span><br><span class="line">datetime.datetime(<span class="number">2019</span>, <span class="number">9</span>, <span class="number">13</span>, <span class="number">0</span>, <span class="number">0</span>), </span><br><span class="line">datetime.datetime(<span class="number">2019</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">0</span>, <span class="number">0</span>)]</span><br></pre></td></tr></table></figure></p>
+<h3 id="More"><a href="#More" class="headerlink" title="More"></a>More</h3><p>更多文档和示例请参考:</p>
+<ul>
+<li><a href="https://dateutil.readthedocs.io/en/stable/index.html">ReadTheDocs</a></li>
+</ul>
+<h3 id="其他扩展"><a href="#其他扩展" class="headerlink" title="其他扩展"></a>其他扩展</h3><ul>
+<li><a href="http://arrow.readthedocs.io/en/latest/#user-s-guide">arrow</a>: 通用的时间操作类库，但根据pendulum库在“<a href="https://github.com/sdispater/pendulum#why-not-arrow">Why not Arrow?</a>”的举例对比，arrow在处理DST(夏令时)上有所缺陷。如果这对你的业务非常致命，可以考虑使用<a href="https://github.com/sdispater/pendulum">pendulum</a>库作为替代。</li>
+<li><a href="https://pypi.org/project/pytz/">pytz</a>: 专注于世界时区的定义。</li>
+</ul>
+
+                    </div>
+                </div>
+                
+
+<div class="license-notice">
+    <span>作者: </span>WOLFHONG<br>
+    <span>发布日期: </span>2018-03-01<br>
+</div>
+
+                <nav class="post-tags">
+                
+                </nav>
+            </article>
+        </div><!-- div#primary -->
+        <ul id="pager">
+
+    
+</ul>
+
+        
+<section id="comments">
+
+    <!-- JiaThis Button BEGIN -->
+    <!-- <div class="jiathis_style">
+        <span class="jiathis_txt">分享到：</span>
+        <a class="jiathis_button_tools_1"></a>
+        <a class="jiathis_button_tools_2"></a>
+        <a class="jiathis_button_tools_3"></a>
+        <a href="http://www.jiathis.com/share?uid=2161579" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    </div>
+    <script type="text/javascript">
+    var jiathis_config = {data_track_clickback:'true'};
+    </script>
+    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2161579" charset="utf-8"></script> -->
+    <!-- JiaThis Button END -->
+
+    <!-- 友言评论 -->
+    <!-- UY BEGIN -->
+    <!-- <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2161579"></script> -->
+    <!-- UY END -->
+
+
+    
+</section>
+
+
+        
+        <nav id="toc" class="sticky">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例"><span class="toc-text">示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#More"><span class="toc-text">More</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他扩展"><span class="toc-text">其他扩展</span></a></li></ol>
+        </nav>
+        
+    </div>
+</main>
+
+    <!-- Footer -->
+    
+<!-- #content -->
+<footer id="footer">
+    <div class="container">
+        <p>
+            &copy; 2018 Wolfhong's Blog. All Rights Reserved.
+        </p>
+        <p>Themed by <a href="https://github.com/unnamed42/hexo-theme-kunkka">Kunkka</a> | Powered by <a href="https://hexo.io/">Hexo</a>.</p>
+        
+
+
+<div class="sns-icons">
+    
+        
+        
+            
+    <span class="sns-icon fa-stack">
+        <a target="_blank" href="https://github.com/wolfhong">
+            <span class="fa fa-square fa-stack-2x"></span>
+            
+            <span class="fa fa-github fa-stack-1x fa-inverse"></span>
+            
+        </a>
+    </span>
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+</div>
+
+
+    </div>
+</footer>
+<!-- #footer -->
+
+    <div id="totop" title="送你上天">
+    <canvas id="totop-canvas" width="48" height="48"></canvas>
+    <div id="totop-percent"></div>
+</div>
+
+</body>
+
+</html>

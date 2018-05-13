@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+
+<!-- Head tag -->
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+
+    <title>
+    
+        watchdog：监视文件/目录变化 -
+    
+    Wolfhong&#39;s Blog
+    </title>
+
+    <meta name="keywords" content="Linux,IT博客,工具介绍,教程">
+    <meta name="description" content="">
+    <meta name="author" content="WOLFHONG">
+
+    
+
+    
+
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+
+    <script type="text/javascript">
+    if(!("jQuery" in window)) {
+        window._jqQ = []; // jQuery call queue
+        window.jQuery = window.$ = function() {
+            _jqQ.push(arguments);
+        };
+    }
+    </script>
+    <script id="jquery-src" src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" async onload="_jqQ.forEach(function(args){$.apply($,args)});delete window._jqQ;"></script>
+
+    
+    <script src="/js/script.js" type="text/javascript" async></script>
+
+    <!-- Global javascript config object -->
+    <script type="text/javascript">
+    var CONFIG = {
+    
+    
+    };
+    </script>
+
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        showProcessingMessages: false,
+        jax: ["input/TeX","output/HTML-CSS", "output/PreviewHTML"],
+        extensions: ["tex2jax.js", "fast-preview.js", "AssistiveMML.js" /*"MathMenu.js", "MathZoom.js", "[Contrib]/a11y/accessibility-menu.js"*/ ],
+        TeX: {
+            extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+        },
+        tex2jax: {
+            inlineMath: [['$','$']],
+            displayMath: [['$$','$$']],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        },
+        "HTML-CSS": {linebreaks: {automatic: true}}
+    });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.2/MathJax.js?config=TeX-AMS_SVG" async></script>
+    
+    
+
+    
+    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+    
+
+</head>
+
+
+<body class="page">
+    <nav id="header">
+    <div class="container clearfix">
+        <div class="logo" style="width: auto;">
+    <a href="/" title="Wolfhong&#39;s Blog" rel="home" style="text-decoration: none;">
+    
+        <span class="brand-logo">
+        
+            Wolfhong&#39;s Blog
+        
+        </span>
+    
+    </a>
+</div>
+
+        <div id="global-nav">
+            <div class="gnli ">
+                <a class="gna fa fa-home" href="/" title="Wolfhong&#39;s Blog">
+                    <span class="gn-item">主页</span>
+                </a>
+            </div>
+            <div id="dropdown" class="gnli">
+                <a class="gna fa fa-bars" href="#">
+                    <span class="gn-item">导航</span>
+                </a>
+                <table id="dropdown-menu">
+    <tbody>
+        
+        <tr class="trline">
+            <td class="tdleft">分类</td>
+            <td class="tdright tab-ul tab-categories">
+                
+                <a href="/categories/devops/">devops</a>
+                
+                <a href="/categories/python/">python</a>
+                
+                <a href="/categories/其他/">其他</a>
+                
+                <a href="/categories/读书/">读书</a>
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="tdleft">标签</td>
+            <td class="tdright tab-ul tab-tags">
+                <a href="/tags/权限管理/" style="font-size: 12px;">权限管理</a> <a href="/tags/读书/" style="font-size: 12px;">读书</a> <a href="/tags/emoji/" style="font-size: 12px;">emoji</a> <a href="/tags/编码/" style="font-size: 12px;">编码</a> <a href="/tags/python/" style="font-size: 12px;">python</a> <a href="/tags/翻译/" style="font-size: 12px;">翻译</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a> <a href="/tags/解决方案/" style="font-size: 12px;">解决方案</a> <a href="/tags/小玩意/" style="font-size: 12px;">小玩意</a> <a href="/tags/mac/" style="font-size: 12px;">mac</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+            </div>
+            
+            <div class="gnli">
+                <a class="gna fa fa-archive" href="/archives/" title="" target="_self">
+                    <span class="gn-item">归档</span>
+                </a>
+            </div>
+            
+            <div class="gnli current">
+                <a class="gna fa fa-flag" href="/pythonlib/" title="" target="_self">
+                    <span class="gn-item">PythonLib</span>
+                </a>
+            </div>
+            
+            <div class="gnli">
+                <a class="gna fa fa-user" href="/about/" title="" target="_self">
+                    <span class="gn-item">关于</span>
+                </a>
+            </div>
+            
+        </div>
+        
+<form method="get" id="search-form" action="/search.html">
+    <input type="text" name="keywords" id="search-input" placeholder="输入关键词" />
+    <button type="submit" id="search-submit">
+        <span class="fa fa-search"></span>
+    </button>
+</form>
+
+
+
+    </div>
+</nav>
+
+    
+<main id="content">
+    <div class="container clearfix">
+        <div id="primary"  class="has-toc">
+            <nav class="breadcrumb-navigation">
+                <a rel="bookmark" href="/">主页</a>
+                <span class="breadcrumb-arrow fa fa-angle-right"></span>
+                <a href="/pythonlib/" title="pythonlib" rel="category tag">pythonlib</a>
+                <span class="breadcrumb-arrow fa fa-angle-right"></span>
+                watchdog：监视文件/目录变化
+            </nav>
+            <article class="single-post">
+                <header class="post-header">
+                    <h1 class="post-title">
+                        <a href="/pythonlib/watchdog.html" title="watchdog：监视文件/目录变化">watchdog：监视文件/目录变化</a>
+                    </h1>
+                </header>
+                <div class="post-meta">
+    <ul class="inline-ul">
+        <li class="inline-li">
+            <time>2018-02-27</time>
+        </li>
+        
+        
+        <li class="inline-li">
+            <span class="post-span">·</span>
+        </li>
+        <li class="inline-li">
+            <span id="busuanzi_value_page_pv"></span> 次点击
+        </li>
+        
+    </ul>
+</div>
+
+
+                <!-- BEGIN add by wolfhong -->
+                <nav class="post-tags">
+                
+
+                </nav>
+                <!-- END wolfhong -->
+
+                <div class="post-body clearfix">
+                    <div class="post-content">
+                        
+                        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><a href="https://github.com/gorakhargosh/watchdog">Watchdog</a>是一个用来监视文件系统事件的Python库。它可以监视指定目录或文件的变化(添加、删除、修改、重命名)，每种变化都会产生一个事件，然后由事件处理类处理与之对应的事件。</p>
+<p>本文只做Python库的简单介绍，更多API请参考<a href="https://pythonhosted.org/watchdog/api.html">官方API文档</a>。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>pip install watchdog
+</code></pre><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="代码例子"><a href="#代码例子" class="headerlink" title="代码例子"></a>代码例子</h4><p>下面的例子中，指定目录发生的任何变化都会打印消息到终端。<br>由于<code>watchdog.observers.Observer</code>类继承自<code>threading.Thread</code>， 在不阻塞主线程的情况下，Observer线程负责处理文件目录发生变化产生的事件。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">from</span> watchdog.observers <span class="keyword">import</span> Observer</span><br><span class="line"><span class="keyword">from</span> watchdog.events <span class="keyword">import</span> LoggingEventHandler</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    path = sys.argv[<span class="number">1</span>] <span class="keyword">if</span> len(sys.argv) &gt; <span class="number">1</span> <span class="keyword">else</span> <span class="string">'.'</span></span><br><span class="line">    logging.basicConfig(level=logging.INFO,</span><br><span class="line">                        format=<span class="string">'%(asctime)s - %(message)s'</span>,</span><br><span class="line">                        datefmt=<span class="string">'%Y-%m-%d %H:%M:%S'</span>)</span><br><span class="line">    event_handler = LoggingEventHandler()</span><br><span class="line">    observer = Observer()</span><br><span class="line">    observer.schedule(event_handler, path, recursive=<span class="keyword">True</span>)</span><br><span class="line">    observer.start()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">        observer.stop()</span><br><span class="line">    observer.join()</span><br></pre></td></tr></table></figure>
+<p>当一个目录或文件变化时，就会产生一个特定事件，所有的事件类以及其继承关系，功能如其名:</p>
+<pre><code>watchdog.events.FileSystemEvent(src_path)
+|---watchdog.events.FileSystemMovedEvent(src_path, dest_path)
+|   |---watchdog.events.FileMovedEvent(src_path, dest_path)
+|   |---watchdog.events.DirMovedEvent(src_path, dest_path)
+|---watchdog.events.FileModifiedEvent(src_path)
+|---watchdog.events.DirModifiedEvent(src_path)
+|---watchdog.events.FileCreatedEvent(src_path)
+|---watchdog.events.DirCreatedEvent(src_path)
+|---watchdog.events.FileDeletedEvent(src_path)
+|---watchdog.events.DirDeletedEvent(src_path)
+</code></pre><p>事件处理类以及其继承关系，功能如其名:</p>
+<pre><code>watchdog.events.FileSystemEventHandler
+|---watchdog.events.PatternMatchingEventHandler(patterns=None, ignore_patterns=None, ignore_directories=False, case_sensitive=False)
+|---watchdog.events.RegexMatchingEventHandler(regexes=[&apos;.*&apos;], ignore_regexes=[], ignore_directories=False, case_sensitive=False)
+|---watchdog.events.LoggingEventHandler
+</code></pre><p>下面示例中，我们自定义了事件处理类FirstHandler，只处理文件名或目录名包含特定字符串的modified事件，并演示了如何添加多个事件处理类:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> watchdog.observers <span class="keyword">import</span> Observer</span><br><span class="line"><span class="keyword">from</span> watchdog.events <span class="keyword">import</span> FileSystemEventHandler</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FirstHandler</span><span class="params">(FileSystemEventHandler)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">on_modified</span><span class="params">(self, event)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> event.src_path.find(<span class="string">"demo"</span>) &gt;= <span class="number">0</span>:</span><br><span class="line">            print(<span class="string">"only modified events can be recorded: &#123;&#125; changed!"</span>.format(event.src_path))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SecondHandler</span><span class="params">(FileSystemEventHandler)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">on_modified</span><span class="params">(self, event)</span>:</span></span><br><span class="line">        print(<span class="string">"second handler for &#123;&#125;"</span>.format(event.src_path))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    path = sys.argv[<span class="number">1</span>] <span class="keyword">if</span> len(sys.argv) &gt; <span class="number">1</span> <span class="keyword">else</span> <span class="string">'.'</span></span><br><span class="line">    first_handler = FirstHandler()</span><br><span class="line">    second_handler = SecondHandler()</span><br><span class="line">    observer = Observer(timeout=<span class="number">1</span>)</span><br><span class="line">    watch = observer.schedule(first_handler, path=path, recursive=<span class="keyword">False</span>)</span><br><span class="line">    observer.add_handler_for_watch(second_handler, watch)</span><br><span class="line">    <span class="comment"># 调用另一次schedule也可达到相同目的</span></span><br><span class="line">    <span class="comment"># watch = observer.schedule(second_handler, path=path, recursive=False)</span></span><br><span class="line">    observer.start()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">        observer.stop()</span><br><span class="line">    observer.join()</span><br></pre></td></tr></table></figure>
+<h4 id="命令行工具"><a href="#命令行工具" class="headerlink" title="命令行工具"></a>命令行工具</h4><p>Watchdog提供了一个命令行工具watchmedo，可以实现一些简单的处理文件系统事件的功能:<br>比如当某些文件改动时，打印日志:</p>
+<pre><code>watchmedo log \
+    --patterns=&quot;*.py;*.txt&quot; \
+    --ignore-directories \
+    --recursive \
+    .
+</code></pre><p>比如当某些文件改动时，执行自定义命令:</p>
+<pre><code>watchmedo shell-command \
+    --patterns=&quot;*.py;*.txt&quot; \
+    --recursive \
+    --command=&apos;echo &quot;${watch_src_path}&quot;&apos; \
+    ./
+</code></pre><h3 id="More"><a href="#More" class="headerlink" title="More"></a>More</h3><ul>
+<li><a href="https://blog.csdn.net/chdhust/article/details/50514391">一篇不错的中文博客</a></li>
+<li><a href="https://github.com/gorakhargosh/watchdog">GitHub</a></li>
+<li><a href="https://pythonhosted.org/watchdog/quickstart.html">官方文档</a></li>
+</ul>
+
+                    </div>
+                </div>
+                
+
+<div class="license-notice">
+    <span>作者: </span>WOLFHONG<br>
+    <span>发布日期: </span>2018-02-27<br>
+</div>
+
+                <nav class="post-tags">
+                
+                </nav>
+            </article>
+        </div><!-- div#primary -->
+        <ul id="pager">
+
+    
+</ul>
+
+        
+<section id="comments">
+
+    <!-- JiaThis Button BEGIN -->
+    <!-- <div class="jiathis_style">
+        <span class="jiathis_txt">分享到：</span>
+        <a class="jiathis_button_tools_1"></a>
+        <a class="jiathis_button_tools_2"></a>
+        <a class="jiathis_button_tools_3"></a>
+        <a href="http://www.jiathis.com/share?uid=2161579" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    </div>
+    <script type="text/javascript">
+    var jiathis_config = {data_track_clickback:'true'};
+    </script>
+    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2161579" charset="utf-8"></script> -->
+    <!-- JiaThis Button END -->
+
+    <!-- 友言评论 -->
+    <!-- UY BEGIN -->
+    <!-- <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2161579"></script> -->
+    <!-- UY END -->
+
+
+    
+</section>
+
+
+        
+        <nav id="toc" class="sticky">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例"><span class="toc-text">示例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#代码例子"><span class="toc-text">代码例子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#命令行工具"><span class="toc-text">命令行工具</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#More"><span class="toc-text">More</span></a></li></ol>
+        </nav>
+        
+    </div>
+</main>
+
+    <!-- Footer -->
+    
+<!-- #content -->
+<footer id="footer">
+    <div class="container">
+        <p>
+            &copy; 2018 Wolfhong's Blog. All Rights Reserved.
+        </p>
+        <p>Themed by <a href="https://github.com/unnamed42/hexo-theme-kunkka">Kunkka</a> | Powered by <a href="https://hexo.io/">Hexo</a>.</p>
+        
+
+
+<div class="sns-icons">
+    
+        
+        
+            
+    <span class="sns-icon fa-stack">
+        <a target="_blank" href="https://github.com/wolfhong">
+            <span class="fa fa-square fa-stack-2x"></span>
+            
+            <span class="fa fa-github fa-stack-1x fa-inverse"></span>
+            
+        </a>
+    </span>
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+        
+        
+    
+</div>
+
+
+    </div>
+</footer>
+<!-- #footer -->
+
+    <div id="totop" title="送你上天">
+    <canvas id="totop-canvas" width="48" height="48"></canvas>
+    <div id="totop-percent"></div>
+</div>
+
+</body>
+
+</html>
